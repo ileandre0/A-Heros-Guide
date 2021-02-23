@@ -6,7 +6,7 @@ The name of your project with deployed URL.
 
 ## Project Description
 
-My project is an bachelor/bachelorette application for heroes and vilians. When users first enter the application they will be welcomed and prompted to choose whether they're looking for a male, female or other. Then a list will generate of all the heros and villians who are under that category. At the top of the screen there will be a filter that further targets the kind of person the user is looking for: race (human/other), alignment, intellegence and power.
+My project is an bachelor/bachelorette application for Marvel heroes and vilians. When users first enter the application they will be welcomed and prompted to choose whether they're looking for a male, female or other. Then a list will generate of all the heros and villians who are under that category. At the top of the screen there will be a filter that further targets the kind of person the user is looking for: race (human/other), alignment, intellegence and power.
 
 ## API and Data Sample
 
@@ -117,13 +117,13 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Basic JavaScript Functinaility | H | 3hrs|  |  |
 | JavaScript Dropdown Menu Functinality | H | 3hrs|  |  |
 | Advanced CSS | M | 3hrs|  |  |
-| Like button and Age | L | 2.5hrs|  |  |
+| Like button | L | 2.5hrs|  |  |
 | Message form | L | 2hrs |  |  |
 | Total | H | 19.5hrs |  |  |
 
 ## Code Snippet
 
-This code is from a algorithms homework assignment. This ffunction that takes two arrays of integers and checks for the unique integers between them, then returns an array that contains all those uniques nummbers. I am proud of this snippet of code because this is my own code I wrote when I couldn't find code that made sense.
+This code is from a algorithms homework assignment. This function that takes two arrays of integers and checks for the unique integers between them, then returns an array that contains all those uniques nummbers. I am proud of this snippet of code because this is my own code I wrote when I couldn't find code that made sense.
 
 ```
 const arrayDiffs = (arr1, arr2) => {
@@ -148,4 +148,4 @@ const arrayDiffs = (arr1, arr2) => {
 
 
 ## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.  
+ None.
