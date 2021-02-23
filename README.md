@@ -2,7 +2,7 @@
 
 ## myHero?
 
-""
+" "
 
 ## Project Description
 
@@ -135,9 +135,10 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | JavaScript Dropdown Menu | H | 3hrs|  |  |
 | JS funtionality | H | 2hrs |  |  |
 | Testing | H | 3hrs |  |  |
-| Css General Styling | H | 8hrs |  |  |
+| CSS General Styling | H | 8hrs |  |  |
 | CSS Media queries | H | 2hrs |  |  |
-| Total | H | 34hrs |  |  |
+| Event Handlers | M | 2hrs |  |  |
+| Total | H | 30hrs |  |  |
 
 ## Code Snippet
 
