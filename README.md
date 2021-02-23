@@ -8,6 +8,10 @@ The name of your project with deployed URL.
 
 My project is an bachelor/bachelorette application for Marvel heroes and vilians. When users first enter the application they will be welcomed and prompted to choose whether they're looking for a male, female or other. Then a list will generate of all the heros and villians who are under that category. At the top of the screen there will be a filter that further targets the kind of person the user is looking for: race (human/other), alignment, intellegence and power.
 
+https://www.edatingdoc.com/wp-content/uploads/Witty-Dating-Profile-Example.jpg
+https://dq1eylutsoz4u.cloudfront.net/2018/10/30173251/match-dating-profile-examples-bio.jpg
+https://i.pinimg.com/originals/78/c3/53/78c3536a3d53f53cfcb73af7a5b4e807.jpg
+
 ## API and Data Sample
 
 **API:** https://superheroapi.com/
