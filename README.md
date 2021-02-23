@@ -1,6 +1,6 @@
 # Project Overview
 
-## A-Heros-Guide
+## myHero?
 
 The name of your project with deployed URL.
 
@@ -76,13 +76,16 @@ Search Results: https://wireframe.cc/DUTgM1
 #### MVP 
 
 !) Drop down menu for filter options.
+
 2) Submission button that generates profiles based on filter choices
 
 #### PostMVP  
 
 1) Add second API to insert bio paragraph (and another profile photo)
-2) Add span tag for age
-3) Send a message form
+
+3) Add span tag for age
+
+5) Send a message form
 
 ## Project Schedule
 
@@ -104,9 +107,7 @@ Time vs Importance Graph: https://wireframe.cc/e6pyvw
 
 Tell us how long you anticipate spending on each area of development. Be sure to consider how many hours a day you plan to be coding and how many days you have available until presentation day.
 
-Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Throughout your project, keep track of your Time Invested and Actual Time and update your README regularly.
-
-https://docs.google.com/spreadsheets/d/1vPCL04ambnaTrMJdf_naGBGDKe24HY8bREjEGe4SxFs/edit?usp=sharing	
+Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Throughout your project, keep track of your Time Invested and Actual Time and update your README regularly.	
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
@@ -119,6 +120,7 @@ https://docs.google.com/spreadsheets/d/1vPCL04ambnaTrMJdf_naGBGDKe24HY8bREjEGe4S
 | Like button and Age | L | 2.5hrs|  |  |
 | Message form | L | 2hrs |  |  |
 | Total | H | 19.5hrs |  |  |
+
 ## Code Snippet
 
 This code is from a algorithms homework assignment. This ffunction that takes two arrays of integers and checks for the unique integers between them, then returns an array that contains all those uniques nummbers. I am proud of this snippet of code because this is my own code I wrote when I couldn't find code that made sense.
