@@ -6,14 +6,14 @@ The name of your project with deployed URL.
 
 ## Project Description
 
-Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
+My project is an bachelor/bachelorette application for heroes and vilians. When users first enter the application they will be welcomed and prompted to choose whether they're looking for a male, female or other. Then a list will generate of all the heros and villians who are under that category. At the top of the screen there will be a filter that further targets the kind of person the user is looking for: race (human/other), alignment, intellegence and power.
 
 ## API and Data Sample
 
-Specify the API you are using and include a link. Show us a snippet of JSON returned by your API so we know you can access it and get the info you need
 **API:** https://superheroapi.com/
-
-"response": "success",
+```
+{
+    "response": "success",
     "id": "644",
     "name": "Superman",
     "powerstats": {
@@ -66,29 +66,25 @@ Specify the API you are using and include a link. Show us a snippet of JSON retu
     "image": {
         "url": "https://www.superherodb.com/pictures2/portraits/10/100/791.jpg"
     }
-}
 
+```
 ## Wireframes
+
 Intro page: https://wireframe.cc/S1XLu5
 Search Results: https://wireframe.cc/DUTgM1
 
 #### MVP 
-*These are examples only. Replace with your own MVP features.*
 
 !) Drop down menu for filter options.
 2) Submission button that generates profiles based on filter choices
 
 #### PostMVP  
-*These are examples only. Replace with your own Post-MVP features.*
 
-1) Add second API to insert bio paragraph (and profile photo)
+1) Add second API to insert bio paragraph (and another profile photo)
 2) Add span tag for age
+3) Send a message form
 
 ## Project Schedule
-
-This schedule will be used to keep track of your progress throughout the week and align with our expectations.  
-
-You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the corresponding day, excluding `Saturday` and `Sunday`.
 
 |  Day | Deliverable | Status
 |---|---| ---|
@@ -112,15 +108,42 @@ Time frames are also key in the development cycle.  You have limited time to cod
 
 https://docs.google.com/spreadsheets/d/1vPCL04ambnaTrMJdf_naGBGDKe24HY8bREjEGe4SxFs/edit?usp=sharing	
 
+| Component | Priority | Estimated Time | Time Invested | Actual Time |
+| --- | :---: |  :---: | :---: | :---: |
+| HTML Structure | H | 2hrs|  |  |
+| API Functionality | H | 2hrs|  |  |
+| CSS Basics and functionality | H | 3hrs|  |  |
+| Basic JavaScript Functinaility | H | 3hrs|  |  |
+| JavaScript Dropdown Menu Functinality | H | 3hrs|  |  |
+| Advanced CSS | M | 3hrs|  |  |
+| Like button and Age | L | 2.5hrs|  |  |
+| Message form | L | 2hrs |  |  |
+| Total | H | 19.5hrs |  |  |
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
+This code is from a algorithms homework assignment. This ffunction that takes two arrays of integers and checks for the unique integers between them, then returns an array that contains all those uniques nummbers. I am proud of this snippet of code because this is my own code I wrote when I couldn't find code that made sense.
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
+const arrayDiffs = (arr1, arr2) => {
+
+  let newArr = arr1.concat(arr2)                      
+  let commonArr = []                                  
+
+
+
+  newArr.forEach(int => {                             
+    if (arr1.includes(int, 0) === false) {            
+      commonArr.push(int)                             
+    } else if (arr2.includes(int, 0) === false) {     
+      commonArr.push(int)
+    }
+  })
+
+  return commonArr                                    
+  
+};
 ```
+
 
 ## Change Log
  Use this section to document what changes were made and the reasoning behind those changes.  
