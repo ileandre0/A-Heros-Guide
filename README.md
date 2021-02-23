@@ -73,9 +73,11 @@ My project is an bachelor/bachelorette application for Marvel heroes and vilians
 Intro page: https://wireframe.cc/S1XLu5
 Search Results: https://wireframe.cc/DUTgM1
 
+## MVP/PostMVP
+
 #### MVP 
 
-!) Drop down menu for filter options.
+1) Drop down menu for filter options.
 
 2) Submission button that generates profiles based on filter choices
 
