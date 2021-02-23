@@ -6,7 +6,7 @@ myHero? URL:
 
 ## Project Description
 
-My project is an bachelor/bachelorette application for Marvel heroes and vilians. When users first enter the application they will be welcomed and prompted to choose whether they're looking for a male, female or other. Then a list will generate of all the heros and villians who are under that category. At the top of the screen there will be a filter that further targets the kind of person the user is looking for: race (human/other), alignment, intellegence and power.
+My project is an bachelor/bachelorette application for Marvel heroes and vilians. When users first enter the application they will be welcomed and prompted to choose whether they're looking for a male, female or other. Then a list will generate of all the heros and villians who are under that category. At the top of the screen there will be a filter that further targets the kind of person the user is looking for: race (human/other) and alignment.
 
 https://www.edatingdoc.com/wp-content/uploads/Witty-Dating-Profile-Example.jpg
 https://dq1eylutsoz4u.cloudfront.net/2018/10/30173251/match-dating-profile-examples-bio.jpg
