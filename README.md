@@ -13,8 +13,7 @@ Use this section to describe your final project and perhaps any links to relevan
 Specify the API you are using and include a link. Show us a snippet of JSON returned by your API so we know you can access it and get the info you need
 **API:** https://superheroapi.com/
 
-{
-    "response": "success",
+"response": "success",
     "id": "644",
     "name": "Superman",
     "powerstats": {
@@ -71,23 +70,18 @@ Specify the API you are using and include a link. Show us a snippet of JSON retu
 
 ## Wireframes
 
-Upload images of your wireframes to an image hosting site or add them to an assets folder in your repo and link them here with a description of each specific wireframe.
-
-### MVP/PostMVP
-
-The functionality will then be divided into two separate lists: MPV and PostMVP.  Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
+Search Results: https://wireframe.cc/DUTgM1
 
 #### MVP 
 *These are examples only. Replace with your own MVP features.*
 
-- Find and use external api 
-- Render data on page 
-- Allow user to choose favorites 
+!) Drop down menu for filter options.
+2) Submission button that generates profiles based on filter choices
 
 #### PostMVP  
 *These are examples only. Replace with your own Post-MVP features.*
 
-- Add second API
+- Add second API to insert 
 - Use local storage to save user favorites
 
 ## Project Schedule
