@@ -2,7 +2,7 @@
 
 ## myHero?
 
-The name of your project with deployed URL.
+""
 
 ## Project Description
 
@@ -81,17 +81,27 @@ Search Results: https://wireframe.cc/DUTgM1
 
 #### MVP 
 
-1) Drop down menu for filter options.
+1) Drop down menu for filter options
 
 2) Submission button that generates profiles based on filter choices
+
+3) Use external API to render data to screen
+
+4) Button components for the "Welcome" screen
+
+5) Media query for ipad or desktop
+
+6)  Button to return to the home page from the displayed profiles screen 
+
 
 #### PostMVP  
 
 1) Add second API to insert bio paragraph (and another profile photo)
 
-3) Add span tag for age
+2) Incorporate forms for messageing
 
-5) Send a message form
+3) Incorporate a 'like' button
+
 
 ## Project Schedule
 
@@ -101,8 +111,8 @@ Search Results: https://wireframe.cc/DUTgM1
 |Feb 23| Project Approval | Incomplete
 |Feb 24| Core Application Structure (HTML, CSS, etc.) | Incomplete
 |Feb 24| Pseudocode / actual code | Incomplete
-|Feb 25| Initial Clickable Model  | Incomplete
-|Feb 26| MVP | Incomplete
+|Feb 25| Initial Clickable Model/MVP  | Incomplete
+|Feb 26| Styling with CSS | Incomplete
 |March 1| Presentations | Incomplete
 
 ## Priority Matrix
@@ -118,19 +128,15 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | Psuedo code | L | 2hrs |  |  |
-| Basic HTML | H | 2.5hrs|  |  |
-| API Functionality | H | 3hrs|  |  |
+| Basic HTML | H | 1hr|  |  |
+| API Functionality | H | 2hrs|  |  |
 | CSS Basics and functionality | H | 3hrs|  |  |
-| JS buttons | H | 2hrs|  |  |
+| Create style buttons | H | 2hrs|  |  |
 | JavaScript Dropdown Menu | H | 3hrs|  |  |
-| Loops to fill in information | H | 2hrs |  |  |
-| Testing functionaliy | H | 3hrs |  |  |
-| flexbox | M | 2hrs |  |  |
-| Decorative CSS | M | 3hrs|  |  |
-| Pst MVP: Like button | L | 2.5hrs|  |  |
-| Post MVP: Message form | L | 2hrs |  |  |
-| 2nd API functionality | L | 2hrs |  |  |
-| Loops to fill info from 2nd API | L | 2hrs |  |  |
+| JS funtionality | H | 2hrs |  |  |
+| Testing | H | 3hrs |  |  |
+| Css General Styling | H | 8hrs |  |  |
+| CSS Media queries | H | 2hrs |  |  |
 | Total | H | 34hrs |  |  |
 
 ## Code Snippet
