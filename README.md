@@ -127,7 +127,7 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Post MVP: Message form | L | 2hrs |  |  |
 | 2nd API functionality | L | 2hrs |  |  |
 | Loops to fill info from 2nd API | L | 2hrs |  |  |
-| Total | H | 33hrs |  |  |
+| Total | H | 34hrs |  |  |
 
 ## Code Snippet
 
