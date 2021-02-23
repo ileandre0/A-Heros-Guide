@@ -2,7 +2,7 @@
 
 ## myHero?
 
-" "
+Not yet.
 
 ## Project Description
 
@@ -74,8 +74,7 @@ https://i.pinimg.com/originals/78/c3/53/78c3536a3d53f53cfcb73af7a5b4e807.jpg
 ```
 ## Wireframes
 
-Intro page: https://wireframe.cc/S1XLu5
-Search Results: https://wireframe.cc/DUTgM1
+https://wireframe.cc/S1XLu5
 
 ## MVP/PostMVP
 
@@ -121,10 +120,6 @@ Time vs Importance Graph: https://wireframe.cc/e6pyvw
 
 ## Timeframes
 
-Tell us how long you anticipate spending on each area of development. Be sure to consider how many hours a day you plan to be coding and how many days you have available until presentation day.
-
-Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Throughout your project, keep track of your Time Invested and Actual Time and update your README regularly.	
-
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | Psuedo code | L | 2hrs |  |  |
@@ -142,29 +137,8 @@ Time frames are also key in the development cycle.  You have limited time to cod
 
 ## Code Snippet
 
-This code is from a algorithms homework assignment. This function that takes two arrays of integers and checks for the unique integers between them, then returns an array that contains all those uniques nummbers. I am proud of this snippet of code because this is my own code I wrote when I couldn't find code that made sense.
-
-```
-const arrayDiffs = (arr1, arr2) => {
-
-  let newArr = arr1.concat(arr2)                      
-  let commonArr = []                                  
-
-
-
-  newArr.forEach(int => {                             
-    if (arr1.includes(int, 0) === false) {            
-      commonArr.push(int)                             
-    } else if (arr2.includes(int, 0) === false) {     
-      commonArr.push(int)
-    }
-  })
-
-  return commonArr                                    
-  
-};
-```
+None yet.
 
 
 ## Change Log
- None.
+ None yet.
