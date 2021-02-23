@@ -113,15 +113,21 @@ Time frames are also key in the development cycle.  You have limited time to cod
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| HTML Structure | H | 2hrs|  |  |
-| API Functionality | H | 2hrs|  |  |
+| Psuedo code | L | 2hrs |  |  |
+| Basic HTML | H | 2.5hrs|  |  |
+| API Functionality | H | 3hrs|  |  |
 | CSS Basics and functionality | H | 3hrs|  |  |
-| Basic JavaScript Functinaility | H | 3hrs|  |  |
-| JavaScript Dropdown Menu Functinality | H | 3hrs|  |  |
-| Advanced CSS | M | 3hrs|  |  |
-| Like button | L | 2.5hrs|  |  |
-| Message form | L | 2hrs |  |  |
-| Total | H | 19.5hrs |  |  |
+| JS buttons | H | 2hrs|  |  |
+| JavaScript Dropdown Menu | H | 3hrs|  |  |
+| Loops to fill in information | H | 2hrs |  |  |
+| Testing functionaliy | H | 3hrs |  |  |
+| flexbox | M | 2hrs |  |  |
+| Decorative CSS | M | 3hrs|  |  |
+| Pst MVP: Like button | L | 2.5hrs|  |  |
+| Post MVP: Message form | L | 2hrs |  |  |
+| 2nd API functionality | L | 2hrs |  |  |
+| Loops to fill info from 2nd API | L | 2hrs |  |  |
+| Total | H | 33hrs |  |  |
 
 ## Code Snippet
 
