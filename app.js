@@ -29,13 +29,14 @@ let othBad = []
 
 const accessAPI = async (gender) => {
   
-
+  
   //console.log(dcIDArr.length) 
   //console.log(fIDArr.length) 
-  //console.log(mIDArr.length)    
-
-  createFilter()
-
+  //console.log(mIDArr.length)  
+  
+  showFilters()
+  filterValues()
+  
   /*if (gender === 'female') {
     preference = fIDArr
     //console.log(fIDArr)
@@ -146,25 +147,50 @@ const arrFiltering = (gen, character) => {
 }
 
 //--------------------------------createFilter----------------------------------------//
-const createFilter = (person) => {
-  const filterContainer = document.querySelector('#filter-container')
-  const filterForm = document.createElement('form')
+// const createFilter = (person) => {
+//   const filterContainer = document.querySelector('#filter-container')
+//   const filterForm = document.createElement('form')
 
-  filterForm.innerHTML =
-  `<p>Filters:</p>
-  <select name='filter' id='select-filer1'>
-    <option disabled selected>Race</option>
-  </select>
-  <select name='filter' id='select-filer2'>
-    <option disabled selected>Alignment</option>
-  </select>
-  <button type='submit'>Match</button>`
-  console.log(filterForm)
-  filterContainer.appendChild(filterForm)
+//   filterForm.innerHTML =
+//   `<p>Filters:</p>
+//   <select name='filter' id='select-filer1'>
+//     <option disabled selected>Race</option>
+//   </select>
+//   <select name='filter' id='select-filer2'>
+//     <option disabled selected>Alignment</option>
+//   </select>
+//   <button type='submit'>Match</button>`
+//   console.log(filterForm)
+//   filterContainer.appendChild(filterForm)
 
-  const select = document.querySelector('#select-filter1')
+//   const select = document.querySelector('#select-filter1')
   
+// }
+
+//----------------------------------filterValues--------------------------------------//
+const filterValues = () => {
+  raceArr = ['Human', 'Alien']
+  alignArr = ['Good', 'Bad']
+  
+  const raceFilter = document.querySelector('#select-filter1')
+
+  raceArr.forEach(item => {
+    const option = document.createElement('option')
+    option.value = item
+    option.textContent = item
+    raceFilter.appendChild(option)
+  })
+
+  const alignFilter = document.querySelector('#select-filter2')
+
+  alignArr.forEach(item => {
+    const option = document.createElement('option')
+    option.value = item
+    option.textContent = item
+    alignFilter.appendChild(option)
+  })
 }
+
 //----------------------------------CON--------------------------------------//
 
 
@@ -194,11 +220,11 @@ const CON = () => {
 
 //----------------------------------profile--------------------------------------//
 const profile = (person) => {
-  console.log("Profile Info:", person)
-  console.log('Inside profile')
+  //console.log("Profile Info:", person)
+  //console.log('Inside profile')
   const dataContainer = document.querySelector('#profile-container')
   const profileInfo = document.createElement('div')
-  console.log(dataContainer)
+  //console.log(dataContainer)
 
   profileInfo.innerHTML = 
     `<img src=${person.image.url} alt='${person.name} class='image'>
@@ -217,11 +243,13 @@ const profile = (person) => {
 //----------------------------------firstListen--------------------------------------//
 
 const firstListen = () => {
+  showFilters()
   const femaleButton = document.querySelector('#female')
   //console.log(femaleButton)
   femaleButton.addEventListener('click', (e) => {
     e.preventDefault()
     accessAPI('female')
+    //showFilters()
   })
 
   const maleButton = document.querySelector('#male')
@@ -229,6 +257,7 @@ const firstListen = () => {
   maleButton.addEventListener('click', (e) => {
     e.preventDefault()
     accessAPI('male')
+    //showFilters()
   })
 
   const otherButton = document.querySelector('#other')
@@ -236,9 +265,24 @@ const firstListen = () => {
   otherButton.addEventListener('click', (e) => {
     e.preventDefault()
     accessAPI('other')
+    //showFilters()
   })
+
 }
-//firstListen()
+firstListen()
+
+//-----------------------------------showFilters-------------------------------------//
+
+function showFilters() {                                                    //Rsource: https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
+  const show = document.querySelector('#filter-container');
+  if (show.style.display === "none") {
+    show.style.display = "block";
+    //filterValues()
+  } else {
+    show.style.display = "none";
+  }
+  //filterValues()
+}
 
 //-----------------------------------listen-------------------------------------//
 const listen = () => {
@@ -280,6 +324,6 @@ const listen = () => {
 //-----------------------------------filters-------------------------------------//
 
 const filters = () => {
-  
+
 }
 
