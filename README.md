@@ -3,10 +3,11 @@
 ## myHero?
 
 myHero? URL:
+NOTE: You must request temporary access at https://cors-anywhere.herokuapp.com/corsdemo before using this program.
 
 ## Project Description
 
-My project is an bachelor/bachelorette application for Marvel heroes and vilians. When users first enter the application they will be welcomed and prompted to choose whether they're looking for a male, female or other. Then a list will generate of all the heros and villians who are under that category. At the top of the screen there will be a filter that further targets the kind of person the user is looking for: race (human/other) and alignment.
+My project is an bachelor/bachelorette application for DC heroes and vilians. When users first enter the application they will be welcomed and prompted to choose whether they're looking for a male, female or other. Then a list will generate of all the heros and villians who are under that category. At the top of the screen there will be a filter that further targets the kind of person the user is looking for: race (human/other) and alignment.
 
 https://www.edatingdoc.com/wp-content/uploads/Witty-Dating-Profile-Example.jpg
 https://dq1eylutsoz4u.cloudfront.net/2018/10/30173251/match-dating-profile-examples-bio.jpg
@@ -122,13 +123,13 @@ Time vs Importance Graph: https://wireframe.cc/e6pyvw
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Psuedo code | L | 2hrs |  |  |
+| Psuedo code | L | 2hrs | 0.5hr |  |
 | Basic HTML | H | 1hr|  |  |
-| API Functionality | H | 2hrs|  |  |
+| API Functionality | H | 2hrs| 3hrs |  |
 | CSS Basics and functionality | H | 3hrs|  |  |
 | Create style buttons | H | 2hrs|  |  |
 | JavaScript Dropdown Menu | H | 3hrs|  |  |
-| JS funtionality | H | 2hrs |  |  |
+| JS funtionality | H | 2hrs | 2hrs |  |
 | Testing | H | 3hrs |  |  |
 | CSS General Styling | H | 8hrs |  |  |
 | CSS Media queries | H | 2hrs |  |  |
@@ -141,4 +142,5 @@ None yet.
 
 
 ## Change Log
- None yet.
+ 1) Changed the which hero and vilians group I am accessing from Marvel to DC.
+ 2) 
