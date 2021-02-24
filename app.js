@@ -79,7 +79,7 @@ const profile = (person) => {
     <h2> ${person.name} </h2>
     <h3> ${person.work.base} </h3>
     <div class='specs'>
-      <p> Hi. My name is ${person.name}, but you may know me as ${person.biography.aliases[0]}. I was born in ${person.biography.place-of-birth}, which makes me ${person.appearance.race}. I have an intelligence level of ${person.powerstats.intelligence}, and power level of ${person.pwerststs.power}. Take a look at my specs below for more info.
+      <p> Hi. My name is ${person.name}, but you may know me as ${person.biography.aliases[0]}. I was born in ${person.biography.place-of-birth}, which makes me ${person.appearance.race}. I have an intelligence and power level of ${person.powerstats.intelligence}, and ${person.pwerststs.power}, respectively. Take a look at my specs below for more info.
       <Interested? contact me, if you can.
     </div>
   `
