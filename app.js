@@ -7,6 +7,30 @@ const accessAPI = async (gender) => {
   let mIDArr = [3, 8, 14, 17, 20, 28, 32, 36, 37, 38, 49, 50, 51, 53, 54, 55, 58, 60, 69, 70, 76, 78, 93, 95, 100, 103, 105, 123, 124, 125, 126, 132, 136, 137, 144, 150, 152, 156, 158, 170, 177, 181, 184, 194, 195, 204, 212, 214, 216, 224, 230, 233, 240, 244, 246, 260, 261, 263, 276, 278, 288, 294, 298, 305, 306, 312, 316, 320, 367, 368, 370, 384, 386, 388, 390, 396, 397, 405, 407, 408, 413, 424, 427, 432, 436, 445, 446, 448, 451, 457, 459, 461, 464, 466, 468, 494, 499, 506, 508, 514, 515, 519, 520, 528, 535, 538, 543, 545, 551, 557, 558, 559, 564, 569, 576, 600, 601, 608, 609, 611, 634, 635, 637, 641, 642, 644, 645, 657, 674, 675, 678, 692, 706, 713, 731]
   let oIDArr = [509]
   let preference = []
+  let character = {}
+
+  let females = []
+  let femHum = []
+  let femHumGood = []
+  let femHumBad = []
+  let femOth = []
+  let femOthGood = []
+  let femOthBad = []
+
+
+  let males = []
+  let malHum = []
+  let malHumGood = []
+  let malHumBad = []
+  let malOth = []
+  let malOthGood = []
+  let malOthBad = []
+
+  let other = []
+  let othGood = []
+  let othBad = []
+  
+
   //console.log(dcIDArr.length) 
   //console.log(fIDArr.length) 
   //console.log(mIDArr.length)    
@@ -31,12 +55,11 @@ const accessAPI = async (gender) => {
     const marvelURL = `https://superheroapi.com/api/1967700243378120/${preference[id]}`
 
     try {
-      
       const response = await axios.get(`${CORS}${marvelURL}`)
       //const character = response.data
-      const character = response.data
+      character = response.data
       const publisher = response.data.biography.publisher
-      //const gen = response.data.appearance.gender
+      const gen = response.data.appearance.gender
       //console.log(response.data.name, publisher)
       //console.log(character, publisher)
 
@@ -45,14 +68,7 @@ const accessAPI = async (gender) => {
       }*/
 
       profile(character)
-      
-      /*if (gen === 'Female') {
-        fIDArr.push(dcIDArr[id])
-      } else if (gen === 'Male') {
-        mIDArr.push(dcIDArr[id])
-      } else {
-        oIDArr.push(dcIDArr[id])
-      }*/
+      //filtering(gen, character)
 
     } catch (err) {
       console.error(err)
@@ -69,8 +85,64 @@ const accessAPI = async (gender) => {
 
 //accessAPI()
 
+const filtering = (gen, character) => {
+  if (gen === 'Female') {
+    females.push(character)
+
+    if (character.appearance.race === 'Human') {
+      femHum.push(character)
+      if (character.biography.alignment === 'good') {
+        femHumGood.push(character)
+      } else if (character.biography.alignment === 'bad') {
+        femHumBad.push(character)
+      } else {
+        femHumGood.push(character)
+      }
+    } else {
+      femOth.push(character)
+      if (character.biography.alignment === 'good') {
+        femOthGood.push(character)
+      } else if (character.biography.alignment === 'bad') {
+        femOthBad.push(character)
+      } else {
+        femOthGood.push(character)
+      }
+    }
+    
+  } else if (gen === 'Male') {
+    males.push(character)
+    if (character.appearance.race === 'Human') {
+      malHum.push(character)
+      if (character.biography.alignment === 'good') {
+        malHumGood.push(character)
+      } else if (character.biography.alignment === 'bad') {
+        malHumBad.push(character)
+      } else {
+        malHumGood.push(character)
+      }
+    } else {
+      if (character.biography.alignment === 'good') {
+        other.push(character)
+      } else if (character.biography.alignment === 'bad') {
+        othBad.push(character)
+      } else {
+        othGood.push(character)
+      }
+    }
+  } else {
+    oObjArr.push(character)
+    if (character.biography.alignment === 'good') {
+
+      } else if (character.biography.alignment === 'bad') {
+
+      } else {
+        
+      }
+  }
+}
+
 //------------------------------------------------------------------------//
-const createFilter = () => {
+const createFilter = (person) => {
   const filterContainer = document.querySelector('#filter-container')
   const filterForm = document.createElement('form')
 
@@ -85,7 +157,9 @@ const createFilter = () => {
   <button type='submit'>Match</button>`
   console.log(filterForm)
   filterContainer.appendChild(filterForm)
-  //filterContainer.insertAdjecentHTML('beforeend', filterForm)
+
+  const select = document.querySelector('#select-filter1')
+  
 }
 
 
@@ -109,7 +183,7 @@ const profile = (person) => {
   
   //console.log(profileInfo)
   dataContainer.appendChild(profileInfo)
-  //dataContainer.insertAdjecentHTML('beforeend', profileInfo)
+  
 }
 
 //------------------------------------------------------------------------//
