@@ -1,9 +1,13 @@
 /*TAGS*/
 * {
   box-sizing: border-box; 
-  border: gold solid 2px;  /* this will halep you with design*/
+  border: gold solid 2px;  /* this will help you with design*/
 }
 
+img {
+  width: 200px;
+  height: 0 auto;
+}
 
 
 
