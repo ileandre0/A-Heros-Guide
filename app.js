@@ -15,6 +15,8 @@ let femHumBad = []
 let femOth = []
 let femOthGood = []
 let femOthBad = []
+let femGood = []
+let femBad = []
 
 
 let males = []
@@ -24,10 +26,15 @@ let malHumBad = []
 let malOth = []
 let malOthGood = []
 let malOthBad = []
+let malGood = []
+let malBad = []
 
 let others = []
+let othHumGood = []
+let othOthBad = []
 let othGood = []
 let othBad = []
+
 
 const accessAPI = async () => {
   
@@ -149,28 +156,8 @@ const arrFiltering = (gen, character) => {
 
 }
 
-//--------------------------------createFilter----------------------------------------//
-// const createFilter = (person) => {
-//   const filterContainer = document.querySelector('#filter-container')
-//   const filterForm = document.createElement('form')
-
-//   filterForm.innerHTML =
-//   `<p>Filters:</p>
-//   <select name='filter' id='select-filer1'>
-//     <option disabled selected>Race</option>
-//   </select>
-//   <select name='filter' id='select-filer2'>
-//     <option disabled selected>Alignment</option>
-//   </select>
-//   <button type='submit'>Match</button>`
-//   console.log(filterForm)
-//   filterContainer.appendChild(filterForm)
-
-//   const select = document.querySelector('#select-filter1')
-  
-// }
-
 //----------------------------------filterValues--------------------------------------//
+
 const filterValues = () => {
   raceArr = ['Human', 'Other']
   alignArr = ['Good', 'Bad']
@@ -242,41 +229,15 @@ const profile = (person) => {
   dataContainer.appendChild(profileInfo)
   
 }
-//----------------------------------filterProfiles--------------------------------------//
-const filterProfiles = () => {
+//----------------------------------getData--------------------------------------//
+const getData = (e) => {
+  e.preventDefault
+  const personValue1 = document.querySelector('#select-filter1')
+  const personValue2 = document.querySelector('#select-filter2')
 
-}
-
-//----------------------------------firstListen--------------------------------------//
-
-// const firstListen = () => {
-//   showFilters()
-//   const femaleButton = document.querySelector('#female')
-//   //console.log(femaleButton)
-//   femaleButton.addEventListener('click', (e) => {
-//     e.preventDefault()
-//     accessAPI('female')
-//     //showFilters()
-//   })
-
-//   const maleButton = document.querySelector('#male')
-//   //console.log(maleButton)
-//   maleButton.addEventListener('click', (e) => {
-//     e.preventDefault()
-//     accessAPI('male')
-//     //showFilters()
-//   })
-
-//   const otherButton = document.querySelector('#other')
-//   //console.log(otherButton)
-//   otherButton.addEventListener('click', (e) => {
-//     e.preventDefault()
-//     accessAPI('other')
-//     //showFilters()
-//   })
-
-// }
-// firstListen()
+  const match = document.querySelector('#matchButton')
+  match.addEventListener('submit', )
+}//Finish here
 
 //-----------------------------------showFilters-------------------------------------//
 
@@ -340,33 +301,138 @@ listen()
 
 //-----------------------------------filters-------------------------------------//
 
-const filters = (race, alignment) => {
+/*const filters = (race, alignment, peopleArr) => {
   if (race === 'Human') {
+    profile(femHum)
     if (alignment === 'Good') {
-
-    } else if (alignment === 'Bad') {
-
+      profile(femHumGood)
     } else {
-      
+      profile(femHumBad)
     }
-
   } else if (race === 'Other') {
     if (alignment === 'Good') {
-
+      profile(femOthGood)
     } else if (alignment === 'Bad') {
-
+      profile(femOthBad)
     } else {
-
-    }
-  } else {
-    if (alignment === 'Good') {
-
-    } else if (alignment === 'Bad') {
-
+      if (alignment === 'Good') {
+        profile(femGood)
+      } else if (alignment === 'Bad') {
+        profile(femBad)
+      }
     }
   }
-}
+}*/
+//     } else {
+//       if (alignment === 'Good') {
 
+//       } else if (alignment === 'Bad') {
 
-// raceArr = ['Human', 'Other']
-//   alignArr = ['Good', 'Bad']
+//       }
+//     }
+//   } //else if (gender = 'Male') {
+//     if (race === 'Human') {
+
+//       if (alignment === 'Good') {
+
+//       } else if (alignment === 'Bad') {
+
+//       } else {
+      
+//       }
+
+//     } else if (race === 'Other') {
+//       if (alignment === 'Good') {
+
+//       } else if (alignment === 'Bad') {
+
+//       } else {
+
+//       }
+//     } else {
+//       if (alignment === 'Good') {
+
+//       } else if (alignment === 'Bad') {
+
+//       }
+//     }
+//   }
+// } else {
+//   if (race === 'Human') {
+
+//     if (alignment === 'Good') {
+
+//     } else if (alignment === 'Bad') {
+
+//     } else {
+    
+//     }
+
+//   } else if (race === 'Other') {
+//     if (alignment === 'Good') {
+
+//     } else if (alignment === 'Bad') {
+
+//     } else {
+
+//     }
+//   } else {
+//     if (alignment === 'Good') {
+
+//     } else if (alignment === 'Bad') {
+
+//     }
+//   }
+
+//----------------------------------firstListen--------------------------------------//
+
+// const firstListen = () => {
+//   showFilters()
+//   const femaleButton = document.querySelector('#female')
+//   //console.log(femaleButton)
+//   femaleButton.addEventListener('click', (e) => {
+//     e.preventDefault()
+//     accessAPI('female')
+//     //showFilters()
+//   })
+
+//   const maleButton = document.querySelector('#male')
+//   //console.log(maleButton)
+//   maleButton.addEventListener('click', (e) => {
+//     e.preventDefault()
+//     accessAPI('male')
+//     //showFilters()
+//   })
+
+//   const otherButton = document.querySelector('#other')
+//   //console.log(otherButton)
+//   otherButton.addEventListener('click', (e) => {
+//     e.preventDefault()
+//     accessAPI('other')
+//     //showFilters()
+//   })
+
+// }
+// firstListen()
+
+//--------------------------------createFilter----------------------------------------//
+
+// const createFilter = (person) => {
+//   const filterContainer = document.querySelector('#filter-container')
+//   const filterForm = document.createElement('form')
+
+//   filterForm.innerHTML =
+//   `<p>Filters:</p>
+//   <select name='filter' id='select-filer1'>
+//     <option disabled selected>Race</option>
+//   </select>
+//   <select name='filter' id='select-filer2'>
+//     <option disabled selected>Alignment</option>
+//   </select>
+//   <button type='submit'>Match</button>`
+//   console.log(filterForm)
+//   filterContainer.appendChild(filterForm)
+
+//   const select = document.querySelector('#select-filter1')
+  
+// }
