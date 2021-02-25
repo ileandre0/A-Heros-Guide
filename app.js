@@ -9,90 +9,95 @@ let character = {}
 let dcChar = []
 
 let females = []
-let femHum = []
-let femHumGood = []
-let femHumBad = []
-let femOth = []
-let femOthGood = []
-let femOthBad = []
-let femGood = []
-let femBad = []
+// let femHum = []
+// let femHumGood = []
+// let femHumBad = []
+// let femOth = []
+// let femOthGood = []
+// let femOthBad = []
+// let femGood = []
+// let femBad = []
 
 
 let males = []
-let malHum = []
-let malHumGood = []
-let malHumBad = []
-let malOth = []
-let malOthGood = []
-let malOthBad = []
-let malGood = []
-let malBad = []
+// let malHum = []
+// let malHumGood = []
+// let malHumBad = []
+// let malOth = []
+// let malOthGood = []
+// let malOthBad = []
+// let malGood = []
+// let malBad = []
 
 let others = []
-let othHumGood = []
-let othOthBad = []
-let othGood = []
-let othBad = []
+// let othHumGood = []
+// let othOthBad = []
+// let othGood = []
+// let othBad = []
+let f = 0
+let m = 0
+let o = 0
+let show = 0
+let filtVal = 0
 
-
-const accessAPI = async () => {
-  
+const apiCall = (gender) => {
   
   //console.log(dcIDArr.length) 
   //console.log(fIDArr.length) 
   //console.log(mIDArr.length)  
   
+  const accessAPI = async () => {
+    for (let id = 0; id < preference.length; id++) {
   
-  
-  // if (gender === 'female') {
-  //   preference = fIDArr
-  //   //console.log(fIDArr)
-  // } else if (gender === 'male') {
-  //   preference = mIDArr
-  //   //console.log(mIDArr)
-  // } else {
-  //   preference = oIDArr
-  //   //console.log(oIDArr)
-  // }
+      const CORS = 'https://cors-anywhere.herokuapp.com/'
 
-  for (let id = 0; id < dcIDArr.length; id++) {
-  
-    const CORS = 'https://cors-anywhere.herokuapp.com/'
+      const dcURL = `https://superheroapi.com/api/1967700243378120/${preference[id]}`
 
-    const marvelURL = `https://superheroapi.com/api/1967700243378120/${dcIDArr[id]}`
+      try {
+        const response = await axios.get(`${CORS}${dcURL}`)
+        //const character = response.data
+        character = response.data
+        //const publisher = response.data.biography.publisher
+        const gen = response.data.appearance.gender
+        //console.log(response.data.name, publisher)
+        //console.log(character, publisher)
 
-    try {
-      const response = await axios.get(`${CORS}${marvelURL}`)
-      //const character = response.data
-      character = response.data
-      //const publisher = response.data.biography.publisher
-      const gen = response.data.appearance.gender
-      //console.log(response.data.name, publisher)
-      //console.log(character, publisher)
+        /*if (publisher === 'DC Comics') {
+          console.log(dcIDArr[id])
+        }*/
+        
+        arrFiltering(gen, character)
+        profile(character)
+        
+        //CON()
 
-      /*if (publisher === 'DC Comics') {
-        console.log(dcIDArr[id])
-      }*/
-
-      // profile(character)
-      arrFiltering(gen, character)
-      //CON()
-
-    } catch (err) {
-      console.error(err)
+      } catch (err) {
+        console.error(err)
+      }
     }
   }
   
-
-  //console.log(dcIDArr)
-  // console.log(fIDArr)
-  // console.log(mIDArr)
-  // console.log(oIDArr)
-
+  if (gender === 'female' && f < 1) {
+    preference = fIDArr
+    accessAPI()
+    f++
+    //console.log(fIDArr)
+  } else if (gender === 'male' && m < 1) {
+    preference = mIDArr
+    accessAPI()
+    m++
+    //console.log(mIDArr)
+  } else if (gender === 'other' && o < 1) {
+    preference = oIDArr
+    console.log('other')
+    accessAPI()
+    o++
+    
+    //console.log(oIDArr)
+  }
 }
 
-accessAPI()
+//apiCall()
 
 //----------------------------------arrFiltering--------------------------------------//
 const arrFiltering = (gen, character) => {
@@ -102,77 +107,105 @@ const arrFiltering = (gen, character) => {
   if (gen === 'Female') {
     females.push(character)
 
-    if (character.appearance.race === 'Human') {
-      femHum.push(character)
-      if (character.biography.alignment === 'good') {
-        femHumGood.push(character)
-      } else if (character.biography.alignment === 'bad') {
-        femHumBad.push(character)
-      } else {
-        femHumGood.push(character)
-      }
-    } else {
-      femOth.push(character)
-      if (character.biography.alignment === 'good') {
-        femOthGood.push(character)
-      } else if (character.biography.alignment === 'bad') {
-        femOthBad.push(character)
-      } else {
-        femOthGood.push(character)
-      }
-    }
+    // if (character.appearance.race === 'Human') {
+    //   femHum.push(character)
+    //   if (character.biography.alignment === 'good') {
+    //     femHumGood.push(character)
+    //   } else if (character.biography.alignment === 'bad') {
+    //     femHumBad.push(character)
+    //   } else {
+    //     femHumGood.push(character)
+    //   }
+    // } else {
+    //   femOth.push(character)
+    //   if (character.biography.alignment === 'good') {
+    //     femOthGood.push(character)
+    //   } else if (character.biography.alignment === 'bad') {
+    //     femOthBad.push(character)
+    //   } else {
+    //     femOthGood.push(character)
+    //   }
+    // }
     
   } else if (gen === 'Male') {
     males.push(character)
-    if (character.appearance.race === 'Human') {
-      malHum.push(character)
-      if (character.biography.alignment === 'good') {
-        malHumGood.push(character)
-      } else if (character.biography.alignment === 'bad') {
-        malHumBad.push(character)
-      } else {
-        malHumGood.push(character)
-      }
-    } else {
-      malOth.push(character)
-      if (character.biography.alignment === 'good') {
-        malOthGood.push(character)
-      } else if (character.biography.alignment === 'bad') {
-        malOthBad.push(character)
-      } else {
-        malOthGood.push(character)
-      }
-    }
+    // if (character.appearance.race === 'Human') {
+    //   malHum.push(character)
+    //   if (character.biography.alignment === 'good') {
+    //     malHumGood.push(character)
+    //   } else if (character.biography.alignment === 'bad') {
+    //     malHumBad.push(character)
+    //   } else {
+    //     malHumGood.push(character)
+    //   }
+    // } else {
+    //   malOth.push(character)
+    //   if (character.biography.alignment === 'good') {
+    //     malOthGood.push(character)
+    //   } else if (character.biography.alignment === 'bad') {
+    //     malOthBad.push(character)
+    //   } else {
+    //     malOthGood.push(character)
+    //   }
+    // }
   } else {
       others.push(character)
-    if (character.biography.alignment === 'good') {
-        othGood.push(character)
-      } else if (character.biography.alignment === 'bad') {
-        othBad.push(character)
-      } else {
-        othGood.push(character)
-      }
+    // if (character.biography.alignment === 'good') {
+    //     othGood.push(character)
+    //   } else if (character.biography.alignment === 'bad') {
+    //     othBad.push(character)
+    //   } else {
+    //     othGood.push(character)
+    //   }
   }
 
+  console.log('arrayfilters', others)
+}
+
+//----------------------------------removeProfiles--------------------------------------//
+const removeProfiles = () => {
+  const removeDiv = document.querySelector('#profile-container')
+  while (removeDiv.lastChild) {
+    removeDiv.removeChild(removeDiv.lastChild)
+    console.log('removed')
+}
 }
 
 //-----------------------------------listen-------------------------------------//
 const listen = () => {
+  
+  const showfunc = () => {
+    if (show < 1) {
+      showFilters()
+    }
+  }
 
-  showFilters()
+  const filtValFunc = () => {
+    if (filtVal < 1) {
+      filterValues()
+    }
+  }
+
+  showfunc()
+  //removeProfiles()
 
   const femaleButton = document.querySelector('#female')
   //console.log(femaleButton)
   femaleButton.addEventListener('click', (e) => {
     e.preventDefault()
     
-    removeProfiles()
-    showFilters()
-    filterValues()
+    /removeProfiles()
+    showfunc()
+    show++
+    filtValFunc()
+    filtVal++
+    apiCall('female')
 
-    females.forEach((person) => {
-      profile(person)
-    })
+    // females.forEach((person) => {
+    //   profile(person)
+    // })
+    
+    getData(females)
 
   })
 
@@ -182,12 +215,17 @@ const listen = () => {
     e.preventDefault()
 
     removeProfiles()
-    showFilters()
-    filterValues()
+    showfunc()
+    show++
+    filtValFunc()
+    filtVal++
+    apiCall('male')
 
-    males.forEach((person) => {
-      profile(person)
-    })
+    // males.forEach((person) => {
+    //   profile(person)
+    // })
+
+    getData(males)
 
   })
 
@@ -195,14 +233,20 @@ const listen = () => {
   //console.log(otherButton)
   otherButton.addEventListener('click', (e) => {
     e.preventDefault()
-    
+    console.log('clicked')
     removeProfiles()
-    showFilters()
-    filterValues()
+    showfunc()
+    show++
+    filtValFunc()
+    filtVal++
 
-    others.forEach((person) => {
-      profile(person)
-    })
+      apiCall('other')
+
+    // others.forEach((person) => {
+    //   profile(person)
+    // })
+    console.log('after others profiles')
+    getData(others)
 
   })
 }
@@ -217,6 +261,7 @@ function showFilters() {                                                    //Rs
   } else {
     show.style.display = "none";
   }
+  console.log('showfilters')
 }
 
 //----------------------------------filterValues--------------------------------------//
@@ -225,7 +270,7 @@ const filterValues = () => {
   raceArr = ['Human', 'Other']
   alignArr = ['Good', 'Bad']
   
-  const raceFilter = document.querySelector('#select-filter1')
+  const raceFilter = document.querySelector('#select-rFilter')
 
   raceArr.forEach(item => {
     const option = document.createElement('option')
@@ -234,7 +279,7 @@ const filterValues = () => {
     raceFilter.appendChild(option)
   })
 
-  const alignFilter = document.querySelector('#select-filter2')
+  const alignFilter = document.querySelector('#select-aFilter')
 
   alignArr.forEach(item => {
     const option = document.createElement('option')
@@ -242,6 +287,8 @@ const filterValues = () => {
     option.textContent = item
     alignFilter.appendChild(option)
   })
+
+  console.log('filter values')
 }
 
 //----------------------------------profile--------------------------------------//
@@ -261,86 +308,69 @@ const profile = (person) => {
       <Interested? Contact me, if you can.
     </div>`
   
-  //console.log(profileInfo)
+  console.log(profileInfo)
   dataContainer.appendChild(profileInfo)
   
 }
 
-//----------------------------------removeProfiles--------------------------------------//
-const removeProfiles = () => {
-  const removeDiv = document.querySelector('#profile-container')
-  while (removeDiv.lastChild) {
-    removeDiv.removeChild(RemoveDiv.lastChild)
-}
-}
-
-
-//----------------------------------CON--------------------------------------//
-
-
-const CON = () => {
-  console.log(females[females.length - 1].id)
-  console.log(femHum[femHum.length - 1].id)
-  console.log(femHumGood[femHumGood.length - 1].id)
-  console.log(femHumBad[femHumBad.length - 1].id)
-  console.log('--------------')
-  console.log(femOth[femOth.length - 1].id)
-  console.log(femOthGood[femOthGood.length - 1].id)
-  console.log(femOthBad[femOthBad.length - 1].id)
-  console.log('--------------')
-  console.log(males[males.length - 1].id)
-  console.log(malHum[malHum.length - 1].id)
-  console.log(malHumGood[malHumGood.length - 1].id)
-  console.log(malHumBad[malHumBad.length - 1].id)
-  console.log('--------------')
-  console.log(malOth[malOth.length - 1].id)
-  console.log(malOthGood[malOthGood.length - 1].id)
-  console.log(malOthBad[malOthBAd.length - 1].id)
-  console.log('--------------')
-  console.log(others[others.length - 1].id)
-  console.log(othGood[othGood.length - 1].id)
-  console.log(othBad[othBad.length - 1].id)
-}
-
 
 //----------------------------------getData--------------------------------------//
-const getData = (e) => {
-  e.preventDefault
-  const personValue1 = document.querySelector('#select-filter1')
-  const personValue2 = document.querySelector('#select-filter2')
 
-  const match = document.querySelector('#matchButton')
-  match.addEventListener('submit', )
-}//Finish here
+const getData = (peopleArr) => {
 
+  console.log('in getData')
+  const data = (e) => {
+    e.preventDefault
+    removeProfiles()
+    const raceValue = document.querySelector('#select-rFilter').value
+    const alignValue = document.querySelector('#select-aFilter').value
 
-
-
+    const match = document.querySelector('#matchButton')
+    match.addEventListener('submit', (e) => {
+      console.log('before filters')
+      filters(raceValue, alignValue, peopleArr)
+    })
+    data()
+  }
+}
 
 //-----------------------------------filters-------------------------------------//
 
-/*const filters = (race, alignment, peopleArr) => {
-  if (race === 'Human') {
-    profile(femHum)
-    if (alignment === 'Good') {
-      profile(femHumGood)
-    } else {
-      profile(femHumBad)
+const filters = (race, alignment, peopleArr) => {
+  peopleArr.forEach(char => {
+    if (char.appearance.race === race && character.biography.alignment === alignment) {
+      profile(char)
+    } else if (char.appearance.race === race) {
+      profile(char)
+    } else if (character.biography.alignment === alignment) {
+      profile(char)
     }
-  } else if (race === 'Other') {
-    if (alignment === 'Good') {
-      profile(femOthGood)
-    } else if (alignment === 'Bad') {
-      profile(femOthBad)
-    } else {
-      if (alignment === 'Good') {
-        profile(femGood)
-      } else if (alignment === 'Bad') {
-        profile(femBad)
-      }
-    }
-  }
-}*/
+
+    console.log('in filters')
+  })
+}
+  // if (race === 'Human') {
+  //   profile(people)
+  //   if (alignment === 'Good') {
+  //     profile(femHumGood)
+  //   } else {
+  //     profile(femHumBad)
+  //   }
+  // } else if (race === 'Other') {
+  //   if (alignment === 'Good') {
+  //     profile(femOthGood)
+  //   } else if (alignment === 'Bad') {
+  //     profile(femOthBad)
+  //   } else {
+  //     if (alignment === 'Good') {
+  //       profile(femGood)
+  //     } else if (alignment === 'Bad') {
+  //       profile(femBad)
+  //     }
+  //   }
+  // }
+
+
 //     } else {
 //       if (alignment === 'Good') {
 
@@ -453,4 +483,112 @@ const getData = (e) => {
 
 //   const select = document.querySelector('#select-filter1')
   
+// }
+
+//_________________________________________//
+
+
+// const apiCall = (gender) => {
+  
+//   //console.log(dcIDArr.length) 
+//   //console.log(fIDArr.length) 
+//   //console.log(mIDArr.length)  
+  
+//   const accessAPI = () => {
+//     for (let id = 0; id < preference.length; id++) {
+  
+//       const CORS = 'https://cors-anywhere.herokuapp.com/'
+
+//       const dcURL = `https://superheroapi.com/api/1967700243378120/${preference[id]}`
+
+//       const URL = `https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/1967700243378120/${preference[id]}`
+      
+//       axios.get(URL)
+        
+//       .then(response => {
+//         character = response.data
+//         //const publisher = response.data.biography.publisher
+//         const gen = response.data.appearance.gender
+//         //console.log(response.data.name, publisher)
+//         console.log(character)
+
+//         /*if (publisher === 'DC Comics') {
+//           console.log(dcIDArr[id])
+//         }*/
+
+//         //profile(character)
+//         //arrFiltering(gen, character)
+  
+//           dcChar.push(character)
+        
+//           if (gen === 'Female') {
+//             females.push(character)
+//           } else if (gen === 'Male') {
+//             males.push(character)
+//           } else {
+//             others.push(character)
+//           }
+//         //CON()
+
+//       }) .catch((err) => {
+//         console.error(err)
+//       })
+//     }
+//     console.log('arrayfilters', others)
+//   }
+
+//   if (gender === 'female' && f < 1) {
+//     preference = fIDArr
+//     accessAPI()
+//     f++
+//     //console.log(fIDArr)
+//   } else if (gender === 'male' && m < 1) {
+//     preference = mIDArr
+//     accessAPI()
+//     m++
+//     //console.log(mIDArr)
+//   } else if (gender === 'other' && o < 1) {
+//     preference = oIDArr
+//     console.log('other')
+//     accessAPI()
+//     o++
+    
+//     //console.log(oIDArr)
+//   }
+
+  
+  
+  
+
+//   //console.log(dcIDArr)
+//   // console.log(fIDArr)
+//   // console.log(mIDArr)
+//   // console.log(oIDArr)
+
+// }
+
+//----------------------------------CON--------------------------------------//
+
+// const CON = () => {
+//   console.log(females[females.length - 1].id)
+//   console.log(femHum[femHum.length - 1].id)
+//   console.log(femHumGood[femHumGood.length - 1].id)
+//   console.log(femHumBad[femHumBad.length - 1].id)
+//   console.log('--------------')
+//   console.log(femOth[femOth.length - 1].id)
+//   console.log(femOthGood[femOthGood.length - 1].id)
+//   console.log(femOthBad[femOthBad.length - 1].id)
+//   console.log('--------------')
+//   console.log(males[males.length - 1].id)
+//   console.log(malHum[malHum.length - 1].id)
+//   console.log(malHumGood[malHumGood.length - 1].id)
+//   console.log(malHumBad[malHumBad.length - 1].id)
+//   console.log('--------------')
+//   console.log(malOth[malOth.length - 1].id)
+//   console.log(malOthGood[malOthGood.length - 1].id)
+//   console.log(malOthBad[malOthBAd.length - 1].id)
+//   console.log('--------------')
+//   console.log(others[others.length - 1].id)
+//   console.log(othGood[othGood.length - 1].id)
+//   console.log(othBad[othBad.length - 1].id)
 // }
