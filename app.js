@@ -92,9 +92,25 @@ const apiCall = (gender) => {
     console.log('other')
     accessAPI()
     o++
-    
     //console.log(oIDArr)
+  } else if (gender === 'female') {
+    females.forEach(person => {
+      profile(person)
+    })
+    getData(females)
+  } else if (gender === 'male') {
+    males.forEach(person => {
+      profile(person)
+    })
+    getData(males)
+  } else {
+    others.forEach(person => {
+      profile(person)
+    })
+    getData(others)
   }
+
+
 }
 
 //apiCall()
@@ -194,7 +210,7 @@ const listen = () => {
   femaleButton.addEventListener('click', (e) => {
     e.preventDefault()
     
-    /removeProfiles()
+    removeProfiles()
     showfunc()
     show++
     filtValFunc()
