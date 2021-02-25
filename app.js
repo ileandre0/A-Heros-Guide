@@ -4,7 +4,6 @@ let fIDArr = [52, 66, 73, 81, 97, 98, 142, 165, 172, 173, 174, 229, 242, 253, 25
 let mIDArr = [3, 8, 14, 17, 20, 28, 32, 36, 37, 38, 49, 50, 51, 53, 54, 55, 58, 60, 69, 70, 76, 78, 93, 95, 100, 103, 105, 123, 124, 125, 126, 132, 136, 137, 144, 150, 152, 156, 158, 170, 177, 181, 184, 194, 195, 204, 212, 214, 216, 224, 230, 233, 240, 244, 246, 260, 261, 263, 276, 278, 288, 294, 298, 305, 306, 312, 316, 320, 367, 368, 370, 384, 386, 388, 390, 396, 397, 405, 407, 408, 413, 424, 427, 432, 436, 445, 446, 448, 451, 457, 459, 461, 464, 466, 468, 494, 499, 506, 508, 514, 515, 519, 520, 528, 535, 538, 543, 545, 551, 557, 558, 559, 564, 569, 576, 600, 601, 608, 609, 611, 634, 635, 637, 641, 642, 644, 645, 657, 674, 675, 678, 692, 706, 713, 731]
 let oIDArr = [509]
 let preference = []
-let character = {}
 
 let dcChar = []
 
@@ -40,23 +39,17 @@ let o = 0
 let show = 0
 let filtVal = 0
 
-const apiCall = (gender) => {
-  
-  //console.log(dcIDArr.length) 
-  //console.log(fIDArr.length) 
-  //console.log(mIDArr.length)  
-  
-  const accessAPI = async () => {
-    for (let id = 0; id < preference.length; id++) {
+const accessAPI = async () => {
+    for (let id = 0; id < dcIDArr.length; id++) {
   
       const CORS = 'https://cors-anywhere.herokuapp.com/'
 
-      const dcURL = `https://superheroapi.com/api/1967700243378120/${preference[id]}`
+      const dcURL = `https://superheroapi.com/api/1967700243378120/${dcIDArr[id]}`
 
       try {
         const response = await axios.get(`${CORS}${dcURL}`)
         //const character = response.data
-        character = response.data
+        let character = response.data
         //const publisher = response.data.biography.publisher
         const gen = response.data.appearance.gender
         //console.log(response.data.name, publisher)
@@ -67,7 +60,7 @@ const apiCall = (gender) => {
         }*/
         
         arrFiltering(gen, character)
-        profile(character)
+        //profile(character)
         
         //CON()
 
@@ -75,12 +68,16 @@ const apiCall = (gender) => {
         console.error(err)
       }
     }
+    listen()
   }
+accessAPI()
   
-  if (gender === 'start') {
-    preference = dcIDArr
-    accessAPI()
-    } 
+  // if (gender === 'start') {
+  //   preference = dcIDArr
+    // accessAPI()
+  //   } 
+
+  
   //else if (gender === 'female' && f < 1) {
   //   preference = fIDArr
   //   accessAPI()
@@ -99,9 +96,8 @@ const apiCall = (gender) => {
   //   //console.log(oIDArr)
   // }
 
-}
-
-apiCall('start')
+//apiCall()
+//apiCall('start')
 
 //----------------------------------arrFiltering--------------------------------------//
 const arrFiltering = (gen, character) => {
@@ -175,61 +171,64 @@ const removeProfiles = () => {
 }
 }
 
-const accessChar = (gender) => {
-  if (gender === 'female') {
-    females.forEach(person => {
-      profile(person)
-      getData(females)
-    })
-    getData(females)
-  } else if (gender === 'male') {
-    males.forEach(person => {
-      profile(person)
-      getData(males)
-    })
-    getData(males)
-  } else {
-    others.forEach(person => {
-      profile(person)
-    })
-    getData(others)
-    getData(males)
-  }
-}
+//----------------------------------accessChar--------------------------------------//
+
+// const accessChar = (gender) => {
+//   if (gender === 'female') {
+//     females.forEach(person => {
+//       profile(person)
+//       console.log('foreach person loop')
+//       //getData(females)
+//     })
+//     getData(females)
+//   } else if (gender === 'male') {
+//     males.forEach(person => {
+//       profile(person)
+//       //getData(males)
+//     })
+//     getData(males)
+//   } else {
+//     others.forEach(person => {
+//       profile(person)
+//       //getData(others)
+//     })
+//     getData(others)
+//   }
+// }
 
 //-----------------------------------listen-------------------------------------//
-const listen = () => {
+function listen() {
   
-  const showfunc = () => {
-    if (show < 1) {
-      showFilters()
-    }
-  }
+  // const showfunc = () => {
+  //   if (show < 1) {
+  //     showFilters()
+  //   }
+  // }
 
-  const filtValFunc = () => {
-    if (filtVal < 1) {
-      filterValues()
-    }
-  }
+  // const filtValFunc = () => {
+  //   if (filtVal < 1) {
+  //     filterValues()
+  //   }
+  // }
 
-  showfunc()
+  //showfunc()
   //removeProfiles()
 
   const femaleButton = document.querySelector('#female')
   //console.log(femaleButton)
-  femaleButton.addEventListener('click', (e) => {
-    e.preventDefault()
+  femaleButton.addEventListener('click', () => {
     
     removeProfiles()
-    showfunc()
-    show++
-    filtValFunc()
-    filtVal++
-    accessChar('female')
-
-    // females.forEach((person) => {
-    //   profile(person)
-    // })
+    // showfunc()
+    // show++
+    showFilters()
+    // filtValFunc()
+    // filtVal++
+    // accessChar('female')
+    
+    females.forEach((person) => {
+      profile(person)
+    })
     
     // getData(females)
 
@@ -237,19 +236,19 @@ const listen = () => {
 
   const maleButton = document.querySelector('#male')
   //console.log(maleButton)
-  maleButton.addEventListener('click', (e) => {
-    e.preventDefault()
+  maleButton.addEventListener('click', () => {
+  
 
     removeProfiles()
-    showfunc()
-    show++
-    filtValFunc()
-    filtVal++
-    accessChar('male')
+    // showfunc()
+    // show++
+    // filtValFunc()
+    // filtVal++
+    // accessChar('male')
 
-    // males.forEach((person) => {
-    //   profile(person)
-    // })
+    males.forEach((person) => {
+      profile(person)
+    })
 
     // getData(males)
 
@@ -257,74 +256,92 @@ const listen = () => {
 
   const otherButton = document.querySelector('#other')
   //console.log(otherButton)
-  otherButton.addEventListener('click', (e) => {
-    e.preventDefault()
-    
+  otherButton.addEventListener('click', () => {
+
     console.log('clicked')
 
     removeProfiles()
-    showfunc()
-    show++
-    filtValFunc()
-    filtVal++
-    accessChar('other')
+    // showfunc()
+    // show++
+    // filtValFunc()
+    // filtVal++
+    // accessChar('other')
 
-    // others.forEach((person) => {
-    //   profile(person)
-    // })
+    others.forEach((person) => {
+      profile(person)
+    })
     console.log('after others profiles')
     // getData(others)
 
   })
 }
-listen()
+//listen()
 
 //-----------------------------------showFilters-------------------------------------//
 
-function showFilters() {                                                    //Rsource: https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
-  const showFilt = document.querySelector('#filter-container');
-  if (showFilt.style.display === "none") {
-    showFilt.style.display = "block";
-  } else {
-    showFilt.style.display = "none";
-  }
-
-  const showPro = document.querySelector('#profile-container')
-  if (showPro.style.display === "none") {
-    showPro.style.display = "block";
-  } else {
-    showPro.style.display = "none";
-  }
-
-  console.log('showfilters')
+function showFilters() {
+  const filterContainer = document.querySelector('#filter-container')
+  let filters = `
+    <p>Filters:</p>
+    <select name='filter' id='select-rFilter'>
+      <option disabled selected>Race</option>
+      <option value = 'Human'>Human</option>
+      <option value = 'Other'>Other</option>
+    </select>
+    <select name='filter' id='select-aFilter'>
+      <option disabled selected>Alignment</option>
+      <option value = 'Good'>Good</option>
+      <option value = 'Bad'>Bad</option>
+    </select>
+    <button type='submit' id='matchButton'>Match</button>
+  `
+  filterContainer.insertAdjacentHTML('beforeend', filters)
 }
+
+// function showFilters() {                                                    //Resource: https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
+//   const showFilt = document.querySelector('#filter-container');
+//   if (showFilt.style.display === "none") {
+//     showFilt.style.display = "block";
+//   } else {
+//     showFilt.style.display = "none";
+//   }
+
+//   const showPro = document.querySelector('#profile-container')
+//   if (showPro.style.display === "none") {
+//     showPro.style.display = "block";
+//   } else {
+//     showPro.style.display = "none";
+//   }
+
+//   console.log('showfilters')
+// }
 
 //----------------------------------filterValues--------------------------------------//
 
-const filterValues = () => {
-  raceArr = ['Human', 'Other']
-  alignArr = ['Good', 'Bad']
+// const filterValues = () => {
+//   raceArr = ['Human', 'Other']
+//   alignArr = ['Good', 'Bad']
   
-  const raceFilter = document.querySelector('#select-rFilter')
+//   const raceFilter = document.querySelector('#select-rFilter')
 
-  raceArr.forEach(item => {
-    const option = document.createElement('option')
-    option.value = item
-    option.textContent = item
-    raceFilter.appendChild(option)
-  })
+//   raceArr.forEach(item => {
+//     const option = document.createElement('option')
+//     option.value = item
+//     option.textContent = item
+//     raceFilter.appendChild(option)
+//   })
 
-  const alignFilter = document.querySelector('#select-aFilter')
+//   const alignFilter = document.querySelector('#select-aFilter')
 
-  alignArr.forEach(item => {
-    const option = document.createElement('option')
-    option.value = item
-    option.textContent = item
-    alignFilter.appendChild(option)
-  })
+//   alignArr.forEach(item => {
+//     const option = document.createElement('option')
+//     option.value = item
+//     option.textContent = item
+//     alignFilter.appendChild(option)
+//   })
 
-  console.log('filter values')
-}
+//   console.log('filter values')
+// }
 
 //----------------------------------profile--------------------------------------//
 const profile = (person) => {
@@ -351,22 +368,29 @@ const profile = (person) => {
 
 //----------------------------------getData--------------------------------------//
 
+const data = (e) => {
+  e.preventDefault
+  //console.log('in little getData')
+  //peopleArr.preventDefault
+  removeProfiles()
+  const raceValue = document.querySelector('#select-rFilter').value
+  const alignValue = document.querySelector('#select-aFilter').value
+
+  const match = document.querySelector('#matchButton')
+  match.addEventListener('submit', (e) => {
+    e.preventDefault
+    //peopleArr.preventDefault
+    console.log('before filters')
+    filters(raceValue, alignValue, peopleArr)
+  })
+}
+
 const getData = (peopleArr) => {
 
   console.log('in getData')
-  const data = (e) => {
-    e.preventDefault
-    removeProfiles()
-    const raceValue = document.querySelector('#select-rFilter').value
-    const alignValue = document.querySelector('#select-aFilter').value
 
-    const match = document.querySelector('#matchButton')
-    match.addEventListener('submit', (e) => {
-      console.log('before filters')
-      filters(raceValue, alignValue, peopleArr)
-    })
-    data()
-  }
+  data()
+
 }
 
 //-----------------------------------filters-------------------------------------//
