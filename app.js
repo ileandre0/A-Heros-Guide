@@ -77,43 +77,31 @@ const apiCall = (gender) => {
     }
   }
   
-  if (gender === 'female' && f < 1) {
-    preference = fIDArr
+  if (gender === 'start') {
+    preference = dcIDArr
     accessAPI()
-    f++
-    //console.log(fIDArr)
-  } else if (gender === 'male' && m < 1) {
-    preference = mIDArr
-    accessAPI()
-    m++
-    //console.log(mIDArr)
-  } else if (gender === 'other' && o < 1) {
-    preference = oIDArr
-    console.log('other')
-    accessAPI()
-    o++
-    //console.log(oIDArr)
-  } else if (gender === 'female') {
-    females.forEach(person => {
-      profile(person)
-    })
-    getData(females)
-  } else if (gender === 'male') {
-    males.forEach(person => {
-      profile(person)
-    })
-    getData(males)
-  } else {
-    others.forEach(person => {
-      profile(person)
-    })
-    getData(others)
-  }
-
+    } 
+  //else if (gender === 'female' && f < 1) {
+  //   preference = fIDArr
+  //   accessAPI()
+  //   f++
+  //   //console.log(fIDArr)
+  // } else if (gender === 'male' && m < 1) {
+  //   preference = mIDArr
+  //   accessAPI()
+  //   m++
+  //   //console.log(mIDArr)
+  // } else if (gender === 'other' && o < 1) {
+  //   preference = oIDArr
+  //   console.log('other')
+  //   accessAPI()
+  //   o++
+  //   //console.log(oIDArr)
+  // }
 
 }
 
-//apiCall()
+apiCall('start')
 
 //----------------------------------arrFiltering--------------------------------------//
 const arrFiltering = (gen, character) => {
@@ -187,6 +175,28 @@ const removeProfiles = () => {
 }
 }
 
+const accessChar = (gender) => {
+  if (gender === 'female') {
+    females.forEach(person => {
+      profile(person)
+      getData(females)
+    })
+    getData(females)
+  } else if (gender === 'male') {
+    males.forEach(person => {
+      profile(person)
+      getData(males)
+    })
+    getData(males)
+  } else {
+    others.forEach(person => {
+      profile(person)
+    })
+    getData(others)
+    getData(males)
+  }
+}
+
 //-----------------------------------listen-------------------------------------//
 const listen = () => {
   
@@ -215,13 +225,13 @@ const listen = () => {
     show++
     filtValFunc()
     filtVal++
-    apiCall('female')
+    accessChar('female')
 
     // females.forEach((person) => {
     //   profile(person)
     // })
     
-    getData(females)
+    // getData(females)
 
   })
 
@@ -235,13 +245,13 @@ const listen = () => {
     show++
     filtValFunc()
     filtVal++
-    apiCall('male')
+    accessChar('male')
 
     // males.forEach((person) => {
     //   profile(person)
     // })
 
-    getData(males)
+    // getData(males)
 
   })
 
@@ -249,20 +259,21 @@ const listen = () => {
   //console.log(otherButton)
   otherButton.addEventListener('click', (e) => {
     e.preventDefault()
+    
     console.log('clicked')
+
     removeProfiles()
     showfunc()
     show++
     filtValFunc()
     filtVal++
-
-      apiCall('other')
+    accessChar('other')
 
     // others.forEach((person) => {
     //   profile(person)
     // })
     console.log('after others profiles')
-    getData(others)
+    // getData(others)
 
   })
 }
@@ -271,12 +282,20 @@ listen()
 //-----------------------------------showFilters-------------------------------------//
 
 function showFilters() {                                                    //Rsource: https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
-  const show = document.querySelector('#filter-container');
-  if (show.style.display === "none") {
-    show.style.display = "block";
+  const showFilt = document.querySelector('#filter-container');
+  if (showFilt.style.display === "none") {
+    showFilt.style.display = "block";
   } else {
-    show.style.display = "none";
+    showFilt.style.display = "none";
   }
+
+  const showPro = document.querySelector('#profile-container')
+  if (showPro.style.display === "none") {
+    showPro.style.display = "block";
+  } else {
+    showPro.style.display = "none";
+  }
+
   console.log('showfilters')
 }
 
