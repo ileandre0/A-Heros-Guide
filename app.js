@@ -6,6 +6,8 @@ let oIDArr = [509]
 let preference = []
 let character = {}
 
+let dcChar = []
+
 let females = []
 let femHum = []
 let femHumGood = []
@@ -27,26 +29,25 @@ let others = []
 let othGood = []
 let othBad = []
 
-const accessAPI = async (gender) => {
+const accessAPI = async () => {
   
   
   //console.log(dcIDArr.length) 
   //console.log(fIDArr.length) 
   //console.log(mIDArr.length)  
   
-  showFilters()
-  filterValues()
   
-  /*if (gender === 'female') {
-    preference = fIDArr
-    //console.log(fIDArr)
-  } else if (gender === 'male') {
-    preference = mIDArr
-    //console.log(mIDArr)
-  } else {
-    preference = oIDArr
-    //console.log(oIDArr)
-  }*/
+  
+  // if (gender === 'female') {
+  //   preference = fIDArr
+  //   //console.log(fIDArr)
+  // } else if (gender === 'male') {
+  //   preference = mIDArr
+  //   //console.log(mIDArr)
+  // } else {
+  //   preference = oIDArr
+  //   //console.log(oIDArr)
+  // }
 
   for (let id = 0; id < dcIDArr.length; id++) {
   
@@ -58,8 +59,8 @@ const accessAPI = async (gender) => {
       const response = await axios.get(`${CORS}${marvelURL}`)
       //const character = response.data
       character = response.data
-      const publisher = response.data.biography.publisher
-      const gen = response.data.appearance.gender
+      //const publisher = response.data.biography.publisher
+      //const gen = response.data.appearance.gender
       //console.log(response.data.name, publisher)
       //console.log(character, publisher)
 
@@ -67,7 +68,7 @@ const accessAPI = async (gender) => {
         console.log(dcIDArr[id])
       }*/
 
-      profile(character)
+      // profile(character)
       arrFiltering(gen, character)
       //CON()
 
@@ -84,11 +85,13 @@ const accessAPI = async (gender) => {
 
 }
 
-//accessAPI()
-
+accessAPI()
 
 //----------------------------------arrFiltering--------------------------------------//
 const arrFiltering = (gen, character) => {
+  
+  dcChar.push(character)
+
   if (gen === 'Female') {
     females.push(character)
 
@@ -169,7 +172,7 @@ const arrFiltering = (gen, character) => {
 
 //----------------------------------filterValues--------------------------------------//
 const filterValues = () => {
-  raceArr = ['Human', 'Alien']
+  raceArr = ['Human', 'Other']
   alignArr = ['Good', 'Bad']
   
   const raceFilter = document.querySelector('#select-filter1')
@@ -239,37 +242,41 @@ const profile = (person) => {
   dataContainer.appendChild(profileInfo)
   
 }
+//----------------------------------filterProfiles--------------------------------------//
+const filterProfiles = () => {
+
+}
 
 //----------------------------------firstListen--------------------------------------//
 
-const firstListen = () => {
-  showFilters()
-  const femaleButton = document.querySelector('#female')
-  //console.log(femaleButton)
-  femaleButton.addEventListener('click', (e) => {
-    e.preventDefault()
-    accessAPI('female')
-    //showFilters()
-  })
+// const firstListen = () => {
+//   showFilters()
+//   const femaleButton = document.querySelector('#female')
+//   //console.log(femaleButton)
+//   femaleButton.addEventListener('click', (e) => {
+//     e.preventDefault()
+//     accessAPI('female')
+//     //showFilters()
+//   })
 
-  const maleButton = document.querySelector('#male')
-  //console.log(maleButton)
-  maleButton.addEventListener('click', (e) => {
-    e.preventDefault()
-    accessAPI('male')
-    //showFilters()
-  })
+//   const maleButton = document.querySelector('#male')
+//   //console.log(maleButton)
+//   maleButton.addEventListener('click', (e) => {
+//     e.preventDefault()
+//     accessAPI('male')
+//     //showFilters()
+//   })
 
-  const otherButton = document.querySelector('#other')
-  //console.log(otherButton)
-  otherButton.addEventListener('click', (e) => {
-    e.preventDefault()
-    accessAPI('other')
-    //showFilters()
-  })
+//   const otherButton = document.querySelector('#other')
+//   //console.log(otherButton)
+//   otherButton.addEventListener('click', (e) => {
+//     e.preventDefault()
+//     accessAPI('other')
+//     //showFilters()
+//   })
 
-}
-firstListen()
+// }
+// firstListen()
 
 //-----------------------------------showFilters-------------------------------------//
 
@@ -277,20 +284,24 @@ function showFilters() {                                                    //Rs
   const show = document.querySelector('#filter-container');
   if (show.style.display === "none") {
     show.style.display = "block";
-    //filterValues()
   } else {
     show.style.display = "none";
   }
-  //filterValues()
 }
 
 //-----------------------------------listen-------------------------------------//
 const listen = () => {
+
+  showFilters()
+
   const femaleButton = document.querySelector('#female')
   //console.log(femaleButton)
   femaleButton.addEventListener('click', (e) => {
     e.preventDefault()
     
+    showFilters()
+    filterValues()
+
     females.forEach((person) => {
       profile(person)
     })
@@ -301,6 +312,9 @@ const listen = () => {
   //console.log(maleButton)
   maleButton.addEventListener('click', (e) => {
     e.preventDefault()
+
+    showFilters()
+    filterValues()
 
     males.forEach((person) => {
       profile(person)
@@ -313,17 +327,46 @@ const listen = () => {
   otherButton.addEventListener('click', (e) => {
     e.preventDefault()
     
+    showFilters()
+    filterValues()
+
     others.forEach((person) => {
       profile(person)
     })
 
   })
 }
-//listen()
+listen()
 
 //-----------------------------------filters-------------------------------------//
 
-const filters = () => {
+const filters = (race, alignment) => {
+  if (race === 'Human') {
+    if (alignment === 'Good') {
 
+    } else if (alignment === 'Bad') {
+
+    } else {
+      
+    }
+
+  } else if (race === 'Other') {
+    if (alignment === 'Good') {
+
+    } else if (alignment === 'Bad') {
+
+    } else {
+
+    }
+  } else {
+    if (alignment === 'Good') {
+
+    } else if (alignment === 'Bad') {
+
+    }
+  }
 }
 
+
+// raceArr = ['Human', 'Other']
+//   alignArr = ['Good', 'Bad']
