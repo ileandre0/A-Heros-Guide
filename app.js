@@ -10,34 +10,25 @@ let others = []
 let preference = []
 
 const accessAPI = async () => {                                           //async function to call API
-    //for (let id = 0; id < dcIDArr.length; id++) {
-      for (let id = 0; id < 50; id++) {                       //make a call to the API for each DC character in my array using their ID
+    for (let id = 0; id < dcIDArr.length; id++) {
+      //for (let id = 50; id < 100; id++) {                       //make a call to the API for each DC character in my array using their ID
+      
       const CORS = 'https://cors-anywhere.herokuapp.com/'                 //Solve CORS error I had with accessing the API. Have to ask for permission.
 
       const dcURL = `https://superheroapi.com/api/1967700243378120/${dcIDArr[id]}` //API URL
 
       try {
         const response = await axios.get(`${CORS}${dcURL}`)               //Have to combine the CORS and DC URLs
-        //const character = response.data
         let character = response.data          
-        //const publisher = response.data.biography.publisher
         const gen = response.data.appearance.gender
-        //console.log(response.data.name, publisher)
-        //console.log(character, publisher)
-
-        /*if (publisher === 'DC Comics') {
-          console.log(dcIDArr[id])
-        }*/
         
         arrFiltering(gen, character)                                       //This filters each character into female, male and other arrays
-        //profile(character)
-        
-        //CON()
 
       } catch (err) {
         console.error(err)
       }
-    }
+      }
+  
     console.log('done')
     listen()                                                               //Calls the listen function after this function loads
 }
@@ -96,7 +87,6 @@ function getFilterValues(e) {
     console.log(raceValue, alignmentValue)
     preference.forEach(char => {
     let currentRace
-    //let i = 0
 
     if (char.appearance.race !== 'Human') {
       console.log('1', char.appearance.race)
@@ -113,37 +103,30 @@ function getFilterValues(e) {
     if (raceValue !== 'Race' && alignmentValue !== 'Alignment') {
       if (char.appearance.race === raceValue && char.biography.alignment === alignmentValue) {
         profile(char)
+        console.log(`Both ${raceValue} and ${alignmentValue}`)
       }
     } else if (raceValue !== 'Race' && alignmentValue === 'Alignment') {
       if (char.appearance.race === raceValue) {
         profile(char)
+        console.log(`${raceValue} only, alignment doesn't matter.`)
       }
     } else if (raceValue === 'Race' && alignmentValue !== 'Alignment') {
       if (char.biography.alignment === alignmentValue) {
         profile(char)
+        console.log(`Race doesn't matter, as long as they are ${alignmentValue}.`)
       }
     }
     
-    // if (char.appearance.race === raceValue && char.biography.alignment === alignmentValue) {
-    //   profile(char)
-    // // } else if (char.appearance.race !== raceValue && char.biography.alignment === 'Alignment') {
-    // //   profile(char)
-    // } else if (char.appearance.race === raceValue && char.biography.alignment === 'Alignment') {
-    //   ifprofile(char)
-    // } else if (char.appearance.race === 'Race' && char.biography.alignment === alignmentValue) {
-    //   profile(char)
-    // } else {
-    //   profile(char)
-    // }
+    
 
-    if (char.appearance.race === 'Other') {
-      // if (currentRace === '-' || currentRace === null || currentRace === 'null') {
-      //   char.appearance.race = null
-      // } else {
-        char.appearance.race = currentRace
-      //}
-      console.log('4', char.appearance.race)
-    }
+    // if (char.appearance.race === 'Other') {
+    //   // if (currentRace === '-' || currentRace === null || currentRace === 'null') {
+    //   //   char.appearance.race = null
+    //   // } else {
+    //     char.appearance.race = currentRace
+    //   //}
+    //   console.log('4', char.appearance.race)
+    // }
 
 
       console.log('in filters')
@@ -155,7 +138,6 @@ function getFilterValues(e) {
 function listen() {
 
   const femaleButton = document.querySelector('#female')
-  //console.log(femaleButton)
   femaleButton.addEventListener('click', () => {
     
     removeProfiles()
@@ -164,14 +146,14 @@ function listen() {
     females.forEach((person) => {
       profile(person)
     })
+
     console.log('female')
-    //filtersInputOutput(females)
-  preference = females
-    // match.addEventListener('submit', getFilterValues(females))
+    
+    preference = females
+    
   })
 
   const maleButton = document.querySelector('#male')
-  //console.log(maleButton)
   maleButton.addEventListener('click', () => {
   
     removeProfiles()
@@ -180,15 +162,14 @@ function listen() {
     males.forEach((person) => {
       profile(person)
     })
+
     console.log('male')
 
-    //filtersInputOutput(males)
     preference = males
-    // match.addEventListener('submit', getFilterValues(males))
+    
   })
 
   const otherButton = document.querySelector('#other')
-  //console.log(otherButton)
   otherButton.addEventListener('click', () => {
 
     //console.log('clicked')
@@ -196,23 +177,18 @@ function listen() {
     removeProfiles()
     showFilters()
 
-    console.log('other')
-
     others.forEach((person) => {
       profile(person)
     })   
 
-    //filtersInputOutput(others)
+    console.log('other')
+
     preference = others
-    //match.addEventListener('click', getFilterValues(others))
+
   })
 
-  // const match = document.querySelector('form')
-  // match.addEventListener('click', getFilterValues(preference))
-  
+
 }
-
-
 
 //-----------------------------------showFilters-------------------------------------//
 
@@ -235,22 +211,24 @@ function showFilters() {
     `
     filterContainer.insertAdjacentHTML('beforeend', filters)
 
-    const matchButton = document.querySelector('#matchButton')
-  matchButton.addEventListener('click', getFilterValues)
+    
+      const matchButton = document.querySelector('#matchButton')
+      matchButton.addEventListener('click', getFilterValues)
+    
 
   } 
 
 //getFilterValues(preference)
-// const matchButton = document.querySelector('#matchButton')
-// matchButton.addEventListener('click', getFilterValues)
+const matchButton = document.querySelector('#matchButton')
+matchButton.addEventListener('click', getFilterValues)
 
 }
 
 
 
 //----------------------------------profile--------------------------------------//
-const profile = (person) => {
-  //console.log("Profile Info:", person)
+function profile(person) {
+  console.log("Profile Info:", person)
   //console.log('Inside profile')
   const dataContainer = document.querySelector('#profile-container')
   const profileInfo = document.createElement('div')
@@ -298,4 +276,16 @@ const profile = (person) => {
 //   })
 // }
 
+
+// if (char.appearance.race === raceValue && char.biography.alignment === alignmentValue) {
+    //   profile(char)
+    // // } else if (char.appearance.race !== raceValue && char.biography.alignment === 'Alignment') {
+    // //   profile(char)
+    // } else if (char.appearance.race === raceValue && char.biography.alignment === 'Alignment') {
+    //   ifprofile(char)
+    // } else if (char.appearance.race === 'Race' && char.biography.alignment === alignmentValue) {
+    //   profile(char)
+    // } else {
+    //   profile(char)
+    // }
 
