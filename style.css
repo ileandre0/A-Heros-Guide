@@ -7,6 +7,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap');
 /* font-family: 'Akaya Kanadaka', cursive; */
 
+/* base screen LxW: 375x667px */
 
 /*TAGS*/
 * {
@@ -17,7 +18,7 @@
 body {
   text-align: center;             /*To create a responsive background Resource: https://www.webfx.com/blog/web-design/responsive-background-image/*/
   /* background-color: tan; */
-  background-image: url(https://wallpapershome.com/images/pages/pic_v/10121.jpg); /*url(https://i.pinimg.com/originals/2b/69/2f/2b692f288ca4a957d0570fb9b40c2e5b.jpg); /*url(https://us.123rf.com/450wm/sotnikovmisha/sotnikovmisha1901/sotnikovmisha190100067/116338454-stars-in-the-sky-the-traveler-looks-at-the-starry-sky-night-sky-with-stars-the-man-with-the-lantern-.jpg?ver=6);*/
+  background-image: url(https://wallpapershome.com/images/pages/pic_v/10121.jpg); /*url(https://i.pinimg.com/originals/2b/69/2f/2b692f288ca4a957d0570fb9b40c2e5b.jpg); url(https://us.123rf.com/450wm/sotnikovmisha/sotnikovmisha1901/sotnikovmisha190100067/116338454-stars-in-the-sky-the-traveler-looks-at-the-starry-sky-night-sky-with-stars-the-man-with-the-lantern-.jpg?ver=6); */
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -30,7 +31,9 @@ img {
   height: 0 auto;
 }
 
+@media (min-width: 500px) {
 
+}
 
 
 /*CLASS*/
@@ -54,6 +57,18 @@ img {
 
 /*IDS*/
 
+/* #bodyloading {
+  width: 600px;
+  height: 450px;
+  background: url(https://media0.giphy.com/media/l0K4kWJir91VEoa1W/giphy.gif?cid=ecf05e47fypzgzewhtamtv8abha08stk137jwrupxec53ag2&rid=giphy.gif) 50% no repreat;
+  border: 1px solid black;
+  border-radius: 5px;
+} */
+
 #buttons {
   color: pink;
+}
+
+#name-location {
+text-align: left;
 }

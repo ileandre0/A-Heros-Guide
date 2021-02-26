@@ -9,17 +9,17 @@ let males = []
 let others = []
 let preference = []
 
-const accessAPI = async () => {
+const accessAPI = async () => {                                           //async function to call API
     //for (let id = 0; id < dcIDArr.length; id++) {
-      for (let id = 0; id < 10; id++) {
-      const CORS = 'https://cors-anywhere.herokuapp.com/'
+      for (let id = 0; id < 50; id++) {                       //make a call to the API for each DC character in my array using their ID
+      const CORS = 'https://cors-anywhere.herokuapp.com/'                 //Solve CORS error I had with accessing the API. Have to ask for permission.
 
-      const dcURL = `https://superheroapi.com/api/1967700243378120/${dcIDArr[id]}`
+      const dcURL = `https://superheroapi.com/api/1967700243378120/${dcIDArr[id]}` //API URL
 
       try {
-        const response = await axios.get(`${CORS}${dcURL}`)
+        const response = await axios.get(`${CORS}${dcURL}`)               //Have to combine the CORS and DC URLs
         //const character = response.data
-        let character = response.data
+        let character = response.data          
         //const publisher = response.data.biography.publisher
         const gen = response.data.appearance.gender
         //console.log(response.data.name, publisher)
@@ -29,7 +29,7 @@ const accessAPI = async () => {
           console.log(dcIDArr[id])
         }*/
         
-        arrFiltering(gen, character)
+        arrFiltering(gen, character)                                       //This filters each character into female, male and other arrays
         //profile(character)
         
         //CON()
@@ -39,10 +39,21 @@ const accessAPI = async () => {
       }
     }
     console.log('done')
-    listen()
+    listen()                                                               //Calls the listen function after this function loads
 }
   
-accessAPI()
+accessAPI()                                                                //Accesses the API before user can interact with the program
+
+//----------------------------------Loading--------------------------------------//
+function isLoading() {
+  const image = document.images[0]
+  const downloadingImage = new Image()
+  downloadingImage.onload = function () {
+    image.src =  this.src
+  }
+  downloadingImage.src = 'https://media4.giphy.com/media/l3vRnoppYtfEbemBO/giphy.webp?cid=ecf05e47a01k2lsdfw3rv1rpxwpjhxkvgyazeykez9k4j2ds&rid=giphy.webp'
+}
+
 
 //----------------------------------arrFiltering--------------------------------------//
 
@@ -83,8 +94,10 @@ function getFilterValues(e) {
     removeProfiles()
     //filters(raceValue, alignmentValue, peopleArr)
     console.log(raceValue, alignmentValue)
-  preference.forEach(char => {
+    preference.forEach(char => {
     let currentRace
+    //let i = 0
+
     if (char.appearance.race !== 'Human') {
       console.log('1', char.appearance.race)
       currentRace = char.appearance.race
@@ -97,17 +110,31 @@ function getFilterValues(e) {
       console.log('3', char.appearance.race)
     }
 
-    if (char.appearance.race === raceValue && char.biography.alignment === alignmentValue) {
-      profile(char)
-    // } else if (char.appearance.race !== raceValue && char.biography.alignment === 'Alignment') {
-    //   profile(char)
-    } else if (char.appearance.race === raceValue && char.biography.alignment === 'Alignment') {
-      profile(char)
-    } else if (char.appearance.race === 'Race' && char.biography.alignment === alignmentValue) {
-      profile(char)
-    } else {
-      profile(char)
+    if (raceValue !== 'Race' && alignmentValue !== 'Alignment') {
+      if (char.appearance.race === raceValue && char.biography.alignment === alignmentValue) {
+        profile(char)
+      }
+    } else if (raceValue !== 'Race' && alignmentValue === 'Alignment') {
+      if (char.appearance.race === raceValue) {
+        profile(char)
+      }
+    } else if (raceValue === 'Race' && alignmentValue !== 'Alignment') {
+      if (char.biography.alignment === alignmentValue) {
+        profile(char)
+      }
     }
+    
+    // if (char.appearance.race === raceValue && char.biography.alignment === alignmentValue) {
+    //   profile(char)
+    // // } else if (char.appearance.race !== raceValue && char.biography.alignment === 'Alignment') {
+    // //   profile(char)
+    // } else if (char.appearance.race === raceValue && char.biography.alignment === 'Alignment') {
+    //   ifprofile(char)
+    // } else if (char.appearance.race === 'Race' && char.biography.alignment === alignmentValue) {
+    //   profile(char)
+    // } else {
+    //   profile(char)
+    // }
 
     if (char.appearance.race === 'Other') {
       // if (currentRace === '-' || currentRace === null || currentRace === 'null') {
@@ -231,11 +258,10 @@ const profile = (person) => {
 
   profileInfo.innerHTML = 
     `<img src=${person.image.url} alt='${person.name} class='image'>
-    <h2 class='text'> ${person.name} </h2>
-    <h3 class='text'> ${person.work.base} </h3>
+    <h2 class='text' id='name-location'> ${person.name} </h2>
+    <h3 class='text' id='name-location'> ${person.work.base} </h3>
     <div class='specs'>
-      <p class='text'> Hi. My name is ${person.name}, but you may know me as ${person.biography.aliases[0]}. I am ${person.appearance.race}, currently living in ${person.work.base}. I have an intelligence and power level of ${person.powerstats.intelligence}, and ${person.powerstats.power}, respectively. Take a look at my specs for more info.
-      <p class='text'>Interested? Contact me, if you can.</p>
+      <p class='text'> Hi. My name is ${person.name}, but you may know me as ${person.biography.aliases[0]}. I am ${person.appearance.race}, currently living in ${person.work.base}. I have an intelligence and power level of ${person.powerstats.intelligence}, and ${person.powerstats.power}, respectively. Take a look at my specs for more info. Interested? Contact me, if you can.</p>
     </div>`
   
   //console.log(profileInfo)
