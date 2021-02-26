@@ -10,8 +10,8 @@ let others = []
 let preference = []
 
 const accessAPI = async () => {                                           //async function to call API
-    for (let id = 0; id < dcIDArr.length; id++) {
-      //for (let id = 50; id < 100; id++) {                       //make a call to the API for each DC character in my array using their ID
+    //for (let id = 0; id < dcIDArr.length; id++) {
+      for (let id = 0; id < 3; id++) {                       //make a call to the API for each DC character in my array using their ID
       
       const CORS = 'https://cors-anywhere.herokuapp.com/'                 //Solve CORS error I had with accessing the API. Have to ask for permission.
 
@@ -19,9 +19,16 @@ const accessAPI = async () => {                                           //asyn
 
       try {
         const response = await axios.get(`${CORS}${dcURL}`)               //Have to combine the CORS and DC URLs
+        
+        if (!response) {    //create in the body 
+          console.log('Still loading')
+        }
+
         let character = response.data          
         const gen = response.data.appearance.gender
         
+        
+
         arrFiltering(gen, character)                                       //This filters each character into female, male and other arrays
 
       } catch (err) {
@@ -116,6 +123,23 @@ function getFilterValues(e) {
         console.log(`Race doesn't matter, as long as they are ${alignmentValue}.`)
       }
     }
+      
+    // if (raceValue !== 'Race' && alignmentValue !== 'Alignment') {
+    //   if (char.appearance.race === raceValue && char.biography.alignment === alignmentValue) {
+    //     profile(char)
+    //     console.log(`Both ${raceValue} and ${alignmentValue}`)
+    //   }
+    // } else if (raceValue !== 'Race' && alignmentValue === 'Alignment') {
+    //   if (char.appearance.race === raceValue) {
+    //     profile(char)
+    //     console.log(`${raceValue} only, alignment doesn't matter.`)
+    //   }
+    // } else if (raceValue === 'Race' && alignmentValue !== 'Alignment') {
+    //   if (char.biography.alignment === alignmentValue) {
+    //     profile(char)
+    //     console.log(`Race doesn't matter, as long as they are ${alignmentValue}.`)
+    //   }
+    // }
     
     
 
@@ -198,14 +222,14 @@ function showFilters() {
     let filters = `
       <p class='text'>Filters:</p>
       <select name='filter' id='select-rFilter'>
-        <option disabled selected>Race</option>
+        <option disabled selected value = 'Race'>Race</option>
         <option value = 'Human'>Human</option>
         <option value = 'Other'>Other</option>
       </select>
       <select name='filter' id='select-aFilter'>
-        <option disabled selected>Alignment</option>
-        <option value = 'Good'>Good</option>
-        <option value = 'Bad'>Bad</option>
+        <option disabled selected value = 'Alignment'>Alignment</option>
+        <option value = 'good'>Good</option>
+        <option value = 'bad'>Bad</option>
       </select>
       <button type='click' id='matchButton' id='buttons'>Match</button>
     `
@@ -218,9 +242,9 @@ function showFilters() {
 
   } 
 
-//getFilterValues(preference)
-const matchButton = document.querySelector('#matchButton')
-matchButton.addEventListener('click', getFilterValues)
+  //getFilterValues(preference)
+  const matchButton = document.querySelector('#matchButton')
+  matchButton.addEventListener('click', getFilterValues)
 
 }
 
