@@ -10,8 +10,8 @@ let others = []
 let preference = []
 
 const accessAPI = async () => {
-    for (let id = 0; id < dcIDArr.length; id++) {
-  
+    //for (let id = 0; id < dcIDArr.length; id++) {
+      for (let id = 0; id < 20; id++) {
       const CORS = 'https://cors-anywhere.herokuapp.com/'
 
       const dcURL = `https://superheroapi.com/api/1967700243378120/${dcIDArr[id]}`

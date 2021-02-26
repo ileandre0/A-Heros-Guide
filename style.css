@@ -1,7 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap'); 
+/* font-family: 'Kaushan Script', cursive */
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+/*font-family: 'Rock Salt', cursive*/
+
+
 /*TAGS*/
 * {
   box-sizing: border-box; 
   border: gold solid 2px;  /* this will help you with design*/
+}
+
+body {
+  text-align: center;
+  background-color: tan;
+/*   background-image: url(https://i.pinimg.com/originals/2b/69/2f/2b692f288ca4a957d0570fb9b40c2e5b.jpg); /*url(https://us.123rf.com/450wm/sotnikovmisha/sotnikovmisha1901/sotnikovmisha190100067/116338454-stars-in-the-sky-the-traveler-looks-at-the-starry-sky-night-sky-with-stars-the-man-with-the-lantern-.jpg?ver=6);*/
+  background-position: center center;
+  background-size: cover;
 }
 
 img {
@@ -18,3 +32,4 @@ img {
 
 
 /*IDS*/
+
