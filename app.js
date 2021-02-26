@@ -11,7 +11,7 @@ let preference = []
 
 const accessAPI = async () => {                                           //async function to call API
     //for (let id = 0; id < dcIDArr.length; id++) {
-      for (let id = 0; id < 3; id++) {                       //make a call to the API for each DC character in my array using their ID
+      for (let id = 50; id < 71; id++) {                       //make a call to the API for each DC character in my array using their ID
       
       const CORS = 'https://cors-anywhere.herokuapp.com/'                 //Solve CORS error I had with accessing the API. Have to ask for permission.
 
@@ -19,15 +19,30 @@ const accessAPI = async () => {                                           //asyn
 
       try {
         const response = await axios.get(`${CORS}${dcURL}`)               //Have to combine the CORS and DC URLs
+
+        const show = document.querySelector('#loader');       //Resource: https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
+        while (id < 70) {
+          show.style.display = "block";
+        } 
+        // else {
+        //   show.style.display = "block";
+        // }
+
+
         
-        if (!response) {    //create in the body 
-          console.log('Still loading')
-        }
+        // const body = document.querySelector('body')
+        // body.toggleClass('loader', false)
+
+        // while (id < 20) {    //create in the body 
+        //   const body = document.querySelector('body')
+        //   const loadingBar = document.querySelector('.loader')
+        //   loadingImg.style.backgroundImage = "url('https://i.giphy.com/media/l3vRnoppYtfEbemBO/giphy.webp')"
+        //   body.appendChild(loadingBar)
+        //   console.log('Calling all supers looking for love...')
+        // }
 
         let character = response.data          
         const gen = response.data.appearance.gender
-        
-        
 
         arrFiltering(gen, character)                                       //This filters each character into female, male and other arrays
 
@@ -152,7 +167,7 @@ function getFilterValues(e) {
     //   console.log('4', char.appearance.race)
     // }
 
-
+    listen()
       console.log('in filters')
     })
 }
