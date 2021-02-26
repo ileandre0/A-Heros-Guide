@@ -82,15 +82,42 @@ function getFilterValues(e) {
     //console.log('before filters')
     removeProfiles()
     //filters(raceValue, alignmentValue, peopleArr)
-
-    preference.forEach(char => {
-      if (char.appearance.race === raceValue && char.biography.alignment === alignmentValue) {
-        profile(char)
-      } else if (char.appearance.race === race) {
-        profile(char)
-      } else if (char.biography.alignment === alignment) {
-        profile(char)
+    console.log(raceValue, alignmentValue)
+  preference.forEach(char => {
+    let currentRace
+    if (char.appearance.race !== 'Human') {
+      console.log('1', char.appearance.race)
+      currentRace = char.appearance.race
+      if (char.appearance.race === '-' || char.appearance.race === null || char.appearance.race === 'null') {
+        currentRace = 'Other'
       }
+
+      char.appearance.race = 'Other'
+      console.log('2', currentRace)
+      console.log('3', char.appearance.race)
+    }
+
+    if (char.appearance.race === raceValue && char.biography.alignment === alignmentValue) {
+      profile(char)
+    // } else if (char.appearance.race !== raceValue && char.biography.alignment === 'Alignment') {
+    //   profile(char)
+    } else if (char.appearance.race === raceValue && char.biography.alignment === 'Alignment') {
+      profile(char)
+    } else if (char.appearance.race === 'Race' && char.biography.alignment === alignmentValue) {
+      profile(char)
+    } else {
+      profile(char)
+    }
+
+    if (char.appearance.race === 'Other') {
+      // if (currentRace === '-' || currentRace === null || currentRace === 'null') {
+      //   char.appearance.race = null
+      // } else {
+        char.appearance.race = currentRace
+      //}
+      console.log('4', char.appearance.race)
+    }
+
 
       console.log('in filters')
     })
@@ -222,7 +249,7 @@ const profile = (person) => {
 
 //   const form = document.querySelector('form')
 //   form.addEventListener('submit', (e) => {
-//     e.preventDefault
+//     e.preventDefault()
 //     console.log('match')
 //     const raceValue = document.querySelector('#select-rFilter').value
 //     const alignmentValue = document.querySelector('#select-aFilter').value
