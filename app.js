@@ -11,7 +11,7 @@ let preference = []
 
 const accessAPI = async () => {
     //for (let id = 0; id < dcIDArr.length; id++) {
-      for (let id = 0; id < 20; id++) {
+      for (let id = 0; id < 10; id++) {
       const CORS = 'https://cors-anywhere.herokuapp.com/'
 
       const dcURL = `https://superheroapi.com/api/1967700243378120/${dcIDArr[id]}`
@@ -193,7 +193,7 @@ function showFilters() {
   const filterContainer = document.querySelector('#filter-container')
   if (filterContainer.lastChild === null) {
     let filters = `
-      <p>Filters:</p>
+      <p class='text'>Filters:</p>
       <select name='filter' id='select-rFilter'>
         <option disabled selected>Race</option>
         <option value = 'Human'>Human</option>
@@ -204,7 +204,7 @@ function showFilters() {
         <option value = 'Good'>Good</option>
         <option value = 'Bad'>Bad</option>
       </select>
-      <button type='click' id='matchButton'>Match</button>
+      <button type='click' id='matchButton' id='buttons'>Match</button>
     `
     filterContainer.insertAdjacentHTML('beforeend', filters)
 
@@ -231,11 +231,11 @@ const profile = (person) => {
 
   profileInfo.innerHTML = 
     `<img src=${person.image.url} alt='${person.name} class='image'>
-    <h2> ${person.name} </h2>
-    <h3> ${person.work.base} </h3>
+    <h2 class='text'> ${person.name} </h2>
+    <h3 class='text'> ${person.work.base} </h3>
     <div class='specs'>
-      <p> Hi. My name is ${person.name}, but you may know me as ${person.biography.aliases[0]}. I am ${person.appearance.race}, currently living in ${person.work.base}. I have an intelligence and power level of ${person.powerstats.intelligence}, and ${person.powerstats.power}, respectively. Take a look at my specs for more info.
-      <Interested? Contact me, if you can.
+      <p class='text'> Hi. My name is ${person.name}, but you may know me as ${person.biography.aliases[0]}. I am ${person.appearance.race}, currently living in ${person.work.base}. I have an intelligence and power level of ${person.powerstats.intelligence}, and ${person.powerstats.power}, respectively. Take a look at my specs for more info.
+      <p class='text'>Interested? Contact me, if you can.</p>
     </div>`
   
   //console.log(profileInfo)
