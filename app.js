@@ -8,6 +8,7 @@ let females = []
 let males = []
 let others = []
 let preference = []
+const filterContainer = document.querySelector('#filter-container')
 
 const accessAPI = async () => {                                           //async function to call API
     //for (let idElement = 1; idElement < dcIDArr.length; idElement++) {
@@ -106,9 +107,9 @@ function getFilterValues(e) {
     if (char.appearance.race !== 'Human') {
       console.log('1', char.appearance.race)
       currentRace = char.appearance.race
-      if (char.appearance.race === '-' || char.appearance.race === null || char.appearance.race === 'null') {
-        currentRace = 'Other'
-      }
+      // if (char.appearance.race === '-' || char.appearance.race === null || char.appearance.race === 'null') {
+      //   currentRace = 'Other'
+      // }
 
       char.appearance.race = 'Other'
       console.log('2', currentRace)
@@ -117,19 +118,48 @@ function getFilterValues(e) {
 
     if (raceValue !== 'Race' && alignmentValue !== 'Alignment') {
       if (char.appearance.race === raceValue && char.biography.alignment === alignmentValue) {
+        
+        if (char.appearance.race === 'Other') {
+          if (char.appearance.race === '-' || char.appearance.race === null || char.appearance.race === 'null') {
+            currentRace = 'not Human'
+          }
+          char.appearance.race = currentRace
+        }
         profile(char)
         console.log(`Both ${raceValue} and ${alignmentValue}`)
       }
     } else if (raceValue !== 'Race' && alignmentValue === 'Alignment') {
+      
       if (char.appearance.race === raceValue) {
+        if (char.appearance.race === 'Other') {
+          if (char.appearance.race === '-' || char.appearance.race === null || char.appearance.race === 'null') {
+            currentRace = 'not Human'
+          }
+          char.appearance.race = currentRace
+        }
         profile(char)
         console.log(`${raceValue} only, alignment doesn't matter.`)
       }
     } else if (raceValue === 'Race' && alignmentValue !== 'Alignment') {
+      
       if (char.biography.alignment === alignmentValue) {
+        if (char.appearance.race === 'Other') {
+          if (char.appearance.race === '-' || char.appearance.race === null || char.appearance.race === 'null') {
+            currentRace = 'not Human'
+          }
+          char.appearance.race = currentRace
+        }
         profile(char)
         console.log(`Race doesn't matter, as long as they are ${alignmentValue}.`)
       }
+    } else {
+      if (char.appearance.race === 'Other') {
+        if (char.appearance.race === '-' || char.appearance.race === null || char.appearance.race === 'null') {
+          currentRace = 'not Human'
+        }
+        char.appearance.race = currentRace
+      }
+      profile(char)
     }
     
       console.log('in filters')
@@ -139,6 +169,18 @@ function getFilterValues(e) {
 //-----------------------------------listen-------------------------------------//
 
 function listen() {
+
+  const homeButton = document.querySelector('#home')
+  homeButton.addEventListener('click', () => {
+    
+    while (filterContainer.lastChild) {
+      filterContainer.removeChild(filterContainer.lastChild)
+    }
+    removeProfiles()
+    
+
+    })
+  
 
   const femaleButton = document.querySelector('#female')
   femaleButton.addEventListener('click', () => {
@@ -197,11 +239,11 @@ function listen() {
 
 function showFilters() {
 
-  const filterContainer = document.querySelector('#filter-container')
+  // const filterContainer = document.querySelector('#filter-container')
 
-  while (filterContainer.lastChild) {
-    filterContainer.removeChild(filterContainer.lastChild)
-  }
+  // while (filterContainer.lastChild) {
+  //   filterContainer.removeChild(filterContainer.lastChild)
+  // }
 
   if (filterContainer.lastChild === null) {
     let filters = `
@@ -223,8 +265,6 @@ function showFilters() {
     
       const matchButton = document.querySelector('#matchButton')
       matchButton.addEventListener('click', getFilterValues)
-    
-
   } 
 
   //getFilterValues(preference)
