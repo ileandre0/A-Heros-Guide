@@ -27,8 +27,9 @@ body {
 }
 
 img {
-  width: 300px;
+  width: 75px;
   height: 0 auto;
+  /* padding: 2px; */
 }
 
 @media (min-width: 500px) {
@@ -46,19 +47,7 @@ img {
   color: white;
 }
 
-.loader {                                         /*To create loading circle Resource: https://www.w3schools.com/howto/howto_css_loader.asp*/
-  border: 16px solid rgb(116, 60, 70);
-  border-top: 16px solid #3498db;
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite;
-}
 
-@keyframes spin {
-  0% {transform: rotate(0deg);}
-  100% {transform: rotate(360deg);}
-}
 
 .myHero {                               /*To create gradient text Resource: https://www.w3docs.com/snippets/css/how-to-create-a-multicolor-text-in-html-and-css.html*/
   font-family: 'Bangers', cursive;
@@ -85,6 +74,25 @@ img {
   color: rgb(43, 124, 43);
 }
 
+#loader {                                         /*To create loading circle Resource: https://www.w3schools.com/howto/howto_css_loader.asp*/
+  border: 16px solid rgb(116, 60, 70);
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+
 #name-location {
 text-align: left;
+}
+
+#profile-container {
+  background-color: rgb(221, 221, 176);
+  padding: 2px;
 }
