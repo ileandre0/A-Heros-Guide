@@ -43,6 +43,16 @@ img {
   height: 0 auto;
 }
 
+li {
+  
+}
+
+ul {
+  list-style-type: none;
+  text-align: left;
+  color: white;
+}
+
 @media (min-width: 500px) {
   body {
     font-size: 20px;
@@ -67,7 +77,8 @@ img {
   background-color: rgb(3, 20, 50);
   margin-top: 30px;
   border: solid rgb(58, 89, 142) 2px;
-  padding-top: 15px
+  padding-top: 15px;
+  border-radius: 12px;
 }
 
 
@@ -149,6 +160,11 @@ img {
 /* background-color: rgb(28, 130, 28); */
 }
 
+#powerstats {
+  text-align: left;
+  padding-left: 15px;
+}
+
 #profileName {
   font-weight: bold;
   font-size: 40px;
@@ -173,6 +189,14 @@ color: rgb(144, 144, 144);
   /* background-color: rgb(221, 221, 176); */
 }
 
+#specs {
+  text-align: left;
+  font-weight: bold;
+  font-size: 30px;
+  padding-left: 15px;
+  margin-top: 0px;
+}
+
 #story {
   font-weight: bold;
   font-size: 30px;
@@ -180,7 +204,6 @@ color: rgb(144, 144, 144);
   text-align: left;
   padding-left: 15px;
   border-top: solid rgb(255, 243, 175) 1px;
-  border-radius: 4px;
 }
 
 #storyParagraph {
