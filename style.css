@@ -16,7 +16,7 @@
 }
 
 body {
-  text-align: center;             /*To create a responsive background Resource: https://www.webfx.com/blog/web-design/responsive-background-image/*/
+  text-align: center;             /*To create a responsive background Resource: https://www.webfx.com/blog/web-design/responsive-background-imag* */
   /* background-color: tan; */
   background-image: url(https://wallpapershome.com/images/pages/pic_v/10121.jpg); /*url(https://i.pinimg.com/originals/2b/69/2f/2b692f288ca4a957d0570fb9b40c2e5b.jpg); url(https://us.123rf.com/450wm/sotnikovmisha/sotnikovmisha1901/sotnikovmisha190100067/116338454-stars-in-the-sky-the-traveler-looks-at-the-starry-sky-night-sky-with-stars-the-man-with-the-lantern-.jpg?ver=6); */
   background-position: center center;
@@ -26,10 +26,16 @@ body {
   background-color: tan;
 }
 
+form {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; 
+}
+
 img {
-  width: 75px;
+  width: 200px;
   height: 0 auto;
-  /* padding: 2px; */
 }
 
 @media (min-width: 500px) {
@@ -41,13 +47,21 @@ img {
 
 /*CLASS*/
 
+.bioPara {
+  margin-top: 0px;
+  padding: 2px;
+  text-align: left;
+}
+
+.loadingMessage {
+  color: rgb(221, 137, 151);
+}
+
 .text{
   font-family: 'Akaya Kanadaka', cursive;
   font-size: 20px;
   color: white;
 }
-
-
 
 .myHero {                               /*To create gradient text Resource: https://www.w3docs.com/snippets/css/how-to-create-a-multicolor-text-in-html-and-css.html*/
   font-family: 'Bangers', cursive;
@@ -62,17 +76,13 @@ img {
 
 /*IDS*/
 
-/* #bodyloading {
-  width: 600px;
-  height: 450px;
-  background: url(https://media0.giphy.com/media/l0K4kWJir91VEoa1W/giphy.gif?cid=ecf05e47fypzgzewhtamtv8abha08stk137jwrupxec53ag2&rid=giphy.gif) 50% no repreat;
-  border: 1px solid black;
-  border-radius: 5px;
-} */
-
 #buttons {
   color: rgb(43, 124, 43);
 }
+
+/* #imageDiv {
+  text-align: center;
+} */
 
 #loader {                                         /*To create loading circle Resource: https://www.w3schools.com/howto/howto_css_loader.asp*/
   border: 16px solid rgb(116, 60, 70);
@@ -81,6 +91,7 @@ img {
   width: 120px;
   height: 120px;
   animation: spin 2s linear infinite;
+  text-align: center;
 }
 
 @keyframes spin {
@@ -88,11 +99,32 @@ img {
   100% {transform: rotate(360deg);}
 }
 
-#name-location {
+/* #loadingDivs {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+} */
+
+#profileName {
+  font-weight: bold;
+  font-size: 40px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  text-align: left;
+}
+
+#profileLocation {
 text-align: left;
+margin-top: 0px;
 }
 
 #profile-container {
   background-color: rgb(221, 221, 176);
-  padding: 2px;
+}
+
+#story {
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 0px;
+  text-align: left;
 }

@@ -131,35 +131,6 @@ function getFilterValues(e) {
         console.log(`Race doesn't matter, as long as they are ${alignmentValue}.`)
       }
     }
-      
-    // if (raceValue !== 'Race' && alignmentValue !== 'Alignment') {
-    //   if (char.appearance.race === raceValue && char.biography.alignment === alignmentValue) {
-    //     profile(char)
-    //     console.log(`Both ${raceValue} and ${alignmentValue}`)
-    //   }
-    // } else if (raceValue !== 'Race' && alignmentValue === 'Alignment') {
-    //   if (char.appearance.race === raceValue) {
-    //     profile(char)
-    //     console.log(`${raceValue} only, alignment doesn't matter.`)
-    //   }
-    // } else if (raceValue === 'Race' && alignmentValue !== 'Alignment') {
-    //   if (char.biography.alignment === alignmentValue) {
-    //     profile(char)
-    //     console.log(`Race doesn't matter, as long as they are ${alignmentValue}.`)
-    //   }
-    // }
-    
-    
-
-    // if (char.appearance.race === 'Other') {
-    //   // if (currentRace === '-' || currentRace === null || currentRace === 'null') {
-    //   //   char.appearance.race = null
-    //   // } else {
-    //     char.appearance.race = currentRace
-    //   //}
-    //   console.log('4', char.appearance.race)
-    // }
-
     
       console.log('in filters')
     })
@@ -273,10 +244,11 @@ function profile(person) {
   //console.log(dataContainer)
 
   profileInfo.innerHTML = 
-    `<img src=${person.image.url} alt='${person.name} class='image'>
-    <h2 class='text' id='name-location'> ${person.name} </h2>
-    <h3 class='text' id='name-location'> ${person.work.base} </h3>
-    <div class='specs'>
+    `<img src=${person.image.url} alt='${person.name}' id='image'>
+    <h2 class='text' id='profileName'> ${person.name} </h2>
+    <h3 class='text' id='profileLocation'> ${person.work.base} </h3>
+    <h2 class='text' id='story'>Story</h2>
+    <div class='bioPara'>
       <p class='text'> Hi. My name is ${person.name}, but you may know me as ${person.biography.aliases[0]}. I am ${person.appearance.race}, currently living in ${person.work.base}. I have an intelligence and power level of ${person.powerstats.intelligence}, and ${person.powerstats.power}, respectively. Take a look at my specs for more info. Interested? Contact me, if you can.</p>
     </div>`
   
@@ -284,46 +256,4 @@ function profile(person) {
   dataContainer.appendChild(profileInfo)
   
 }
-
-//-----------------------------------filtersInputOutput-------------------------------------//
-
-// function getFilterValues(peopleArr) {
-
-//   const form = document.querySelector('form')
-//   form.addEventListener('submit', (e) => {
-//     e.preventDefault()
-//     console.log('match')
-//     const raceValue = document.querySelector('#select-rFilter').value
-//     const alignmentValue = document.querySelector('#select-aFilter').value
-    
-//     //console.log('before filters')
-//     removeProfiles()
-//     //filters(raceValue, alignmentValue, peopleArr)
-
-//     peopleArr.forEach(char => {
-//       if (char.appearance.race === raceValue && char.biography.alignment === alignmentValue) {
-//         profile(char)
-//       } else if (char.appearance.race === race) {
-//         profile(char)
-//       } else if (char.biography.alignment === alignment) {
-//         profile(char)
-//       }
-
-//       console.log('in filters')
-//     })
-//   })
-// }
-
-
-// if (char.appearance.race === raceValue && char.biography.alignment === alignmentValue) {
-    //   profile(char)
-    // // } else if (char.appearance.race !== raceValue && char.biography.alignment === 'Alignment') {
-    // //   profile(char)
-    // } else if (char.appearance.race === raceValue && char.biography.alignment === 'Alignment') {
-    //   ifprofile(char)
-    // } else if (char.appearance.race === 'Race' && char.biography.alignment === alignmentValue) {
-    //   profile(char)
-    // } else {
-    //   profile(char)
-    // }
 
