@@ -6,13 +6,17 @@
 /* font-family: 'Bangers', cursive; */
 @import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap');
 /* font-family: 'Akaya Kanadaka', cursive; */
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap');
+
+
+
 
 /* base screen LxW: 375x667px */
 
 /*TAGS*/
 * {
   box-sizing: border-box; 
-  /* border: rgb(162, 238, 249) solid 2px;  */
+  border: rgb(162, 238, 249) solid 2px; 
 }
 
 body {
@@ -24,11 +28,12 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-color: tan;
+  /* display: flex;
+  flex-direction: column;
+  height: 100%; */
+  /* margin: 0; 
+  padding-bottom: 90%; */
 }
-
-/* button {
-  background-color: rgb(43, 124, 43);
-} */
 
 form {
   margin-bottom: 25px;
@@ -38,13 +43,19 @@ form {
   height: 30px;
 }
 
+/* html {
+  display: flex;
+  margin-bottom: 0px;
+} */
+
+/* html, body {
+  height: 100%;
+  margin: 0;
+} */
+
 img {
   width: 200px;
   height: 0 auto;
-}
-
-li {
-  
 }
 
 ul {
@@ -53,13 +64,6 @@ ul {
   color: white;
   margin-top: 8px;
 }
-
-@media (min-width: 500px) {
-  body {
-    font-size: 20px;
-  }
-}
-
 
 /*CLASS*/
 
@@ -80,12 +84,17 @@ ul {
   border: solid rgb(58, 89, 142) 2px;
   padding-top: 15px;
   border-radius: 12px;
+  /* position: relative;
+  margin-bottom: -50px */
 }
-
 
 .loadingMessage {
   color: rgb(221, 137, 151);
 }
+
+/* .specsPara {
+  height: 50px;
+} */
 
 .text{
   font-family: 'Akaya Kanadaka', cursive;
@@ -114,15 +123,21 @@ ul {
   
 } */
 
-#femaleButton {
+#femaleButton,
+#maleButton,
+#otherButton {
   background-color: rgb(80, 128, 225);
+  font-family: 'Bangers', cursive; 
   /* background-color: rgb(31, 31, 124); */
   /* background-color: rgb(230, 54, 54); */
 }
 
-#filterTitle {
-
-}
+/* #footer {
+  position: relative; 
+  margin-top: 30px;
+  height: 50px; 
+  align-self: flex-end; 
+} */
 
 #homeButton {
   background-color: rgb(249, 249, 153);
@@ -146,20 +161,20 @@ ul {
   100% {transform: rotate(360deg);}
 }
 
-#maleButton {
+/* #maleButton {
   background-color: rgb(80, 128, 225);
   /* background-color: rgb(31, 31, 124); */
-}
+} */
 
 #matchButton {
   background-color: rgb(174, 17, 46);
 }
 
-#otherButton {
+/* #otherButton {
   background-color: rgb(80, 128, 225);
 /* background-color: rgb(31, 31, 124); */
 /* background-color: rgb(28, 130, 28); */
-}
+} */
 
 #powerstats {
   text-align: left;
@@ -184,11 +199,12 @@ color: rgb(144, 144, 144);
 }
 
 #profile-container {
-  /* display: flex;  */
-  /* justify-content: space-between; */
+  display: flex;
   align-content: column;
-  /* background-color: rgb(3, 20, 50); */
-  /* background-color: rgb(221, 221, 176); */
+  flex-wrap: wrap;
+  /* min-height: 100%;
+  margin-bottom: -50px;
+  position: relative; */
 }
 
 #specs {
@@ -215,4 +231,45 @@ color: rgb(144, 144, 144);
   padding-left: 15px;
   padding-top: 0px;
   padding-bottom: 0px;
+}
+
+/* MEDIA QUERIES */
+
+
+@media (min-width: 769px) {
+  
+  body {
+    font-size: 20px;
+  }
+
+  .text{
+    font-size: 35px;
+  }
+
+  .buttons {
+
+  }
+
+#gender-buttons {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+  #myHeroTitle {
+    font-size: 75px;
+  }
+
+  #femaleButton,
+  #maleButton,
+  #otherButton {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  #profile-container {
+    align-content: column;
+    flex-wrap: wrap;
+  }
+
 }
