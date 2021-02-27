@@ -30,7 +30,8 @@ form {
   margin-bottom: 25px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between; 
+  justify-content: space-around; 
+  height: 30px;
 }
 
 img {
@@ -83,6 +84,10 @@ img {
 /* #imageDiv {
   text-align: center;
 } */
+
+#filterTitle {
+  
+}
 
 #loader {                                         /*To create loading circle Resource: https://www.w3schools.com/howto/howto_css_loader.asp*/
   border: 16px solid rgb(116, 60, 70);

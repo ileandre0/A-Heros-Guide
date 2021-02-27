@@ -205,7 +205,7 @@ function showFilters() {
 
   if (filterContainer.lastChild === null) {
     let filters = `
-      <p class='text'>Filters:</p>
+      <p class='text' id='filterTitle'>Filters:</p>
       <select name='filter' id='select-rFilter'>
         <option disabled selected value = 'Race'>Race</option>
         <option value = 'Human'>Human</option>
