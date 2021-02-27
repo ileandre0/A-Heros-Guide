@@ -10,8 +10,8 @@ let others = []
 let preference = []
 
 const accessAPI = async () => {                                           //async function to call API
-    for (let idElement = 1; idElement < dcIDArr.length; idElement++) {
-      //for (let idElement = 66; idElement !== 71; idElement++) {                       //make a call to the API for each DC character in my array using their ID
+    //for (let idElement = 1; idElement < dcIDArr.length; idElement++) {
+      for (let idElement = 66; idElement !== 71; idElement++) {                       //make a call to the API for each DC character in my array using their ID
       
       //const CORS = 'https://cors-anywhere.herokuapp.com/'                 //Solve CORS error I had with accessing the API. Have to ask for permission.
 
@@ -22,35 +22,16 @@ const accessAPI = async () => {                                           //asyn
 
         //const response = await axios.get(`${CORS}${dcURL}`)               //Have to combine the CORS and DC URLs
 
-          const show = document.querySelector('#loader');
-          const loadingMessage = document.createElement('div')
-                //Resource: https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
-          if (idElement !== dcIDArr.length - 1) {
-            show.style.display = "block"
-
-            if (show.lastChild) {
-              show.removeChild(show.lastChild)
-            }
-            
-            loadingMessage.innerHTML = '<h2>Calling all supers looking for love...</h2>'
-            show.appendChild(loadingMessage)
-
-            
+          const showloadingDivs = document.querySelector('#loadingDivs');
+          //if (idElement !== dcIDArr.length - 1) {
+          if (idElement !== 71) {                                     //Resource: https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
+            showloadingDivs.style.display = "block"
+            if (showloadingDivs.lastChild) {
+              showloadingDivs.removeChild(showloadingDivs.lastChild)
+            } 
           } else {
-            show.style.display = "none"
+            showloadingDivs.style.display = "none"
           }
-
-        
-        // const body = document.querySelector('body')
-        // body.toggleClass('loader', false)
-
-        // while (id < 20) {    //create in the body 
-        //   const body = document.querySelector('body')
-        //   const loadingBar = document.querySelector('.loader')
-        //   loadingImg.style.backgroundImage = "url('https://i.giphy.com/media/l3vRnoppYtfEbemBO/giphy.webp')"
-        //   body.appendChild(loadingBar)
-        
-        // }
 
         let character = response.data          
         const gen = response.data.appearance.gender
