@@ -12,7 +12,7 @@
 /*TAGS*/
 * {
   box-sizing: border-box; 
-  border: gold solid 2px;  /* this will help you with design*/
+  /* border: rgb(162, 238, 249) solid 2px;  */
 }
 
 body {
@@ -25,6 +25,10 @@ body {
   background-size: cover;
   background-color: tan;
 }
+
+/* button {
+  background-color: rgb(43, 124, 43);
+} */
 
 form {
   margin-bottom: 25px;
@@ -54,6 +58,19 @@ img {
   text-align: left;
 }
 
+.buttons {
+  color: white;
+  border-radius: 4px;
+}
+
+.characterProfiles {
+  background-color: rgb(3, 20, 50);
+  margin-top: 30px;
+  border: solid rgb(58, 89, 142) 2px;
+  padding-top: 15px
+}
+
+
 .loadingMessage {
   color: rgb(221, 137, 151);
 }
@@ -77,16 +94,29 @@ img {
 
 /*IDS*/
 
-#buttons {
-  color: rgb(43, 124, 43);
-}
-
 /* #imageDiv {
   text-align: center;
 } */
 
-#filterTitle {
+/* #filterTitle {
   
+} */
+
+#femaleButton {
+  background-color: rgb(80, 128, 225);
+  /* background-color: rgb(31, 31, 124); */
+  /* background-color: rgb(230, 54, 54); */
+}
+
+#filterTitle {
+
+}
+
+#homeButton {
+  background-color: rgb(249, 249, 153);
+  color: black;
+  display: flex;
+  align-content: left;
 }
 
 #loader {                                         /*To create loading circle Resource: https://www.w3schools.com/howto/howto_css_loader.asp*/
@@ -104,11 +134,20 @@ img {
   100% {transform: rotate(360deg);}
 }
 
-/* #loadingDivs {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-} */
+#maleButton {
+  background-color: rgb(80, 128, 225);
+  /* background-color: rgb(31, 31, 124); */
+}
+
+#matchButton {
+  background-color: rgb(174, 17, 46);
+}
+
+#otherButton {
+  background-color: rgb(80, 128, 225);
+/* background-color: rgb(31, 31, 124); */
+/* background-color: rgb(28, 130, 28); */
+}
 
 #profileName {
   font-weight: bold;
@@ -116,15 +155,22 @@ img {
   margin-bottom: 0px;
   margin-top: 0px;
   text-align: left;
+  padding-left: 15px;
 }
 
 #profileLocation {
 text-align: left;
 margin-top: 0px;
+padding-left: 15px;
+color: rgb(144, 144, 144);
 }
 
 #profile-container {
-  background-color: rgb(221, 221, 176);
+  /* display: flex;  */
+  /* justify-content: space-between; */
+  align-content: column;
+  /* background-color: rgb(3, 20, 50); */
+  /* background-color: rgb(221, 221, 176); */
 }
 
 #story {
@@ -132,4 +178,11 @@ margin-top: 0px;
   font-size: 30px;
   margin-bottom: 0px;
   text-align: left;
+  padding-left: 15px;
+  border-top: solid rgb(255, 243, 175) 1px;
+  border-radius: 4px;
+}
+
+#storyParagraph {
+  padding-left: 15px;
 }

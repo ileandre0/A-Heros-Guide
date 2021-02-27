@@ -12,7 +12,7 @@ const filterContainer = document.querySelector('#filter-container')
 
 const accessAPI = async () => {                                           //async function to call API
     //for (let idElement = 1; idElement < dcIDArr.length; idElement++) {
-      for (let idElement = 66; idElement !== 71; idElement++) {                       //make a call to the API for each DC character in my array using their ID
+      for (let idElement = 66; idElement < 90; idElement++) {                       //make a call to the API for each DC character in my array using their ID
       
       //const CORS = 'https://cors-anywhere.herokuapp.com/'                 //Solve CORS error I had with accessing the API. Have to ask for permission.
 
@@ -25,11 +25,8 @@ const accessAPI = async () => {                                           //asyn
 
           const showloadingDivs = document.querySelector('#loadingDivs');
           //if (idElement !== dcIDArr.length - 1) {
-          if (idElement !== 71) {                                     //Resource: https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
+          if (idElement !== 89) {                                     //Resource: https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
             showloadingDivs.style.display = "block"
-            if (showloadingDivs.lastChild) {
-              showloadingDivs.removeChild(showloadingDivs.lastChild)
-            } 
           } else {
             showloadingDivs.style.display = "none"
           }
@@ -170,7 +167,7 @@ function getFilterValues(e) {
 
 function listen() {
 
-  const homeButton = document.querySelector('#home')
+  const homeButton = document.querySelector('#homeButton')
   homeButton.addEventListener('click', () => {
     
     while (filterContainer.lastChild) {
@@ -182,7 +179,7 @@ function listen() {
     })
   
 
-  const femaleButton = document.querySelector('#female')
+  const femaleButton = document.querySelector('#femaleButton')
   femaleButton.addEventListener('click', () => {
     
     removeProfiles()
@@ -198,7 +195,7 @@ function listen() {
     
   })
 
-  const maleButton = document.querySelector('#male')
+  const maleButton = document.querySelector('#maleButton')
   maleButton.addEventListener('click', () => {
   
     removeProfiles()
@@ -214,7 +211,7 @@ function listen() {
     
   })
 
-  const otherButton = document.querySelector('#other')
+  const otherButton = document.querySelector('#otherButton')
   otherButton.addEventListener('click', () => {
 
     //console.log('clicked')
@@ -258,7 +255,7 @@ function showFilters() {
         <option value = 'good'>Good</option>
         <option value = 'bad'>Bad</option>
       </select>
-      <button type='click' id='matchButton' id='buttons'>Match</button>
+      <button type='click' class='buttons' id='matchButton'>Match</button>
     `
     filterContainer.insertAdjacentHTML('beforeend', filters)
 
@@ -279,8 +276,9 @@ function showFilters() {
 function profile(person) {
   console.log("Profile Info:", person)
   //console.log('Inside profile')
-  const dataContainer = document.querySelector('#profile-container')
+  const profileContainer = document.querySelector('#profile-container')
   const profileInfo = document.createElement('div')
+  profileInfo.className = 'characterProfiles'
   //console.log(dataContainer)
 
   profileInfo.innerHTML = 
@@ -289,11 +287,11 @@ function profile(person) {
     <h3 class='text' id='profileLocation'> ${person.work.base} </h3>
     <h2 class='text' id='story'>Story</h2>
     <div class='bioPara'>
-      <p class='text'> Hi. My name is ${person.name}, but you may know me as ${person.biography.aliases[0]}. I am ${person.appearance.race}, currently living in ${person.work.base}. I have an intelligence and power level of ${person.powerstats.intelligence}, and ${person.powerstats.power}, respectively. Take a look at my specs for more info. Interested? Contact me, if you can.</p>
+      <p class='text' id='storyParagraph'> Hi. My name is ${person.name}, but you may know me as ${person.biography.aliases[0]}. I am ${person.appearance.race}, currently living in ${person.work.base}. I have an intelligence and power level of ${person.powerstats.intelligence}, and ${person.powerstats.power}, respectively. Take a look at my specs for more info. Interested? Contact me, if you can.</p>
     </div>`
   
   //console.log(profileInfo)
-  dataContainer.appendChild(profileInfo)
+  profileContainer.appendChild(profileInfo)
   
 }
 
