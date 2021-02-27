@@ -51,6 +51,7 @@ ul {
   list-style-type: none;
   text-align: left;
   color: white;
+  margin-top: 8px;
 }
 
 @media (min-width: 500px) {
@@ -64,7 +65,7 @@ ul {
 
 .bioPara {
   margin-top: 0px;
-  padding: 2px;
+  /* padding-top: 5px; */
   text-align: left;
 }
 
@@ -177,6 +178,7 @@ ul {
 #profileLocation {
 text-align: left;
 margin-top: 0px;
+margin-bottom: 5px;
 padding-left: 15px;
 color: rgb(144, 144, 144);
 }
@@ -194,18 +196,23 @@ color: rgb(144, 144, 144);
   font-weight: bold;
   font-size: 30px;
   padding-left: 15px;
-  margin-top: 0px;
-}
+  margin-top: 15px;
+  margin-bottom: 0px;
+  border-top: solid rgb(255, 243, 175) 1px;}
 
 #story {
   font-weight: bold;
   font-size: 30px;
-  margin-bottom: 0px;
+  margin-top: 0px;
   text-align: left;
   padding-left: 15px;
-  border-top: solid rgb(255, 243, 175) 1px;
+  /* border-top: solid rgb(255, 243, 175) 1px; */
 }
 
 #storyParagraph {
+  margin-top: 0px;
+  margin-bottom: 5px;
   padding-left: 15px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
