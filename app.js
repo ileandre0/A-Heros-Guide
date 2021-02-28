@@ -289,19 +289,18 @@ function profile(person) {
     <div class='bioPara'>
       <p class='text' id='storyParagraph'> Hi. My name is ${person.name}, but you may know me as ${person.biography.aliases[0]}. I am ${person.appearance.race}, currently living in ${person.work.base}. I have an intelligence and power level of ${person.powerstats.intelligence}, and ${person.powerstats.power}, respectively. Take a look at my specs for more info. Interested? Contact me, if you can.</p>
     </div>
+    <h2 class='text' id='specs'>Specs</h2>
+    <div class='specsPara'>
+      <ul>
+        <li class='text'>Intelligence: ${person.powerstats.intelligence}</li>
+        <li class='text'>Strength: ${person.powerstats.strength}</li>
+        <li class='text'>Speed: ${person.powerstats.speed}</li>
+        <li class='text'>Durability: ${person.powerstats.durability}</li>
+        <li class='text'>Power: ${person.powerstats.power}</li>
+        <li class='text'>Combat: ${person.powerstats.combat}</li>
+      </ul>
+    </div>
     `
-    //<h2 class='text' id='specs'>Specs</h2>
-    // <div class='specsPara'>
-    //   <ul>
-    //     <li class='text'>Intelligence: ${person.powerstats.intelligence}</li>
-    //     <li class='text'>Strength: ${person.powerstats.strength}</li>
-    //     <li class='text'>Speed: ${person.powerstats.speed}</li>
-    //     <li class='text'>Durability: ${person.powerstats.durability}</li>
-    //     <li class='text'>Power: ${person.powerstats.power}</li>
-    //     <li class='text'>Combat: ${person.powerstats.combat}</li>
-    //   </ul>
-    // </div>
-    
   
   //console.log(profileInfo)
   profileContainer.appendChild(profileInfo)

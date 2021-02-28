@@ -148,8 +148,8 @@ ul {
 #homeButton {
   background-color: rgb(249, 249, 153);
   color: black;
-  /* display: flex; */
-  /* align-content: flex-end; */
+  display: flex;
+  align-content: left;
   /* text-align: end; */
   margin-right: 0px;
 }
@@ -253,7 +253,7 @@ color: rgb(144, 144, 144);
   margin-top: 0px;
   text-align: left;
   padding-left: 15px;
-  /* border-top: solid rgb(255, 243, 175) 1px; */
+  border-top: solid rgb(255, 243, 175) 1px;
 }
 
 #storyParagraph {
