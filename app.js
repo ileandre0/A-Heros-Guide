@@ -11,8 +11,8 @@ let preference = []
 const filterContainer = document.querySelector('#filter-container')
 
 const accessAPI = async () => {                                           //async function to call API
-    for (let idElement = 1; idElement < dcIDArr.length; idElement++) {
-      //for (let idElement = 50; idElement < 59; idElement++) {                       //make a call to the API for each DC character in my array using their ID
+    //for (let idElement = 1; idElement < dcIDArr.length; idElement++) {
+      for (let idElement = 50; idElement < 59; idElement++) {                       //make a call to the API for each DC character in my array using their ID
       
       //const CORS = 'https://cors-anywhere.herokuapp.com/'                 //Solve CORS error I had with accessing the API. Have to ask for permission.
 
@@ -23,15 +23,21 @@ const accessAPI = async () => {                                           //asyn
 
         //const response = await axios.get(`${CORS}${dcURL}`)               //Have to combine the CORS and DC URLs
 
-          const showloadingDivs = document.querySelector('#loadingDivs');
-          const hideBody = document.querySelector('.hideBody')
-          if (idElement !== dcIDArr.length - 1) {
-          //if (idElement !== 58) {                                     //Resource: https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
-            showloadingDivs.style.display = "block"
-            hideBody.style.display = "none"
+          const showloadingDiv = document.querySelector('#loadingDiv');
+          const hideBody = document.querySelectorAll('.hideBody')
+          console.log(hideBody)
+          //if (idElement !== dcIDArr.length - 1) {
+          if (idElement !== 58) {                                     //Resource: https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
+            showloadingDiv.style.display = "block"
+            hideBody.forEach(element => {
+              element.style.display = "none"
+            })
           } else {
-            showloadingDivs.style.display = "none"
-            hideBody.style.display = "block"
+            showloadingDiv.style.display = "none"
+            hideBody.forEach(element => {
+              element.style.display = "block"
+            })
+            // hideBody.style.display = "block"
           }
 
         let person = response.data          
