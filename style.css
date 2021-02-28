@@ -29,6 +29,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-color: tan;
+  /* position: absolute; */
   /* width: 100%; */
   /* display: flex;
   flex-direction: column;
@@ -37,10 +38,7 @@ body {
   padding-bottom: 90%; */
 }
 
-/* html {
-  display: flex;
-  margin-bottom: 0px;
-} */
+
 
 /* html, body {
   height: 100%;
@@ -140,7 +138,9 @@ ul {
 
 #footer {
   bottom: 0;
+  color: gold;
   position: absolute;
+  margin: 0;
   left: 0;
   right: 0;
   font-size: 10px;
@@ -249,9 +249,8 @@ ul {
   flex-wrap: wrap;
   justify-content: center;
   /* align-content: space-evenly; */
-  /* min-height: 100%;
-  margin-bottom: -50px;
-  position: relative; */
+  /* min-height: 100%; */
+  /*position: relative; */
 }
 
 #select-rFilter,

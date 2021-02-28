@@ -12,7 +12,7 @@ const filterContainer = document.querySelector('#filter-container')
 
 const accessAPI = async () => {                                           //async function to call API
     //for (let idElement = 1; idElement < dcIDArr.length; idElement++) {
-      for (let idElement = 50; idElement < 59; idElement++) {                       //make a call to the API for each DC character in my array using their ID
+      for (let idElement = 50; idElement < 52; idElement++) {                       //make a call to the API for each DC character in my array using their ID
       
       //const CORS = 'https://cors-anywhere.herokuapp.com/'                 //Solve CORS error I had with accessing the API. Have to ask for permission.
 
@@ -25,9 +25,8 @@ const accessAPI = async () => {                                           //asyn
 
           const showloadingDiv = document.querySelector('#loadingDiv');
           const hideBody = document.querySelectorAll('.hideBody')
-          console.log(hideBody)
           //if (idElement !== dcIDArr.length - 1) {
-          if (idElement !== 58) {                                     //Resource: https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
+          if (idElement !== 51) {                                     //Resource: https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
             showloadingDiv.style.display = "block"
             hideBody.forEach(element => {
               element.style.display = "none"
@@ -106,6 +105,7 @@ function getFilterValues(e) {
     removeProfiles()
     //filters(raceValue, alignmentValue, peopleArr)
     console.log(raceValue, alignmentValue)
+  
     preference.forEach(person => {
     let currentRace
 
@@ -128,16 +128,27 @@ function getFilterValues(e) {
           person.appearance.race = currentRace
         }
         profile(person)
+        console.log('4', person.appearance.race)
         console.log(`Both ${raceValue} and ${alignmentValue}`)
+      } else {
+        if (person.appearance.race === 'Other') {
+          person.appearance.race = currentRace
+        }
       }
     } else if (raceValue !== 'Race' && alignmentValue === 'Alignment') {
       
       if (person.appearance.race === raceValue) {
+        
         if (person.appearance.race === 'Other') {
           person.appearance.race = currentRace
         }
         profile(person)
+        console.log('5', person.appearance.race)
         console.log(`${raceValue} only, alignment doesn't matter.`)
+      } else {
+        if (person.appearance.race === 'Other') {
+          person.appearance.race = currentRace
+        }
       }
     } else if (raceValue === 'Race' && alignmentValue !== 'Alignment') {
       
@@ -146,17 +157,25 @@ function getFilterValues(e) {
           person.appearance.race = currentRace
         }
         profile(person)
+        console.log('6', person.appearance.race)
         console.log(`Race doesn't matter, as long as they are ${alignmentValue}.`)
+      } else {
+        if (person.appearance.race === 'Other') {
+          person.appearance.race = currentRace
+        }
       }
     } else {
+      
       if (person.appearance.race === 'Other') {
         person.appearance.race = currentRace
       }
       profile(person)
+      console.log('7', person.appearance.race)
     }
-    
+    console.log(person.appearance.race)
       console.log('in filters')
     })
+  
 }
 
 //-----------------------------------listen-------------------------------------//
