@@ -17,7 +17,7 @@ font-family: 'Montserrat', sans-serif; */
 /*TAGS*/
 * {
   box-sizing: border-box; 
-  border: rgb(162, 238, 249) solid 2px;
+  /* border: rgb(162, 238, 249) solid 2px; */
 }
 
 body {
@@ -29,6 +29,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-color: tan;
+  /* width: 100%; */
   /* display: flex;
   flex-direction: column;
   height: 100%; */
@@ -73,10 +74,14 @@ ul {
 
 .characterProfiles {
   background-color: rgb(3, 20, 50);
-  margin-top: 30px;
+  margin: 30px;
   border: solid rgb(58, 89, 142) 2px;
   padding-top: 15px;
   border-radius: 12px;
+  /* max-height: inherit; */
+  width: 365px;
+  /* width: 40%; */
+
   /* position: relative;
   margin-bottom: -50px */
 }
@@ -98,7 +103,7 @@ ul {
 .myHero {                               /*To create gradient text Resource: https://www.w3docs.com/snippets/css/how-to-create-a-multicolor-text-in-html-and-css.html*/
   font-family: 'Bangers', cursive;
   /* color: #16C72E; */
-  background-image: linear-gradient(to left, /*#3836FD*/ #1e1bbd, #F2F4E5, #F8CF17, #3d7d46/*, #F30003*/);
+  background-image: linear-gradient(to right, /*#3836FD*/ #ff2104, #F2F4E5, #002fff/*, #F8CF17, #F30003*/);
   -webkit-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;
@@ -122,8 +127,8 @@ ul {
 }
 
 #filterTitle {
-  text-align: left;
-  margin-bottom: -27px;
+  text-align: center;
+  /* margin-bottom: -27px; */
 }
 
 /* #filter-container{
@@ -143,8 +148,10 @@ ul {
 #homeButton {
   background-color: rgb(249, 249, 153);
   color: black;
-  display: flex;
-  align-content: left;
+  /* display: flex; */
+  /* align-content: flex-end; */
+  /* text-align: end; */
+  margin-right: 0px;
 }
 
 #loader {                                         /*To create loading circle Resource: https://www.w3schools.com/howto/howto_css_loader.asp*/
@@ -178,6 +185,16 @@ ul {
   background-color: rgb(28, 130, 28);
 } */
 
+#myHeroTitle {                               /*To create gradient text Resource: https://www.w3docs.com/snippets/css/how-to-create-a-multicolor-text-in-html-and-css.html*/
+  font-family: 'Bangers', cursive;
+  /* color: #16C72E; */
+  background-image: linear-gradient(to right, /*#3836FD*/ #1834b4, #ce3737, white/*, #F8CF17, #F30003*/);
+  -webkit-background-clip: text;
+  /* -moz-background-clip: text; */
+  background-clip: text;
+  color: transparent;
+}
+
 #powerstats {
   text-align: left;
   padding-left: 15px;
@@ -202,8 +219,10 @@ color: rgb(144, 144, 144);
 
 #profile-container {
   display: flex;
-  align-content: column;
+  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
+  /* align-content: space-evenly; */
   /* min-height: 100%;
   margin-bottom: -50px;
   position: relative; */
@@ -254,6 +273,10 @@ color: rgb(144, 144, 144);
     font-size: 20px;
   }
 
+  /* img {
+    
+  } */
+
   select {
     font-size: 20px;
     content: 25px;
@@ -264,7 +287,7 @@ color: rgb(144, 144, 144);
   }
 
   .text{
-    font-size: 35px;
+    font-size: 20px;
   }
 
 #gender-buttons {
@@ -278,7 +301,8 @@ color: rgb(144, 144, 144);
 
   #femaleButton,
   #maleButton,
-  #otherButton {
+  #otherButton,
+  #homeButton {
     padding: 10px;
     font-size: 20px;
     font-weight: bold;
@@ -294,17 +318,27 @@ color: rgb(144, 144, 144);
 #filterTitle {
   font-size: 30px;
   margin-top: 5px;
-  margin-bottom: -35px;
+  /* margin-bottom: -35px; */
+  /* padding-left: 30; */
 }
 
   #matchButton {
     padding: 10px;
   }
 
-  #profile-container {
-    align-content: column;
-    flex-wrap: wrap;
+  #myHeroTitle {
+    margin-bottom: 15px;
   }
+
+  #welcome, 
+  #looking-for {
+    font-size: 30px;
+  }
+
+  /* #profile-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  } */
 
 /* #selector-fFilter,
 #selector-aFilter {

@@ -12,7 +12,7 @@ const filterContainer = document.querySelector('#filter-container')
 
 const accessAPI = async () => {                                           //async function to call API
     //for (let idElement = 1; idElement < dcIDArr.length; idElement++) {
-      for (let idElement = 66; idElement < 90; idElement++) {                       //make a call to the API for each DC character in my array using their ID
+      for (let idElement = 50; idElement < 59; idElement++) {                       //make a call to the API for each DC character in my array using their ID
       
       //const CORS = 'https://cors-anywhere.herokuapp.com/'                 //Solve CORS error I had with accessing the API. Have to ask for permission.
 
@@ -25,7 +25,7 @@ const accessAPI = async () => {                                           //asyn
 
           const showloadingDivs = document.querySelector('#loadingDivs');
           //if (idElement !== dcIDArr.length - 1) {
-          if (idElement !== 89) {                                     //Resource: https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
+          if (idElement !== 58) {                                     //Resource: https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
             showloadingDivs.style.display = "block"
           } else {
             showloadingDivs.style.display = "none"
@@ -244,7 +244,7 @@ function showFilters() {
 
   if (filterContainer.lastChild === null) {
     let filters = `
-      <p class='text' id='filterTitle'>Filters:</p>
+      <p class='text' id='filterTitle'>Filters:
       <select name='filter' id='select-rFilter'>
         <option disabled selected value = 'Race'>Race</option>
         <option value = 'Human'>Human</option>
@@ -255,7 +255,7 @@ function showFilters() {
         <option value = 'good'>Good</option>
         <option value = 'bad'>Bad</option>
       </select>
-      <button type='click' class='buttons' id='matchButton'>Match</button>
+      <button type='click' class='buttons' id='matchButton'>Match</button> </p>
     `
     filterContainer.insertAdjacentHTML('beforeend', filters)
 
@@ -289,18 +289,19 @@ function profile(person) {
     <div class='bioPara'>
       <p class='text' id='storyParagraph'> Hi. My name is ${person.name}, but you may know me as ${person.biography.aliases[0]}. I am ${person.appearance.race}, currently living in ${person.work.base}. I have an intelligence and power level of ${person.powerstats.intelligence}, and ${person.powerstats.power}, respectively. Take a look at my specs for more info. Interested? Contact me, if you can.</p>
     </div>
-    <h2 class='text' id='specs'>Specs</h2>
-    <div class='specsPara'>
-      <ul>
-        <li class='text'>Intelligence: ${person.powerstats.intelligence}</li>
-        <li class='text'>Strength: ${person.powerstats.strength}</li>
-        <li class='text'>Speed: ${person.powerstats.speed}</li>
-        <li class='text'>Durability: ${person.powerstats.durability}</li>
-        <li class='text'>Power: ${person.powerstats.power}</li>
-        <li class='text'>Combat: ${person.powerstats.combat}</li>
-      </ul>
-    </div>
     `
+    //<h2 class='text' id='specs'>Specs</h2>
+    // <div class='specsPara'>
+    //   <ul>
+    //     <li class='text'>Intelligence: ${person.powerstats.intelligence}</li>
+    //     <li class='text'>Strength: ${person.powerstats.strength}</li>
+    //     <li class='text'>Speed: ${person.powerstats.speed}</li>
+    //     <li class='text'>Durability: ${person.powerstats.durability}</li>
+    //     <li class='text'>Power: ${person.powerstats.power}</li>
+    //     <li class='text'>Combat: ${person.powerstats.combat}</li>
+    //   </ul>
+    // </div>
+    
   
   //console.log(profileInfo)
   profileContainer.appendChild(profileInfo)
