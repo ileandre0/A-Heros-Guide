@@ -138,12 +138,13 @@ ul {
   height: 30px;
 } */
 
-/* #footer {
-  position: relative; 
-  margin-top: 30px;
-  height: 50px; 
-  align-self: flex-end; 
-} */
+#footer {
+  bottom: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  font-size: 10px;
+}
 
 #homeButton {
   background-color: rgb(249, 249, 153);
@@ -163,13 +164,26 @@ ul {
   height: 120px;
   animation: spin 2s linear infinite;
   text-align: center;
+  margin: auto;
 }
 
-/* #loadingDiv {
-  display: flex;
+#loadingDiv {
+  margin-top: auto 0px;
+}
+
+#loadingOverlay {
+  /* display: flex;
   flex-direction: row;
-  justify-content: center;
-} */
+  justify-content: center; */
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  z-index: -1;
+}
+
+
 
 @keyframes spin {
   0% {transform: rotate(0deg);}
