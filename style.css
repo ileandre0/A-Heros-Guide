@@ -254,6 +254,11 @@ color: rgb(144, 144, 144);
     font-size: 20px;
   }
 
+  select {
+    font-size: 20px;
+    content: 25px;
+  }
+
   .buttons {
     border-radius: 8px;
   }
@@ -280,13 +285,16 @@ color: rgb(144, 144, 144);
   }
 
 #filter-container {
-  margin: 30px;
-  border: 20px;
-  content: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 #filterTitle {
   font-size: 30px;
+  margin-top: 5px;
+  margin-bottom: -35px;
 }
 
   #matchButton {
@@ -297,5 +305,13 @@ color: rgb(144, 144, 144);
     align-content: column;
     flex-wrap: wrap;
   }
+
+/* #selector-fFilter,
+#selector-aFilter {
+  font-size: 30px;
+  border: solid orange 2px;
+  padding: red;
+  margin: green;
+} */
 
 }
