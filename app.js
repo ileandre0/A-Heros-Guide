@@ -1,6 +1,6 @@
-let dcIDArr = [3, 8, 14, 17, 20, 28, 32, 36, 37, 38, 49, 50, 51, 52, 53, 54, 55, 58, 60, 66, 69, 70, 73, 76, 78, 81, 93, 95, 97, 98, 100, 103, 105, 123, 124, 125, 126, 132, 136, 137, 142, 144, 150, 152, 156, 158, 165, 170, 172, 173, 174, 177, 181, 184, 194, 195, 204, 212, 214, 216, 224, 229, 230, 233, 240, 242, 246, 253, 255, 260, 261, 263, 276, 278, 284, 288, 294, 295, 298, 305, 306, 309, 312, 315, 316, 317, 318, 319, 320, 342, 348, 360, 367, 368, 370, 384, 386, 387, 388, 390, 396, 397, 405, 406, 407, 408, 413, 424, 427, 432, 436, 439, 444, 445, 446, 448, 451, 455, 457, 459, 461, 464, 466, 468, 494, 499, 506, 508, 509, 514, 515, 516, 519, 520, 521, 522, 524, 528, 535, 538, 542, 543, 545, 551, 557, 558, 559, 564, 565, 569, 576, 585, 593, 597, 600, 601, 602, 603, 608, 609, 611, 615, 632, 633, 634, 635, 637, 641, 642, 643, 644, 645, 657, 674, 675, 676, 678, 692, 699, 706, 711, 713, 718, 720, 730, 731]
+let dcIDArr = [3, 8, 14, 17, 20, 28, 32, 38, 49, 51, 52, 53, 58, 60, 66, 69, 70, 73, 76, 78, 81, 93, 95, 97, 98, 100, 103, 105, 126, 132, 136, 137, 142, 144, 150, 152, 156, 158, 165, 170, 172, 173, 174, 177, 181, 194, 195, 204, 212, 214, 216, 224, 229, 230, 233, 240, 242, 246, 253, 255, 260, 261, 263, 276, 278, 284, 288, 294, 295, 298, 305, 306, 309, 312, 315, 316, 317, 318, 319, 320, 342, 348, 360, 367, 368, 370, 384, 386, 387, 388, 390, 396, 397, 405, 406, 407, 408, 413, 424, 427, 432, 436, 439, 444, 445, 448, 451, 455, 457, 459, 461, 499, 506, 508, 509, 514, 516, 520, 521, 522, 524, 528, 535, 538, 542, 543, 545, 551, 557, 558, 559, 564, 565, 569, 576, 585, 593, 597, 600, 601, 602, 603, 608, 609, 611, 615, 632, 633, 634, 635, 637, 643, 644, 645, 657, 676, 678, 692, 699, 706, 711, 713, 718, 720, 730, 731]
 //let fIDArr = [52, 66, 73, 81, 97, 98, 142, 165, 172, 173, 174, 229, 242, 253, 255, 284, 295, 309, 315, 317, 318, 319, 342, 348, 360, 387, 406, 439, 444, 455, 516, 521, 522, 524, 542, 565, 585, 593, 597, 602, 603, 615, 632, 633, 643, 676, 699, 711, 718, 720, 730] //removed 596
-//let mIDArr = [3, 8, 14, 17, 20, 28, 32, 36, 37, 38, 49, 50, 51, 53, 54, 55, 58, 60, 69, 70, 76, 78, 93, 95, 100, 103, 105, 123, 124, 125, 126, 132, 136, 137, 144, 150, 152, 156, 158, 170, 177, 181, 184, 194, 195, 204, 212, 214, 216, 224, 230, 233, 240, 246, 260, 261, 263, 276, 278, 288, 294, 298, 305, 306, 312, 316, 320, 367, 368, 370, 384, 386, 388, 390, 396, 397, 405, 407, 408, 413, 424, 427, 432, 436, 445, 446, 448, 451, 457, 459, 461, 464, 466, 468, 494, 499, 506, 508, 514, 515, 519, 520, 528, 535, 538, 543, 545, 551, 557, 558, 559, 564, 569, 576, 600, 601, 608, 609, 611, 634, 635, 637, 641, 642, 644, 645, 657, 674, 675, 678, 692, 706, 713, 731] //removed: 244
+//let mIDArr = [3, 8, 14, 17, 20, 28, 32, 38, 49, 51, 53, 58, 60, 69, 70, 76, 78, 93, 95, 100, 103, 105, 126, 132, 136, 137, 144, 150, 152, 156, 158, 170, 177, 181, 194, 195, 204, 212, 214, 216, 224, 230, 233, 240, 246, 260, 261, 263, 276, 278, 288, 294, 298, 305, 306, 312, 316, 320, 367, 368, 370, 384, 386, 388, 390, 396, 397, 405, 407, 408, 413, 424, 427, 432, 436, 445, 448, 451, 457, 459, 461, 499, 506, 508, 514, 520, 528, 535, 538, 543, 545, 551, 557, 558, 559, 564, 569, 576, 600, 601, 608, 609, 611, 634, 635, 637, 644, 645, 657, 678, 692, 706, 713, 731] //removed: 36, 37, 50, 54, 55, 123, 124, 125, 184, 244, 446, 464, 466, 468, 494, 515, 519, 641, 642, 674, 675
 //let oIDArr = [509]
 
 let dcChar = []
@@ -11,8 +11,8 @@ let preference = []
 const filterContainer = document.querySelector('#filter-container')
 
 const accessAPI = async () => {                                           //async function to call API
-    //for (let idElement = 1; idElement < dcIDArr.length; idElement++) {
-      for (let idElement = 50; idElement < 59; idElement++) {                       //make a call to the API for each DC character in my array using their ID
+    for (let idElement = 1; idElement < dcIDArr.length; idElement++) {
+      //for (let idElement = 50; idElement < 59; idElement++) {                       //make a call to the API for each DC character in my array using their ID
       
       //const CORS = 'https://cors-anywhere.herokuapp.com/'                 //Solve CORS error I had with accessing the API. Have to ask for permission.
 
@@ -24,17 +24,17 @@ const accessAPI = async () => {                                           //asyn
         //const response = await axios.get(`${CORS}${dcURL}`)               //Have to combine the CORS and DC URLs
 
           const showloadingDivs = document.querySelector('#loadingDivs');
-          //if (idElement !== dcIDArr.length - 1) {
-          if (idElement !== 58) {                                     //Resource: https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
+          if (idElement !== dcIDArr.length - 1) {
+          //if (idElement !== 58) {                                     //Resource: https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
             showloadingDivs.style.display = "block"
           } else {
             showloadingDivs.style.display = "none"
           }
 
-        let character = response.data          
+        let person = response.data          
         const gen = response.data.appearance.gender
 
-        arrFiltering(gen, character)                                       //This filters each character into female, male and other arrays
+        arrFiltering(gen, person)                                       //This filters each character into female, male and other arrays
 
       } catch (err) {
         console.error(err)
@@ -60,16 +60,16 @@ function isLoading() {
 
 //----------------------------------arrFiltering--------------------------------------//
 
-const arrFiltering = (gen, character) => {
+const arrFiltering = (gen, person) => {
   
-  dcChar.push(character)
+  dcChar.push(person)
 
   if (gen === 'Female') {
-    females.push(character)
+    females.push(person)
   } else if (gen === 'Male') {
-    males.push(character)
+    males.push(person)
   } else {
-    others.push(character)
+    others.push(person)
   }
 
   console.log('arrayfilters')
@@ -98,65 +98,53 @@ function getFilterValues(e) {
     removeProfiles()
     //filters(raceValue, alignmentValue, peopleArr)
     console.log(raceValue, alignmentValue)
-    preference.forEach(char => {
+    preference.forEach(person => {
     let currentRace
 
-    if (char.appearance.race !== 'Human') {
-      console.log('1', char.appearance.race)
-      currentRace = char.appearance.race
-      // if (char.appearance.race === '-' || char.appearance.race === null || char.appearance.race === 'null') {
+    if (person.appearance.race !== 'Human') {
+      console.log('1', person.appearance.race)
+      currentRace = person.appearance.race
+      // if (person.appearance.race === '-' || person.appearance.race === null || person.appearance.race === 'null') {
       //   currentRace = 'Other'
       // }
 
-      char.appearance.race = 'Other'
+      person.appearance.race = 'Other'
       console.log('2', currentRace)
-      console.log('3', char.appearance.race)
+      console.log('3', person.appearance.race)
     }
 
     if (raceValue !== 'Race' && alignmentValue !== 'Alignment') {
-      if (char.appearance.race === raceValue && char.biography.alignment === alignmentValue) {
+      if (person.appearance.race === raceValue && person.biography.alignment === alignmentValue) {
         
-        if (char.appearance.race === 'Other') {
-          if (char.appearance.race === '-' || char.appearance.race === null || char.appearance.race === 'null') {
-            currentRace = 'not Human'
-          }
-          char.appearance.race = currentRace
+        if (person.appearance.race === 'Other') {
+          person.appearance.race = currentRace
         }
-        profile(char)
+        profile(person)
         console.log(`Both ${raceValue} and ${alignmentValue}`)
       }
     } else if (raceValue !== 'Race' && alignmentValue === 'Alignment') {
       
-      if (char.appearance.race === raceValue) {
-        if (char.appearance.race === 'Other') {
-          if (char.appearance.race === '-' || char.appearance.race === null || char.appearance.race === 'null') {
-            currentRace = 'not Human'
-          }
-          char.appearance.race = currentRace
+      if (person.appearance.race === raceValue) {
+        if (person.appearance.race === 'Other') {
+          person.appearance.race = currentRace
         }
-        profile(char)
+        profile(person)
         console.log(`${raceValue} only, alignment doesn't matter.`)
       }
     } else if (raceValue === 'Race' && alignmentValue !== 'Alignment') {
       
-      if (char.biography.alignment === alignmentValue) {
-        if (char.appearance.race === 'Other') {
-          if (char.appearance.race === '-' || char.appearance.race === null || char.appearance.race === 'null') {
-            currentRace = 'not Human'
-          }
-          char.appearance.race = currentRace
+      if (person.biography.alignment === alignmentValue) {
+        if (person.appearance.race === 'Other') {
+          person.appearance.race = currentRace
         }
-        profile(char)
+        profile(person)
         console.log(`Race doesn't matter, as long as they are ${alignmentValue}.`)
       }
     } else {
-      if (char.appearance.race === 'Other') {
-        if (char.appearance.race === '-' || char.appearance.race === null || char.appearance.race === 'null') {
-          currentRace = 'not Human'
-        }
-        char.appearance.race = currentRace
+      if (person.appearance.race === 'Other') {
+        person.appearance.race = currentRace
       }
-      profile(char)
+      profile(person)
     }
     
       console.log('in filters')
@@ -281,13 +269,15 @@ function profile(person) {
   profileInfo.className = 'characterProfiles'
   //console.log(dataContainer)
 
+  isProfileInfoEmpty(person)
+
   profileInfo.innerHTML = 
     `<img src=${person.image.url} alt='${person.name}' id='image'>
     <h2 class='text' id='profileName'> ${person.name} </h2>
     <h3 class='text' id='profileLocation'> ${person.work.base} </h3>
     <h2 class='text' id='story'>Story</h2>
     <div class='bioPara'>
-      <p class='text' id='storyParagraph'> Hi. My name is ${person.name}, but you may know me as ${person.biography.aliases[0]}. I am ${person.appearance.race}, currently living in ${person.work.base}. I have an intelligence and power level of ${person.powerstats.intelligence}, and ${person.powerstats.power}, respectively. Take a look at my specs for more info. Interested? Contact me, if you can.</p>
+      <p class='text' id='storyParagraph'> Hi. My name is ${person.name}. I am ${person.appearance.race}, currently living in ${person.work.base}. I'm here looking for love just like you. Take a look at my specs for more info. If you think we'd be a great match, then contact me ... if you can.</p>
     </div>
     <h2 class='text' id='specs'>Specs</h2>
     <div class='specsPara'>
@@ -307,3 +297,35 @@ function profile(person) {
   
 }
 
+function isProfileInfoEmpty(person) {
+
+  if (person.appearance.race === '-' || person.appearance.race === null || person.appearance.race === 'null') {
+    person.appearance.race = 'not Human'
+  }
+
+  if (person.work.base === '-' || person.work.base === null || person.work.base === 'null') {
+    person.work.base = 'nowhere, yet everywhere'
+  }
+
+  if (person.powerstats.intelligence === '-' || person.powerstats.intelligence === null || person.powerstats.intelligence === 'null') {
+    person.powerstats.intelligence = 'TBD'
+  }
+
+  if (person.powerstats.strength === '-' || person.powerstats.strength === null || person.powerstats.strength === 'null') {
+    person.powerstats.strength === 'TBD'
+  }
+
+  if (person.powerstats.speed === '-' || person.powerstats.speed === null || person.powerstats.speed === 'null') {
+    person.powerstats.speed === 'TBD'
+}
+
+  if (person.powerstats.power === '-' || person.powerstats.power === null || person.powerstats.power === 'null') {
+    person.powerstats.power === 'TBD'
+}
+
+  if (person.powerstats.combat === '-' || person.powerstats.combat === null || person.powerstats.combat === 'null') {
+    person.powerstats.combat=== 'TBD'
+}
+
+  
+}
