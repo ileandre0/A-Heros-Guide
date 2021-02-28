@@ -6,8 +6,9 @@
 /* font-family: 'Bangers', cursive; */
 @import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap');
 /* font-family: 'Akaya Kanadaka', cursive; */
-@import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap');
+/* font-family: 'Acme', sans-serif;
+font-family: 'Montserrat', sans-serif; */
 
 
 
@@ -16,7 +17,7 @@
 /*TAGS*/
 * {
   box-sizing: border-box; 
-  border: rgb(162, 238, 249) solid 2px; 
+  border: rgb(162, 238, 249) solid 2px;
 }
 
 body {
@@ -33,14 +34,6 @@ body {
   height: 100%; */
   /* margin: 0; 
   padding-bottom: 90%; */
-}
-
-form {
-  margin-bottom: 25px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around; 
-  height: 30px;
 }
 
 /* html {
@@ -119,10 +112,6 @@ ul {
   text-align: center;
 } */
 
-/* #filterTitle {
-  
-} */
-
 #femaleButton,
 #maleButton,
 #otherButton {
@@ -131,6 +120,18 @@ ul {
   /* background-color: rgb(31, 31, 124); */
   /* background-color: rgb(230, 54, 54); */
 }
+
+#filterTitle {
+  text-align: left;
+  margin-bottom: -27px;
+}
+
+/* #filter-container{
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+} */
 
 /* #footer {
   position: relative; 
@@ -163,17 +164,18 @@ ul {
 
 /* #maleButton {
   background-color: rgb(80, 128, 225);
-  /* background-color: rgb(31, 31, 124); */
+  background-color: rgb(31, 31, 124); 
 } */
 
 #matchButton {
   background-color: rgb(174, 17, 46);
+  font-family: 'Bangers', cursive; 
 }
 
 /* #otherButton {
   background-color: rgb(80, 128, 225);
-/* background-color: rgb(31, 31, 124); */
-/* background-color: rgb(28, 130, 28); */
+  background-color: rgb(31, 31, 124);
+  background-color: rgb(28, 130, 28);
 } */
 
 #powerstats {
@@ -205,6 +207,16 @@ color: rgb(144, 144, 144);
   /* min-height: 100%;
   margin-bottom: -50px;
   position: relative; */
+}
+
+#matchButton {
+  margin-left: 20px;
+}
+
+#select-rFilter,
+#select-aFilter {
+  margin-left: 15px;
+  margin-right: 5px;
 }
 
 #specs {
@@ -242,12 +254,12 @@ color: rgb(144, 144, 144);
     font-size: 20px;
   }
 
-  .text{
-    font-size: 35px;
+  .buttons {
+    border-radius: 8px;
   }
 
-  .buttons {
-
+  .text{
+    font-size: 35px;
   }
 
 #gender-buttons {
@@ -265,6 +277,20 @@ color: rgb(144, 144, 144);
     padding: 10px;
     font-size: 20px;
     font-weight: bold;
+  }
+
+#filter-container {
+  margin: 30px;
+  border: 20px;
+  content: 20px;
+}
+
+#filterTitle {
+  font-size: 30px;
+}
+
+  #matchButton {
+    padding: 10px;
   }
 
   #profile-container {
