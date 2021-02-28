@@ -37,7 +37,6 @@ const accessAPI = async () => {                                           //asyn
             hideBody.forEach(element => {
               element.style.display = "block"
             })
-            // hideBody.style.display = "block"
           }
 
         let person = response.data          
