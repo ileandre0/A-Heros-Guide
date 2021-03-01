@@ -1,5 +1,6 @@
 let dcIDArr = [3, 8, 14, 17, 20, 28, 32, 38, 49, 52, 53, 58, 60, 66, 69, 70, 73, 76, 78, 81, 93, 95, 98, 100, 103, 105, 126, 132, 136, 137, 142, 144, 150, 152, 156, 158, 165, 170, 172, 173, 174, 177, 181, 194, 195, 204, 212, 214, 216, 224, 230, 233, 240, 242, 246, 253, 260, 261, 263, 276, 278, 284, 288, 294, 298, 305, 306, 309, 312, 315, 316, 317, 320, 342, 348, 360, 367, 368, 370, 384, 386, 387, 388, 390, 396, 397, 405, 406, 407, 408, 413, 424, 427, 432, 436, 439, 444, 445, 448, 451, 455, 457, 459, 461, 499, 506, 508, 509, 514, 516, 520, 521, 522, 524, 528, 535, 538, 542, 543, 545, 551, 557, 558, 559, 564, 565, 569, 576, 585, 597, 600, 601, 602, 608, 609, 611, 615, 632, 633, 634, 635, 637, 643, 644, 645, 657, 676, 678, 692, 699, 706, 711, 713, 718, 720, 730, 731]
 //The array above holds all the IDs of the DC Comic heros and villian.
+
 let dcCharacters = []                                                       //Array that will hold each persons info objects
 let females = []                                                            //Array that will hold each females info objects
 let males = []                                                              //Array that will hold each males info objects
@@ -164,7 +165,6 @@ function isProfileInfoEmpty(person) {                                      //Che
 //----------------------------------removeProfiles--------------------------------------//
 
 function removeProfiles() {                                               //Removes profiles as long as the profile-container has them.
-  // const removeDiv = document.querySelector('#profile-container')
   while (profileContainer.lastChild) {
     profileContainer.removeChild(profileContainer.lastChild)
   }
