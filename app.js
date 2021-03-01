@@ -9,65 +9,52 @@ let males = []
 let others = []
 let preference = []
 const filterContainer = document.querySelector('#filter-container')
+const profileContainer = document.querySelector('#profile-container')
 
 const accessAPI = async () => {                                           //async function to call API
-    //for (let idElement = 1; idElement < dcIDArr.length; idElement++) {
-      for (let idElement = 50; idElement < 52; idElement++) {                       //make a call to the API for each DC character in my array using their ID
-      
-      //const CORS = 'https://cors-anywhere.herokuapp.com/'                 //Solve CORS error I had with accessing the API. Have to ask for permission.
+  for (let idElement = 1; idElement < dcIDArr.length; idElement++) {
+    
+    const dcURL = `https://superheroapi.com/api/1967700243378120/${dcIDArr[idElement]}` //API URL
 
-      const dcURL = `https://superheroapi.com/api/1967700243378120/${dcIDArr[idElement]}` //API URL
+    try {
+      const response = await axios.get(dcURL)               //Have to combine the CORS and DC URLs
 
-        try {
-        const response = await axios.get(dcURL)               //Have to combine the CORS and DC URLs
+      const showloadingDiv = document.querySelector('#loadingDiv');     
+      const hideBody = document.querySelectorAll('.hideBody')
 
-        //const response = await axios.get(`${CORS}${dcURL}`)               //Have to combine the CORS and DC URLs
+      if (idElement !== dcIDArr.length - 1) {                           //Resource: https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
+          //if (idElement !== 51) {                                     
+        showloadingDiv.style.display = "block"                          //this hides the body until and shows the loading circle until everything loads
+        
+        hideBody.forEach(element => {
+          element.style.display = "none"
+        })
+      } else {
+        showloadingDiv.style.display = "none"
 
-          const showloadingDiv = document.querySelector('#loadingDiv');
-          const hideBody = document.querySelectorAll('.hideBody')
-          //if (idElement !== dcIDArr.length - 1) {
-          if (idElement !== 51) {                                     //Resource: https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
-            showloadingDiv.style.display = "block"
-            hideBody.forEach(element => {
-              element.style.display = "none"
-            })
-          } else {
-            showloadingDiv.style.display = "none"
-            hideBody.forEach(element => {
-              element.style.display = "block"
-            })
-          }
-
-        let person = response.data          
-        const gen = response.data.appearance.gender
-
-        arrFiltering(gen, person)                                       //This filters each character into female, male and other arrays
-
-      } catch (err) {
-        console.error(err)
+        hideBody.forEach(element => {
+          element.style.display = "block"
+        })
       }
-      }
+
+      let person = response.data                                       //grabs each persons object from the API
+      const gen = response.data.appearance.gender                       //grabs each persons object from the API
+
+      arrFiltering(gen, person)                                       //This filters each persons object into female, male and other arrays
+
+    } catch (err) {
+      console.error(err)
+    }
+  }
   
-    console.log('done')
-    listen()                                                               //Calls the listen function after this function loads
+  listen()                                                               //Calls the listen function after this function loads
 }
   
 accessAPI()                                                                //Accesses the API before user can interact with the program
 
-//----------------------------------Loading--------------------------------------//
-function isLoading() {
-  const image = document.images[0]
-  const downloadingImage = new Image()
-  downloadingImage.onload = function () {
-    image.src =  this.src
-  }
-  downloadingImage.src = 'https://media4.giphy.com/media/l3vRnoppYtfEbemBO/giphy.webp?cid=ecf05e47a01k2lsdfw3rv1rpxwpjhxkvgyazeykez9k4j2ds&rid=giphy.webp'
-}
-
 //----------------------------------arrFiltering--------------------------------------//
 
-const arrFiltering = (gen, person) => {
-  
+function arrFiltering(gen, person) {                                     //filters each persons object under human, male or other
   dcChar.push(person)
 
   if (gen === 'Female') {
@@ -77,17 +64,14 @@ const arrFiltering = (gen, person) => {
   } else {
     others.push(person)
   }
-
-  console.log('arrayfilters')
 }
 
 //----------------------------------removeProfiles--------------------------------------//
 
-const removeProfiles = () => {
+function removeProfiles() {
   const removeDiv = document.querySelector('#profile-container')
   while (removeDiv.lastChild) {
     removeDiv.removeChild(removeDiv.lastChild)
-    //console.log('removed')
   }
 }
 
@@ -96,121 +80,94 @@ const removeProfiles = () => {
 function getFilterValues(e) {
   e.preventDefault()
   listen()
-    console.log('match')
-    const raceValue = document.querySelector('#select-rFilter').value
-    const alignmentValue = document.querySelector('#select-aFilter').value
+
+  const raceValue = document.querySelector('#select-rFilter').value
+  const alignmentValue = document.querySelector('#select-aFilter').value
     
-    //console.log('before filters')
-    removeProfiles()
-    //filters(raceValue, alignmentValue, peopleArr)
-    console.log(raceValue, alignmentValue)
+  removeProfiles()
   
-    preference.forEach(person => {
+  preference.forEach(person => {
     let currentRace
 
     if (person.appearance.race !== 'Human') {
-      console.log('1', person.appearance.race)
       currentRace = person.appearance.race
-      // if (person.appearance.race === '-' || person.appearance.race === null || person.appearance.race === 'null') {
-      //   currentRace = 'Other'
-      // }
 
       person.appearance.race = 'Other'
-      console.log('2', currentRace)
-      console.log('3', person.appearance.race)
     }
 
     if (raceValue !== 'Race' && alignmentValue !== 'Alignment') {
       if (person.appearance.race === raceValue && person.biography.alignment === alignmentValue) {
-        
         if (person.appearance.race === 'Other') {
           person.appearance.race = currentRace
         }
         profile(person)
-        console.log('4', person.appearance.race)
-        console.log(`Both ${raceValue} and ${alignmentValue}`)
       } else {
         if (person.appearance.race === 'Other') {
           person.appearance.race = currentRace
         }
       }
+
     } else if (raceValue !== 'Race' && alignmentValue === 'Alignment') {
-      
       if (person.appearance.race === raceValue) {
         
         if (person.appearance.race === 'Other') {
           person.appearance.race = currentRace
         }
         profile(person)
-        console.log('5', person.appearance.race)
-        console.log(`${raceValue} only, alignment doesn't matter.`)
       } else {
         if (person.appearance.race === 'Other') {
           person.appearance.race = currentRace
         }
       }
+
     } else if (raceValue === 'Race' && alignmentValue !== 'Alignment') {
-      
       if (person.biography.alignment === alignmentValue) {
         if (person.appearance.race === 'Other') {
           person.appearance.race = currentRace
         }
         profile(person)
-        console.log('6', person.appearance.race)
-        console.log(`Race doesn't matter, as long as they are ${alignmentValue}.`)
       } else {
         if (person.appearance.race === 'Other') {
           person.appearance.race = currentRace
         }
       }
+
     } else {
-      
       if (person.appearance.race === 'Other') {
         person.appearance.race = currentRace
       }
       profile(person)
-      console.log('7', person.appearance.race)
     }
-    console.log(person.appearance.race)
-      console.log('in filters')
-    })
+  })
   
+  isNoMatch()  
 }
 
 //-----------------------------------listen-------------------------------------//
 
 function listen() {
-
-  const homeButton = document.querySelector('#homeButton')
-  homeButton.addEventListener('click', () => {
-    
+  const clearButton = document.querySelector('#clearButton')
+  clearButton.addEventListener('click', () => {
     while (filterContainer.lastChild) {
       filterContainer.removeChild(filterContainer.lastChild)
     }
     removeProfiles()
-    
-
     })
   
   const femaleButton = document.querySelector('#femaleButton')
   femaleButton.addEventListener('click', () => {
-    
     removeProfiles()
     showFilters()
 
     females.forEach((person) => {
       profile(person)
     })
-
-    console.log('female')
     
     preference = females
-    
   })
 
   const maleButton = document.querySelector('#maleButton')
   maleButton.addEventListener('click', () => {
-  
     removeProfiles()
     showFilters()
 
@@ -218,17 +175,11 @@ function listen() {
       profile(person)
     })
 
-    console.log('male')
-
     preference = males
-    
   })
 
   const otherButton = document.querySelector('#otherButton')
   otherButton.addEventListener('click', () => {
-
-    //console.log('clicked')
-
     removeProfiles()
     showFilters()
 
@@ -236,24 +187,13 @@ function listen() {
       profile(person)
     })   
 
-    console.log('other')
-
     preference = others
-
   })
-
 }
 
 //-----------------------------------showFilters-------------------------------------//
 
 function showFilters() {
-
-  // const filterContainer = document.querySelector('#filter-container')
-
-  // while (filterContainer.lastChild) {
-  //   filterContainer.removeChild(filterContainer.lastChild)
-  // }
-
   if (filterContainer.lastChild === null) {
     let filters = `
       <p class='text' id='filterTitle'>Filters:
@@ -272,26 +212,18 @@ function showFilters() {
     filterContainer.insertAdjacentHTML('beforeend', filters)
 
     
-      const matchButton = document.querySelector('#matchButton')
-      matchButton.addEventListener('click', getFilterValues)
+    const matchButton = document.querySelector('#matchButton')
+    matchButton.addEventListener('click', getFilterValues)
   } 
 
-  //getFilterValues(preference)
   const matchButton = document.querySelector('#matchButton')
   matchButton.addEventListener('click', getFilterValues)
-
 }
-
-
 
 //----------------------------------profile--------------------------------------//
 function profile(person) {
-  console.log("Profile Info:", person)
-  //console.log('Inside profile')
-  const profileContainer = document.querySelector('#profile-container')
   const profileInfo = document.createElement('div')
   profileInfo.className = 'characterProfiles'
-  //console.log(dataContainer)
 
   isProfileInfoEmpty(person)
 
@@ -316,23 +248,23 @@ function profile(person) {
     </div>
     `
   
-  //console.log(profileInfo)
   profileContainer.appendChild(profileInfo)
+}
 
-  const checkForProfile = document.querySelector('#profile-container')
-  if (!checkForProfile.lastChild) {
-    const noMatchFound = document.createElement('p')
+function isNoMatch() {
+  if (checkForProfile.lastChild === null) {
+    const noMatchFound = document.createElement('div')
     noMatchFound.innerHTML = `
-    <p>Oops!</p>
-    <p>Looks like there is nobody who meets your requirements.</p> 
-    <p>Let's not be picky. Your options are limited.</p>
-    <p>Update your filters and keep searching.</p>`
+      <p class='text'>Oops!</p>
+      <pclass='text'>Looks like there is nobody who meets your requirements.</p> 
+      <pclass='text'>Let's not be picky. Your options are limited.</p>
+      <pclass='text'>Update your filters and keep searching.</p>`
   }
-  
+
+  profileContainer.appendChild(noMathchFound)
 }
 
 function isProfileInfoEmpty(person) {
-
   if (person.appearance.race === '-' || person.appearance.race === null || person.appearance.race === 'null') {
     person.appearance.race = 'not Human'
   }
@@ -351,15 +283,13 @@ function isProfileInfoEmpty(person) {
 
   if (person.powerstats.speed === '-' || person.powerstats.speed === null || person.powerstats.speed === 'null') {
     person.powerstats.speed === 'TBD'
-}
+  }
 
   if (person.powerstats.power === '-' || person.powerstats.power === null || person.powerstats.power === 'null') {
     person.powerstats.power === 'TBD'
-}
+  }
 
   if (person.powerstats.combat === '-' || person.powerstats.combat === null || person.powerstats.combat === 'null') {
     person.powerstats.combat=== 'TBD'
-}
-
-  
+  }
 }
