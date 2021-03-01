@@ -1,14 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
-/* font-family: 'Bangers', cursive; */
 @import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap');
-/* font-family: 'Akaya Kanadaka', cursive; */
 
-/* base screen LxW: 375x667px */
+/*-----------------------------------------TAGS----------------------------------------------*/
 
-/*TAGS*/
 * {
   box-sizing: border-box; 
-  /* border: rgb(162, 238, 249) solid 2px; */
 }
 
 body {
@@ -54,17 +50,13 @@ ul {
   width: 365px;
 }
 
-/* .footerClass {
-  position: relative;
-} */
-
 .loadingMessage {
   color: rgb(221, 137, 151);
 }
 
 .myHeroText {                               /*To create gradient text Resource: https://www.w3docs.com/snippets/css/how-to-create-a-multicolor-text-in-html-and-css.html*/
   font-family: 'Bangers', cursive;
-  background-image: linear-gradient(to right, /*#3836FD*/ #ff2104, #F2F4E5, #002fff/*, #F8CF17, #F30003*/);
+  background-image: linear-gradient(to right, #ff2104, #F2F4E5, #002fff);
   -webkit-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;
@@ -146,7 +138,7 @@ ul {
 
 #myHeroTitle {                               /*To create gradient text Resource: https://www.w3docs.com/snippets/css/how-to-create-a-multicolor-text-in-html-and-css.html*/
   font-family: 'Bangers', cursive;
-  background-image: linear-gradient(to right, /*#3836FD*/ #1834b4, #ce3737, white/*, #F8CF17, #F30003*/);
+  background-image: linear-gradient(to right, #1834b4, #ce3737, white);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

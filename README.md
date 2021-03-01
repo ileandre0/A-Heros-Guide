@@ -3,7 +3,7 @@
 ## myHero?
 
 myHero? URL:
-NOTE: You must request temporary access at https://cors-anywhere.herokuapp.com/corsdemo before using this program.
+NOTE: You may need to request temporary access at https://cors-anywhere.herokuapp.com/corsdemo before using this program.
 
 ## Project Description
 
