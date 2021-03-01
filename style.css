@@ -95,7 +95,11 @@ ul {
 #clearButton {
   background-color: rgb(218, 159, 32);
   color: black;
-  align-content: left;
+}
+
+#clearButtonDiv {
+display: flex;
+justify-content: left;
 }
 
 #loader {                                         /*To create loading circle Resource: https://www.w3schools.com/howto/howto_css_loader.asp*/
