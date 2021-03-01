@@ -64,7 +64,6 @@ function isLoading() {
   downloadingImage.src = 'https://media4.giphy.com/media/l3vRnoppYtfEbemBO/giphy.webp?cid=ecf05e47a01k2lsdfw3rv1rpxwpjhxkvgyazeykez9k4j2ds&rid=giphy.webp'
 }
 
-
 //----------------------------------arrFiltering--------------------------------------//
 
 const arrFiltering = (gen, person) => {
@@ -193,7 +192,6 @@ function listen() {
 
     })
   
-
   const femaleButton = document.querySelector('#femaleButton')
   femaleButton.addEventListener('click', () => {
     
@@ -243,7 +241,6 @@ function listen() {
     preference = others
 
   })
-
 
 }
 
