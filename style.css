@@ -73,9 +73,7 @@ ul {
   color: white;
 }
 
-
 /*-----------------------------------------IDS----------------------------------------------*/
-
 
 #femaleButton,
 #maleButton,
@@ -150,22 +148,14 @@ ul {
   font-family: 'Bangers', cursive; 
 }
 
-/* #otherButton {
-  background-color: rgb(80, 128, 225);
-  background-color: rgb(31, 31, 124);
-  background-color: rgb(28, 130, 28);
-} */
-
 #matchButton {
   margin-left: 20px;
 }
 
 #myHeroTitle {                               /*To create gradient text Resource: https://www.w3docs.com/snippets/css/how-to-create-a-multicolor-text-in-html-and-css.html*/
   font-family: 'Bangers', cursive;
-  /* color: #16C72E; */
   background-image: linear-gradient(to right, /*#3836FD*/ #1834b4, #ce3737, white/*, #F8CF17, #F30003*/);
   -webkit-background-clip: text;
-  /* -moz-background-clip: text; */
   background-clip: text;
   color: transparent;
 }
@@ -197,9 +187,6 @@ ul {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  /* align-content: space-evenly; */
-  /* min-height: 100%; */
-  /*position: relative; */
 }
 
 #select-rFilter,
@@ -234,18 +221,13 @@ ul {
   padding-bottom: 0px;
 }
 
-/* MEDIA QUERIES */
+/*------------------------------MEDIA QUERIES------------------------------*/
 
-
-@media (min-width: 769px) {
+@media (min-width: 767px) {
   
   body {
     font-size: 20px;
   }
-
-  /* img {
-    
-  } */
 
   select {
     font-size: 20px;
@@ -262,11 +244,12 @@ ul {
 
   #femaleButton,
   #maleButton,
+  #matchButton,
   #otherButton,
   #homeButton {
     padding: 10px;
     font-size: 20px;
-    font-weight: bold;
+    /* font-weight: bold; */
   }
 
   #filter-container {
@@ -279,8 +262,6 @@ ul {
   #filterTitle {
     font-size: 30px;
     margin-top: 5px;
-    /* margin-bottom: -35px; */
-    /* padding-left: 30; */
   }
 
   #gender-buttons {
@@ -302,17 +283,62 @@ ul {
     font-size: 30px;
   }
 
-  /* #profile-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-  } */
+}
 
-/* #selector-fFilter,
-#selector-aFilter {
-  font-size: 30px;
-  border: solid orange 2px;
-  padding: red;
-  margin: green;
-} */
+@media (min-width: 1024px) {
+  
+  body {
+    font-size: 30px;
+  }
+
+  select {
+    font-size: 30px;
+    content: 35px;
+  }
+
+  .buttons {
+    border-radius: 8px;
+  }
+
+.text{
+  font-size: 20px;
+  }
+
+  #femaleButton,
+  #maleButton,
+  #matchButton,
+  #otherButton,
+  #homeButton {
+    padding: 10px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  #filter-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  #filterTitle {
+    font-size: 50px;
+    margin-top: 5px;
+  }
+
+  #gender-buttons {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  #myHeroTitle {
+    font-size: 85px;
+    margin-bottom: 15px;
+  }
+
+  #welcome, 
+  #looking-for {
+    font-size: 40px;
+  }
 
 }
