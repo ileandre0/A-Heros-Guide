@@ -1,15 +1,16 @@
 let dcIDArr = [3, 8, 14, 17, 20, 28, 32, 38, 49, 52, 53, 58, 60, 66, 69, 70, 73, 76, 78, 81, 93, 95, 98, 100, 103, 105, 126, 132, 136, 137, 142, 144, 150, 152, 156, 158, 165, 170, 172, 173, 174, 177, 181, 194, 195, 204, 212, 214, 216, 224, 230, 233, 240, 242, 246, 253, 260, 261, 263, 276, 278, 284, 288, 294, 298, 305, 306, 309, 312, 315, 316, 317, 320, 342, 348, 360, 367, 368, 370, 384, 386, 387, 388, 390, 396, 397, 405, 406, 407, 408, 413, 424, 427, 432, 436, 439, 444, 445, 448, 451, 455, 457, 459, 461, 499, 506, 508, 509, 514, 516, 520, 521, 522, 524, 528, 535, 538, 542, 543, 545, 551, 557, 558, 559, 564, 565, 569, 576, 585, 597, 600, 601, 602, 608, 609, 611, 615, 632, 633, 634, 635, 637, 643, 644, 645, 657, 676, 678, 692, 699, 706, 711, 713, 718, 720, 730, 731]
+//the array above hold ALL the IDs of DC charcters in the API I access, becaue I need to make a call for each individual character
 //let fIDArr = [52, 66, 73, 81, 98, 142, 165, 172, 173, 174, 242, 253, 284, 309, 315, 317, 342, 348, 360, 387, 406, 439, 444, 455, 516, 521, 522, 524, 542, 565, 585, 597, 602, 615, 632, 633, 643, 676, 699, 711, 718, 720, 730] //removed 97, 229, 255, 295, 318, 319, 593, 596, 603
 //let mIDArr = [3, 8, 14, 17, 20, 28, 32, 38, 49, 53, 58, 60, 69, 70, 76, 78, 93, 95, 100, 103, 105, 126, 132, 136, 137, 144, 150, 152, 156, 158, 170, 177, 181, 194, 195, 204, 212, 214, 216, 224, 230, 233, 240, 246, 260, 261, 263, 276, 278, 288, 294, 298, 305, 306, 312, 316, 320, 367, 368, 370, 384, 386, 388, 390, 396, 397, 405, 407, 408, 413, 424, 427, 432, 436, 445, 448, 451, 457, 459, 461, 499, 506, 508, 514, 520, 528, 535, 538, 543, 545, 551, 557, 558, 559, 564, 569, 576, 600, 601, 608, 609, 611, 634, 635, 637, 644, 645, 657, 678, 692, 706, 713, 731] //removed: 36, 37, 50, 51, 54, 55, 123, 124, 125, 184, 244, 446, 464, 466, 468, 494, 515, 519, 641, 642, 674, 675
 //let oIDArr = [509]
 
-let dcChar = []
-let females = []
-let males = []
-let others = []
-let preference = []
-const filterContainer = document.querySelector('#filter-container')
-const profileContainer = document.querySelector('#profile-container')
+let dcChar = []                                                       //Array that will hold each persons info objects
+let females = []                                                      //Array that will hold each females info objects
+let males = []                                                        //Array that will hold each males info objects
+let others = []                                                       //Array that will hold each others info objects
+let preference = []                                                   //temporarily holds the array of the users preference
+const filterContainer = document.querySelector('#filter-container')   //container for the filters is global because it is references in multiple functions
+const profileContainer = document.querySelector('#profile-container') //container for the profiles is global because it is references in multiple functions
 
 const accessAPI = async () => {                                           //async function to call API
   for (let idElement = 1; idElement < dcIDArr.length; idElement++) {
@@ -68,46 +69,46 @@ function arrFiltering(gen, person) {                                     //filte
 
 //----------------------------------removeProfiles--------------------------------------//
 
-function removeProfiles() {
-  const removeDiv = document.querySelector('#profile-container')
-  while (removeDiv.lastChild) {
-    removeDiv.removeChild(removeDiv.lastChild)
+function removeProfiles() {                                               //removes profiles as long as the profile-container has them.
+  // const removeDiv = document.querySelector('#profile-container')
+  while (profileContainer.lastChild) {
+    profileContainer.removeChild(profileContainer.lastChild)
   }
 }
 
 //-----------------------------------getFilterValues-------------------------------------//
 
-function getFilterValues(e) {
+function getFilterValues(e) {                                         //checks if the filters have been clicked and filters the users preference based on that info
   e.preventDefault()
   listen()
 
-  const raceValue = document.querySelector('#select-rFilter').value
-  const alignmentValue = document.querySelector('#select-aFilter').value
+  const raceValue = document.querySelector('#select-rFilter').value           //holds the value of the Race filter
+  const alignmentValue = document.querySelector('#select-aFilter').value      //holds the value of the Select filter
     
   removeProfiles()
   
   preference.forEach(person => {
     let currentRace
 
-    if (person.appearance.race !== 'Human') {
+    if (person.appearance.race !== 'Human') {                                  //If they're not human, their race temporarily becomes "Other"
       currentRace = person.appearance.race
 
       person.appearance.race = 'Other'
     }
 
-    if (raceValue !== 'Race' && alignmentValue !== 'Alignment') {
-      if (person.appearance.race === raceValue && person.biography.alignment === alignmentValue) {
-        if (person.appearance.race === 'Other') {
+    if (raceValue !== 'Race' && alignmentValue !== 'Alignment') {             //If both filter options are chosen, then ...
+      if (person.appearance.race === raceValue && person.biography.alignment === alignmentValue) {    //checks if requirements are met
+        if (person.appearance.race === 'Other') {                             //returns the persons race back to their original race
           person.appearance.race = currentRace
         }
-        profile(person)
+        profile(person)                                                       //prints profiles
       } else {
         if (person.appearance.race === 'Other') {
           person.appearance.race = currentRace
         }
       }
 
-    } else if (raceValue !== 'Race' && alignmentValue === 'Alignment') {
+    } else if (raceValue !== 'Race' && alignmentValue === 'Alignment') {    //If the Race filter was chosen, then ...
       if (person.appearance.race === raceValue) {
         
         if (person.appearance.race === 'Other') {
@@ -120,50 +121,50 @@ function getFilterValues(e) {
         }
       }
 
-    } else if (raceValue === 'Race' && alignmentValue !== 'Alignment') {
+    } else if (raceValue === 'Race' && alignmentValue !== 'Alignment') {    //If the Alignment filter was chosen, then ...
       if (person.biography.alignment === alignmentValue) {
         if (person.appearance.race === 'Other') {
           person.appearance.race = currentRace
         }
         profile(person)
-      } else {
+      } else {    
         if (person.appearance.race === 'Other') {
           person.appearance.race = currentRace
         }
       }
 
-    } else {
-      if (person.appearance.race === 'Other') {
-        person.appearance.race = currentRace
-      }
-      profile(person)
+    // } else {
+    //   if (person.appearance.race === 'Other') {
+    //     person.appearance.race = currentRace
+    //   }
+    //   profile(person)
     }
   })
   
-  isNoMatch()  
+  isNoMatch()                                                       //This function checks to see if the profile container does have children
 }
 
 //-----------------------------------listen-------------------------------------//
 
-function listen() {
+function listen() {                                                 //Listens for the click of the clear, female, male and other buttons
   const clearButton = document.querySelector('#clearButton')
-  clearButton.addEventListener('click', () => {
+  clearButton.addEventListener('click', () => {                     //removes the filter options and profiles from the page
     while (filterContainer.lastChild) {
-      filterContainer.removeChild(filterContainer.lastChild)
+      filterContainer.removeChild(filterContainer.lastChild)        
     }
     removeProfiles()
     })
   
   const femaleButton = document.querySelector('#femaleButton')
   femaleButton.addEventListener('click', () => {
-    removeProfiles()
-    showFilters()
+    removeProfiles()                                              //removes any existing profiles on the page
+    showFilters()                                                 //shows the filters
 
-    females.forEach((person) => {
+    females.forEach((person) => {                                 //shows each profile inside the female object-array
       profile(person)
     })
     
-    preference = females
+    preference = females                                           //makes preference (a global variable) equal to females
   })
 
   const maleButton = document.querySelector('#maleButton')
@@ -193,8 +194,8 @@ function listen() {
 
 //-----------------------------------showFilters-------------------------------------//
 
-function showFilters() {
-  if (filterContainer.lastChild === null) {
+function showFilters() {                                                          //shows the filters on the page
+  if (filterContainer.lastChild === null) {                                       //if the filters are already there then nothing happens
     let filters = `
       <p class='text' id='filterTitle'>Filters:
       <select name='filter' id='select-rFilter'>
@@ -210,18 +211,14 @@ function showFilters() {
       <button type='click' class='buttons' id='matchButton'>Match</button> </p>
     `
     filterContainer.insertAdjacentHTML('beforeend', filters)
-
-    
-    const matchButton = document.querySelector('#matchButton')
-    matchButton.addEventListener('click', getFilterValues)
   } 
 
-  const matchButton = document.querySelector('#matchButton')
+  const matchButton = document.querySelector('#matchButton')                              //listens fo the 'match' button the be clicked to read in all the values
   matchButton.addEventListener('click', getFilterValues)
 }
 
 //----------------------------------profile--------------------------------------//
-function profile(person) {
+function profile(person) {                                                                //prints out all the character profile information
   const profileInfo = document.createElement('div')
   profileInfo.className = 'characterProfiles'
 
@@ -251,45 +248,26 @@ function profile(person) {
   profileContainer.appendChild(profileInfo)
 }
 
-function isNoMatch() {
-  if (checkForProfile.lastChild === null) {
+function isNoMatch() {                                                                //checks to see if you don't have matches based off your filters places a message on the screen.
+  if (profileContainer.lastChild !== true) {
     const noMatchFound = document.createElement('div')
     noMatchFound.innerHTML = `
-      <p class='text'>Oops!</p>
-      <pclass='text'>Looks like there is nobody who meets your requirements.</p> 
-      <pclass='text'>Let's not be picky. Your options are limited.</p>
-      <pclass='text'>Update your filters and keep searching.</p>`
-  }
-
-  profileContainer.appendChild(noMathchFound)
+      <p class='text' id='noMatchtext'>Oops!</p>
+      <p class='text' id='noMatchtext'>Looks like there is no one who meets your requirements.</p> 
+      <p class='text' id='noMatchtext'>Let's not be picky. Your options are limited.</p>
+      <p class='text' id='noMatchtext'>Update your preference and filters and keep searching.</p>
+      `
+  profileContainer.appendChild(noMatchFound)
+}
 }
 
-function isProfileInfoEmpty(person) {
+function isProfileInfoEmpty(person) {                                                             //checks if there are any important profile info missing and fills them with general info
   if (person.appearance.race === '-' || person.appearance.race === null || person.appearance.race === 'null') {
-    person.appearance.race = 'not Human'
+    person.appearance.race = 'non-Human'
   }
 
   if (person.work.base === '-' || person.work.base === null || person.work.base === 'null') {
     person.work.base = 'nowhere, yet everywhere'
   }
 
-  if (person.powerstats.intelligence === '-' || person.powerstats.intelligence === null || person.powerstats.intelligence === 'null') {
-    person.powerstats.intelligence = 'TBD'
-  }
-
-  if (person.powerstats.strength === '-' || person.powerstats.strength === null || person.powerstats.strength === 'null') {
-    person.powerstats.strength === 'TBD'
-  }
-
-  if (person.powerstats.speed === '-' || person.powerstats.speed === null || person.powerstats.speed === 'null') {
-    person.powerstats.speed === 'TBD'
-  }
-
-  if (person.powerstats.power === '-' || person.powerstats.power === null || person.powerstats.power === 'null') {
-    person.powerstats.power === 'TBD'
-  }
-
-  if (person.powerstats.combat === '-' || person.powerstats.combat === null || person.powerstats.combat === 'null') {
-    person.powerstats.combat=== 'TBD'
-  }
 }
