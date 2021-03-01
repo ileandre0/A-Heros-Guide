@@ -4,7 +4,7 @@ let dcIDArr = [3, 8, 14, 17, 20, 28, 32, 38, 49, 52, 53, 58, 60, 66, 69, 70, 73,
 //let mIDArr = [3, 8, 14, 17, 20, 28, 32, 38, 49, 53, 58, 60, 69, 70, 76, 78, 93, 95, 100, 103, 105, 126, 132, 136, 137, 144, 150, 152, 156, 158, 170, 177, 181, 194, 195, 204, 212, 214, 216, 224, 230, 233, 240, 246, 260, 261, 263, 276, 278, 288, 294, 298, 305, 306, 312, 316, 320, 367, 368, 370, 384, 386, 388, 390, 396, 397, 405, 407, 408, 413, 424, 427, 432, 436, 445, 448, 451, 457, 459, 461, 499, 506, 508, 514, 520, 528, 535, 538, 543, 545, 551, 557, 558, 559, 564, 569, 576, 600, 601, 608, 609, 611, 634, 635, 637, 644, 645, 657, 678, 692, 706, 713, 731] //removed: 36, 37, 50, 51, 54, 55, 123, 124, 125, 184, 244, 446, 464, 466, 468, 494, 515, 519, 641, 642, 674, 675
 //let oIDArr = [509]
 
-let dcChar = []                                                       //Array that will hold each persons info objects
+let dcCharacters = []                                                       //Array that will hold each persons info objects
 let females = []                                                      //Array that will hold each females info objects
 let males = []                                                        //Array that will hold each males info objects
 let others = []                                                       //Array that will hold each others info objects
@@ -20,18 +20,18 @@ const accessAPI = async () => {                                           //asyn
     try {
       const response = await axios.get(dcURL)               //Have to combine the CORS and DC URLs
 
-      const showloadingDiv = document.querySelector('#loadingDiv');     
+      const showLoadingDiv = document.querySelector('#loadingDiv');     
       const hideBody = document.querySelectorAll('.hideBody')
 
       if (idElement !== dcIDArr.length - 1) {                           //Resource: https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
           //if (idElement !== 51) {                                     
-        showloadingDiv.style.display = "block"                          //this hides the body until and shows the loading circle until everything loads
+        showLoadingDiv.style.display = "block"                          //this hides the body until and shows the loading circle until everything loads
         
         hideBody.forEach(element => {
           element.style.display = "none"
         })
       } else {
-        showloadingDiv.style.display = "none"
+        showLoadingDiv.style.display = "none"
 
         hideBody.forEach(element => {
           element.style.display = "block"
@@ -39,28 +39,28 @@ const accessAPI = async () => {                                           //asyn
       }
 
       let person = response.data                                       //grabs each persons object from the API
-      const gen = response.data.appearance.gender                       //grabs each persons object from the API
+      const gender = response.data.appearance.gender                       //grabs each persons object from the API
 
-      arrFiltering(gen, person)                                       //This filters each persons object into female, male and other arrays
+      filterGender(gender, person)                                       //This filters each persons object into female, male and other arrays
 
     } catch (err) {
       console.error(err)
     }
   }
   
-  listen()                                                               //Calls the listen function after this function loads
+  listenForButtonClicks()                                                               //Calls the listen function after this function loads
 }
   
 accessAPI()                                                                //Accesses the API before user can interact with the program
 
-//----------------------------------arrFiltering--------------------------------------//
+//----------------------------------filterGender--------------------------------------//
 
-function arrFiltering(gen, person) {                                     //filters each persons object under human, male or other
-  dcChar.push(person)
+function filterGender(gender, person) {                                     //filters each persons object under human, male or other
+  dcCharacters.push(person)
 
-  if (gen === 'Female') {
+  if (gender === 'Female') {
     females.push(person)
-  } else if (gen === 'Male') {
+  } else if (gender === 'Male') {
     males.push(person)
   } else {
     others.push(person)
@@ -76,11 +76,11 @@ function removeProfiles() {                                               //remo
   }
 }
 
-//-----------------------------------getFilterValues-------------------------------------//
+//-----------------------------------getDropdownValues-------------------------------------//
 
-function getFilterValues(e) {                                         //checks if the filters have been clicked and filters the users preference based on that info
+function getDropdownValues(e) {                                         //checks if the filters have been clicked and filters the users preference based on that info
   e.preventDefault()
-  listen()
+  listenForButtonClicks()
 
   const raceValue = document.querySelector('#select-rFilter').value           //holds the value of the Race filter
   const alignmentValue = document.querySelector('#select-aFilter').value      //holds the value of the Select filter
@@ -88,10 +88,10 @@ function getFilterValues(e) {                                         //checks i
   removeProfiles()
   
   preference.forEach(person => {
-    let currentRace
+    let originalRace
 
     if (person.appearance.race !== 'Human') {                                  //If they're not human, their race temporarily becomes "Other"
-      currentRace = person.appearance.race
+    originalRace = person.appearance.race
 
       person.appearance.race = 'Other'
     }
@@ -99,12 +99,12 @@ function getFilterValues(e) {                                         //checks i
     if (raceValue !== 'Race' && alignmentValue !== 'Alignment') {             //If both filter options are chosen, then ...
       if (person.appearance.race === raceValue && person.biography.alignment === alignmentValue) {    //checks if requirements are met
         if (person.appearance.race === 'Other') {                             //returns the persons race back to their original race
-          person.appearance.race = currentRace
+          person.appearance.race = originalRace
         }
         profile(person)                                                       //prints profiles
       } else {
         if (person.appearance.race === 'Other') {
-          person.appearance.race = currentRace
+          person.appearance.race = originalRace
         }
       }
 
@@ -112,35 +112,35 @@ function getFilterValues(e) {                                         //checks i
       if (person.appearance.race === raceValue) {
         
         if (person.appearance.race === 'Other') {
-          person.appearance.race = currentRace
+          person.appearance.race = originalRace
         }
         profile(person)
       } else {
         if (person.appearance.race === 'Other') {
-          person.appearance.race = currentRace
+          person.appearance.race = originalRace
         }
       }
 
     } else if (raceValue === 'Race' && alignmentValue !== 'Alignment') {    //If the Alignment filter was chosen, then ...
       if (person.biography.alignment === alignmentValue) {
         if (person.appearance.race === 'Other') {
-          person.appearance.race = currentRace
+          person.appearance.race = originalRace
         }
         profile(person)
       } else {
         if (person.appearance.race === 'Other') {
-          person.appearance.race = currentRace
+          person.appearance.race = originalRace
         }
       }
     }
   })
   
-  isNoMatch()                                                       //This function checks to see if the profile container does have children
+  isNoProfileMatch()                                                       //This function checks to see if the profile container does have children
 }
 
-//-----------------------------------listen-------------------------------------//
+//-----------------------------------listenForButtonClicks-------------------------------------//
 
-function listen() {                                                 //Listens for the click of the clear, female, male and other buttons
+function listenForButtonClicks() {                                                 //Listens for the click of the clear, female, male and other buttons
   const clearButton = document.querySelector('#clearButton')
   clearButton.addEventListener('click', () => {                     //removes the filter options and profiles from the page
     while (filterContainer.lastChild) {
@@ -208,7 +208,7 @@ function showFilters() {                                                        
   } 
 
   const matchButton = document.querySelector('#matchButton')                              //listens fo the 'match' button the be clicked to read in all the values
-  matchButton.addEventListener('click', getFilterValues)
+  matchButton.addEventListener('click', getDropdownValues)
 }
 
 //----------------------------------profile--------------------------------------//
@@ -242,7 +242,7 @@ function profile(person) {                                                      
   profileContainer.appendChild(profileInfo)
 }
 
-function isNoMatch() {                                                                //checks to see if you don't have matches based off your filters places a message on the screen.
+function isNoProfileMatch() {                                                                //checks to see if you don't have matches based off your filters places a message on the screen.
   if (profileContainer.hasChildNodes() === false) {
     const noMatchFound = document.createElement('div')
     noMatchFound.innerHTML = `

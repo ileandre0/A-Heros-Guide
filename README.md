@@ -7,7 +7,7 @@ NOTE: You must request temporary access at https://cors-anywhere.herokuapp.com/c
 
 ## Project Description
 
-My project is an bachelor/bachelorette application for DC heroes and vilians. When users first enter the application they will be welcomed and prompted to choose whether they're looking for a male, female or other. Then a list will generate of all the heros and villians who are under that category. At the top of the screen there will be a filter that further targets the kind of person the user is looking for: race (human/other) and alignment.
+My project is an bachelor/bachelorette application for DC Comics heroes and vilians. When users first enter the application they will be welcomed and prompted to choose whether they're looking for a male, female or other. Then a list will generate of all the heros and villians who are under that category. At the top of the screen there will be filters that further targets the kind of person the user is looking for: Race (human/other) and Alignment (good/bad).
 
 https://www.edatingdoc.com/wp-content/uploads/Witty-Dating-Profile-Example.jpg
 https://dq1eylutsoz4u.cloudfront.net/2018/10/30173251/match-dating-profile-examples-bio.jpg
@@ -108,12 +108,12 @@ https://wireframe.cc/S1XLu5
 |  Day | Deliverable | Status
 |---|---| ---|
 |Feb 22-23| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
-|Feb 23| Project Approval | Incomplete
-|Feb 24| Core Application Structure (HTML, CSS, etc.) | Incomplete
-|Feb 24| Pseudocode / actual code | Incomplete
-|Feb 25| Initial Clickable Model/MVP  | Incomplete
-|Feb 26| Styling with CSS | Incomplete
-|March 1| Presentations | Incomplete
+|Feb 23| Project Approval | Complete
+|Feb 24| Core Application Structure (HTML, CSS, etc.) | Complete
+|Feb 24| Pseudocode / actual code | Complete
+|Feb 25| Initial Clickable Model/MVP  | Complete
+|Feb 26| Styling with CSS | Complete
+|March 1| Presentations | Complete
 
 ## Priority Matrix
 
@@ -123,24 +123,40 @@ Time vs Importance Graph: https://wireframe.cc/e6pyvw
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Psuedo code | L | 2hrs | 0.5hr |  |
-| Basic HTML | H | 1hr|  |  |
-| API Functionality | H | 2hrs| 3hrs |  |
-| CSS Basics and functionality | H | 3hrs|  |  |
-| Create style buttons | H | 2hrs|  |  |
-| JavaScript Dropdown Menu | H | 3hrs|  |  |
-| JS funtionality | H | 2hrs | 2hrs |  |
-| Testing | H | 3hrs |  |  |
-| CSS General Styling | H | 8hrs |  |  |
-| CSS Media queries | H | 2hrs |  |  |
-| Event Handlers | M | 2hrs |  |  |
-| Total | H | 30hrs |  |  |
+| Psuedo code | L | 2hrs | 0.5hr | 0.5hr |
+| Basic HTML | H | 1hr| 0.5hr | 0.5hr |
+| API Functionality | H | 2hrs| 6hrs | 6hrs |
+| CSS Basics and functionality | H | 3hrs| 7hrs | 7hrs |
+| Create style buttons | H | 2hrs| 1.5hrs | 1.5hrs |
+| JavaScript Dropdown Menu | H | 3hrs| 6hrs | 6hrs |
+| JS funtionality | H | 2hrs | 44hrs | 44hrs |
+| Testing | H | 3hrs | 4hrs | 4hrs |
+| CSS General Styling | H | 8hrs | 10hrs | 10hrs |
+| CSS Media queries | H | 2hrs | 1.5hrs | 1.5hrs |
+| Event Handlers | M | 2hrs | 2.5hrs | 2.5hrs |
+| Total | H | 30hrs | 83.5hrs | 83.5hrs |
 
 ## Code Snippet
 
-None yet.
+I chose this code snippet because I was able to determine whether the filter buttons were clicked and filter the people accordingly without having to create event listeners. The first 'if' statements checks if the 'Race' and 'Alignment' filter options are not equal to their default values of 'Race' and 'Alignment', which indicates that they've been changed. The second 'if' statement checks if the peoples race and alignments match the users option choices. The third 'if' statement checks if a persons race was temporarily changed to 'Other' and fixes it back to their original race before printing out their profile. The 'else' statement changes everyone who didn't meet the filter requirement races back to their original race.
 
+NOTE: This is a part of a larger 'if/else' statement
+
+```
+ if (raceValue !== 'Race' && alignmentValue !== 'Alignment') {             
+      if (person.appearance.race === raceValue && person.biography.alignment === alignmentValue) { 
+        if (person.appearance.race === 'Other') {                             
+          person.appearance.race = originalRace
+        }
+        profile(person)                                                       
+      } else {
+        if (person.appearance.race === 'Other') {
+          person.appearance.race = originalRace
+        }
+      }
+ } 
+```
 
 ## Change Log
  1) Changed the which hero and vilians group I am accessing from Marvel to DC.
- 2) 
+ 2) Change my MVP 'Home' button to a 'Clear' button since, there wasn't a second screen.
