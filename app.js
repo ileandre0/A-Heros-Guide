@@ -127,17 +127,11 @@ function getFilterValues(e) {                                         //checks i
           person.appearance.race = currentRace
         }
         profile(person)
-      } else {    
+      } else {
         if (person.appearance.race === 'Other') {
           person.appearance.race = currentRace
         }
       }
-
-    // } else {
-    //   if (person.appearance.race === 'Other') {
-    //     person.appearance.race = currentRace
-    //   }
-    //   profile(person)
     }
   })
   
@@ -249,7 +243,7 @@ function profile(person) {                                                      
 }
 
 function isNoMatch() {                                                                //checks to see if you don't have matches based off your filters places a message on the screen.
-  if (profileContainer.lastChild !== true) {
+  if (profileContainer.hasChildNodes() === false) {
     const noMatchFound = document.createElement('div')
     noMatchFound.innerHTML = `
       <p class='text' id='noMatchtext'>Oops!</p>
