@@ -2,7 +2,8 @@
 
 ## myHero?
 
-myHero? URL:
+myHero? URL: https://ileandre0.github.io/myHero/
+
 NOTE: You may need to request temporary access at https://cors-anywhere.herokuapp.com/corsdemo before using this program.
 
 ## Project Description
