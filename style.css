@@ -71,6 +71,7 @@ ul {
 
 /*-----------------------------------------IDS----------------------------------------------*/
 
+#allButton,
 #femaleButton,
 #maleButton,
 #otherButton {
@@ -129,11 +130,8 @@ ul {
 
 #matchButton {
   background-color: rgb(174, 17, 46);
-  font-family: 'Bangers', cursive; 
-}
-
-#matchButton {
-  margin-left: 20px;
+  font-family: 'Bangers', cursive;
+  margin-left: 20px; 
 }
 
 #myHeroTitle {                               /*To create gradient text Resource: https://www.w3docs.com/snippets/css/how-to-create-a-multicolor-text-in-html-and-css.html*/
@@ -230,6 +228,7 @@ ul {
   font-size: 20px;
   }
 
+  #allButton,
   #femaleButton,
   #maleButton,
   #matchButton,
@@ -286,6 +285,7 @@ ul {
     content: 35px;
   }
 
+  #allButton,
   #femaleButton,
   #maleButton,
   #matchButton,

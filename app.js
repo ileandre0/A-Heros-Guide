@@ -78,6 +78,19 @@ function listenForButtonClicks() {                                        //List
     footerPosition.style.position = 'absolute'
   })
   
+  const allButton = document.querySelector('#allButton')
+  allButton.addEventListener('click', () => {
+    removeProfiles()                                                      //Removes any existing profiles on the page
+    showFilters()                                                         //Shows the filters
+
+    dcCharacters.forEach((person) => {                                         //Shows each profile inside the female object-array
+      profile(person)
+    })
+    
+    preference = dcCharacters                                                  //Makes preference (a global variable) equal to females
+    footerPosition.style.position = 'relative'
+  })
+
   const femaleButton = document.querySelector('#femaleButton')
   femaleButton.addEventListener('click', () => {
     removeProfiles()                                                      //Removes any existing profiles on the page
