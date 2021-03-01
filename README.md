@@ -107,7 +107,7 @@ https://wireframe.cc/S1XLu5
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|Feb 22-23| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
+|Feb 22-23| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
 |Feb 23| Project Approval | Complete
 |Feb 24| Core Application Structure (HTML, CSS, etc.) | Complete
 |Feb 24| Pseudocode / actual code | Complete
