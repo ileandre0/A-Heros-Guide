@@ -161,3 +161,4 @@ NOTE: This is a part of a larger 'if/else' statement
 ## Change Log
  1) Changed the which hero and vilians group I am accessing from Marvel to DC.
  2) Change my MVP 'Home' button to a 'Clear' button since, there wasn't a second screen.
+ 3) Added an 'All" prefernce button just in case someone wanted to access everyone at once.
