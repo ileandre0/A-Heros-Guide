@@ -263,6 +263,8 @@ function getDropdownValues(e) {                                           //Chec
           person.appearance.race = originalRace
         }
       }
+    } else {
+      profile(person)
     }
   })
   
